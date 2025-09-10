@@ -24,7 +24,7 @@
     align-items: center;        /* 세로 중앙정렬 */
     font-weight: bold; 
     font-size: 18px; 
-    margin-right: 90px;
+    margin-right: 5%;
     color: white;
    text-decoration: none;      /* 밑줄 안 생기도록 */   
   }
@@ -40,6 +40,7 @@ nav .logo a:active {
     margin-right: 5px;         /* 이미지와 글자 사이 간격 */
     vertical-align: middle;
     border:0px;
+    width:30%;
   }
 
     nav ul {list-style: none; display: flex;}
