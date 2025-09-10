@@ -26,6 +26,7 @@
     font-size: 18px; 
     margin-right: 90px;
     color: white;
+   text-decoration: none;      /* 밑줄 안 생기도록 */   
   }
 nav .logo a:visited,
 nav .logo a:hover,
