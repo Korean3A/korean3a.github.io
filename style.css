@@ -24,7 +24,7 @@
     align-items: center;        /* 세로 중앙정렬 */
     font-weight: bold; 
     font-size: 18px; 
-    margin-right: 5%;
+    margin-right: 80px;
     color: white;
    text-decoration: none;      /* 밑줄 안 생기도록 */   
   }
