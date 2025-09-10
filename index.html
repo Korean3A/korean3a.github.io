@@ -1,11 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko-KR">
 <head>
-  <meta charset="utf-8">
-  <title>Korean 3A Test Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="naver-site-verification" content="ccd4d716b7ce479c10d8aae345824fe3d5abcd28" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>K3A/석면추방국민연대</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+    /* 전체 화면을 채우도록 스타일링 */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    iframe {
+      width: 100%;
+      height: 113%;
+      border: none; /* iframe 테두리 제거 */
+      margin: -120px 0 0 0;
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6BG0L04P6N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6BG0L04P6N');
+</script>
 </head>
 <body>
-  <h1>Hello, Korean3A!</h1>
-  <p>GitHub Pages가 정상 동작합니다 🎉</p>
+  <!-- Notion 페이지 공유 링크를 iframe src에 입력 -->
+  <iframe id="myIframe" src="https://dolomite-drop-27e.notion.site/ebd/26ab9706c85980d4be65d4bc39291cdf" allowfullscreen></iframe>
+
+  <script>
+    // iframe 요소 가져오기
+    const iframe = document.getElementById('myIframe');
+
+    // iframe의 src 속성 변화를 감지하는 MutationObserver 설정
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'src') {
+          const iframeURL = iframe.getAttribute('src');
+          try {
+            const url = new URL(iframeURL);
+            const params = new URLSearchParams(url.search);
+
+            // 쿼리 파라미터에 따라 리다이렉션 처리
+            if (params.has('p')) {
+              const pageValue = params.get('p');
+              switch (pageValue) {
+                case '1f90351cc5ee80ff9a0ad8c1372404e9':
+                  window.location.href = 'https://blog.goohwan.net/1140';
+                  break;
+                case '1fa0351cc5ee80a991eefc770ffa3f82':
+                  window.location.href = 'https://map.goohwan.net/largemap_kakao_v2.html';
+                  break;
+                case '1fa0351cc5ee8001ac7ddc6bc75a1dba':
+                  window.location.href = 'https://map.goohwan.net/largemap_google_v1.html';
+                  break;
+                case '1fa0351cc5ee80c5af6ff49a43f7f0c8':
+                  window.location.href = 'https://map.goohwan.net/largemap_google_v2.html';
+                  break;
+                case '1fa0351cc5ee8016aacae1a1f1a174bf':
+                  window.location.href = 'https://blog.goohwan.net/1100';
+                  break;
+                case '1fb0351cc5ee809d9b74f1741ed815cf':
+                  window.location.href = 'https://map.goohwan.net/largemap_naver_v2.html';
+                  break;
+                case '1fb0351cc5ee8032a830f0279ffce410':
+                  window.location.href = 'https://map.goohwan.net/largemap_google_v1_ENG.html';
+                  break;
+                case '1fb0351cc5ee80bdba6ad111fec42b54':
+                  window.location.href = 'https://map.goohwan.net/largemap_google_v2_ENG.html';
+                  break;
+                default:
+                  console.log('알 수 없는 page 파라미터:', pageValue);
+              }
+            }
+          } catch (e) {
+            console.error('URL 파싱 오류:', e);
+          }
+        }
+      });
+    });
+
+    // iframe 요소의 속성 변화를 감지
+    observer.observe(iframe, { attributes: true, attributeFilter: ['src'] });
+
+    // 초기 src 속성 확인
+    function checkIframeSrc() {
+      const iframeURL = iframe.getAttribute('src');
+      try {
+        const url = new URL(iframeURL);
+        const params = new URLSearchParams(url.search);
+
+        if (params.has('p')) {
+          const pageValue = params.get('p');
+          switch (pageValue) {
+            case '1f90351cc5ee80ff9a0ad8c1372404e9':
+              window.location.href = 'https://blog.goohwan.net/1140';
+              break;
+            case '1fa0351cc5ee80a991eefc770ffa3f82':
+              window.location.href = 'https://map.goohwan.net/largemap_kakao_v2.html';
+              break;
+            case '1fa0351cc5ee8001ac7ddc6bc75a1dba':
+              window.location.href = 'https://map.goohwan.net/largemap_google_v1.html';
+              break;
+            case '1fa0351cc5ee80c5af6ff49a43f7f0c8':
+              window.location.href = 'https://map.goohwan.net/largemap_google_v2.html';
+              break;
+            case '1fa0351cc5ee8016aacae1a1f1a174bf':
+              window.location.href = 'https://blog.goohwan.net/1100';
+              break;
+            case '1fb0351cc5ee809d9b74f1741ed815cf':
+              window.location.href = 'https://map.goohwan.net/largemap_naver_v2.html';
+              break;
+            case '1fb0351cc5ee8032a830f0279ffce410':
+              window.location.href = 'https://map.goohwan.net/largemap_google_v1_ENG.html';
+              break;
+            case '1fb0351cc5ee80bdba6ad111fec42b54':
+              window.location.href = 'https://map.goohwan.net/largemap_google_v2_ENG.html';
+              break;
+            default:
+              console.log('알 수 없는 page 파라미터:', pageValue);
+          }
+        }
+      } catch (e) {
+        console.error('URL 파싱 오류:', e);
+      }
+    }
+
+    // iframe 로드 완료 시 초기 src 확인
+    iframe.addEventListener('load', checkIframeSrc);
+
+    // 주기적으로 src 확인 (Notion 페이지가 History API로 URL을 변경할 경우 대비)
+    setInterval(checkIframeSrc, 1000);
+  </script>
 </body>
 </html>
