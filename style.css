@@ -1,0 +1,79 @@
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body, html {height: 100%; font-family: sans-serif;}
+
+    /* 네비게이션 바 */
+    nav {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 60px;
+      color: white; display: flex; align-items: center;
+      padding: 0 20px; z-index: 1000;
+      background: linear-gradient(270deg, #003366, #0066cc, #ff6600, #9900cc);
+      background-size: 800% 800%;
+      animation: gradientShift 20s ease infinite; /* 5초마다 변화 */
+    }
+
+    @keyframes gradientShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    nav .logo {
+    display: flex;              /* 가로 배치 */
+    align-items: center;        /* 세로 중앙정렬 */
+    font-weight: bold; 
+    font-size: 18px; 
+    margin-right: 90px;
+    color: white;
+  }
+nav .logo a:visited,
+nav .logo a:hover,
+nav .logo a:active {
+  color: white;               /* 방문/호버/클릭 시에도 흰색 유지 */
+  text-decoration: none;      /* 밑줄 안 생기도록 */
+}
+      
+  nav .logo img {
+    margin-right: 5px;         /* 이미지와 글자 사이 간격 */
+    vertical-align: middle;
+    border:0px;
+  }
+
+    nav ul {list-style: none; display: flex;}
+    nav ul li {position: relative; margin-right: 20px;}
+    nav ul li a {
+      color: white; text-decoration: none;
+      font-size: 15px; padding: 8px; display: block; cursor:pointer;
+    }
+    nav ul li a:hover {background: rgba(255,255,255,0.2); border-radius: 5px;}
+
+    /* 드롭다운 */
+    nav ul li ul {
+      display: none; position: absolute;
+      top: 100%; left: 0; background: #004080;
+      min-width: 180px; border-radius: 4px;
+      list-style: none; padding: 0; margin: 0;
+    }
+    nav ul li:hover > ul {display: block;}
+    nav ul li ul li a {padding: 10px; font-size: 14px;}
+    nav ul li ul li a:hover {background: #0066cc;}
+
+    /* iframe */
+    #myIframe {
+      position: absolute;
+      top: -60px; bottom: 60px; left: 0; right: 0;
+      width: 100%; height: 113%;
+      border: none;
+    }
+
+    /* Footer */
+    footer {
+      position: fixed;
+      bottom: 0; left: 0;
+      width: 100%; height: 60px;
+      background: #f2f2f2; color: #333;
+      font-size: 13px; display: flex;
+      justify-content: center; align-items: center;
+      border-top: 1px solid #ccc;
+    }
