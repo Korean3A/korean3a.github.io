@@ -40,7 +40,7 @@ nav .logo a:active {
     margin-right: 5px;         /* 이미지와 글자 사이 간격 */
     vertical-align: middle;
     border:0px;
-    width:30%;
+    width:20%;
   }
 
     nav ul {list-style: none; display: flex;}
