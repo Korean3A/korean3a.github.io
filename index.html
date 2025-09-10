@@ -37,9 +37,12 @@
     margin-right: 50px;
     color: white;
   }
-    nav .logo a:link a:visit{
-      color:white;
-    }
+nav .logo a:visited,
+nav .logo a:hover,
+nav .logo a:active {
+  color: white;               /* 방문/호버/클릭 시에도 흰색 유지 */
+  text-decoration: none;      /* 밑줄 안 생기도록 */
+}
       
   nav .logo img {
     margin-right: 5px;         /* 이미지와 글자 사이 간격 */
