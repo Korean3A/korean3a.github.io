@@ -1,5 +1,6 @@
 * {margin:0; padding:0; box-sizing:border-box;}
 body, html {height: 100%; font-family: sans-serif;}
+
 nav {
   position: fixed; top: 0; left: 0;
   width: 100%; height: 60px;
@@ -14,6 +15,7 @@ nav {
   50% {background-position: 100% 50%;}
   100% {background-position: 0% 50%;}
 }
+
 nav .logo {display: flex; align-items: center; font-weight: bold; font-size: 18px; margin-right: 80px;}
 nav .logo a {display:flex; align-items:center; color:white; text-decoration:none;}
 nav .logo img {margin-right: 5px; width:60px;}
@@ -25,19 +27,45 @@ nav ul li ul {display: none; position: absolute; top: 100%; left: 0; background:
 nav ul li:hover > ul {display: block;}
 nav ul li ul li a {padding: 10px; font-size: 14px; color: black;}
 nav ul li ul li a:hover {background:#f0f0f0; color:black;}
+
 .menu-toggle {display:none; flex-direction: column; cursor:pointer; margin-left:auto;}
 .menu-toggle span {width:25px; height:3px; background:white; margin:4px 0;}
 
+footer {
+  position: fixed; bottom: 0; left: 0;
+  width: 100%; height: 60px;
+  background: #f2f2f2; color: #333;
+  font-size: 13px; display: flex;
+  justify-content: center; align-items: center;
+  border-top: 1px solid #ccc;
+}
+
 /* 메인 헤더 */
-.main-header {  margin-top: 60px; /* nav 높이 보정 */  height: 300px;  background: linear-gradient(270deg, #003366, #0066cc, #ff6600, #9900cc);  background-size: 800% 800%;  animation: gradientShift 20s ease infinite;  display: flex;  justify-content: center;  align-items: center;  color: white;  text-align: center;}
-.main-header .header-content h1 {  font-size: 36px;  margin-bottom: 10px;}
-.main-header .header-content p {  font-size: 18px;}
+.main-header {
+  margin-top: 60px; /* nav 높이 보정 */
+  height: 300px;
+  background: 
+    linear-gradient(270deg, rgba(0,51,102,0.6), rgba(0,102,204,0.6), rgba(255,102,0,0.6), rgba(153,0,204,0.6)),
+    url("images/header-bg.jpg") center/cover no-repeat;
+  background-size: 800% 800%, cover;
+  animation: gradientShift 20s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+.main-header .header-content h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+.main-header .header-content p {
+  font-size: 18px;
+}
 
-
-footer {position: fixed; bottom: 0; left: 0; width: 100%; height: 60px; background: #f2f2f2; color: #333; font-size: 13px; display: flex; justify-content: center; align-items: center; border-top: 1px solid #ccc;}
-
-
+/* 반응형 */
 @media (max-width: 800px) {
+  nav .logo span {display:none;}
   nav ul {display:none; position:absolute; top:60px; left:0; width:100%; background:white; flex-direction:column;}
   nav ul li {width:100%; border-bottom:1px solid #ddd;}
   nav ul > li > a {color:#222; font-weight:bold; font-size:16px; padding:14px; background:#f9f9f9;}
