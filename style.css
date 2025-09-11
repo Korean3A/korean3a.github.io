@@ -81,7 +81,7 @@ nav ul li ul li a {
   display: block;
 }
 nav ul li ul li a:hover {
-  background: #f0f0f0;   /* ✅ hover 시 배경색 변경 */
+  background: #f0f0f0;   /* hover 시 배경색 변경 */
   color: black;
 }
 
@@ -119,9 +119,9 @@ footer {
   border-top: 1px solid #ccc;
 }
 
-/* 반응형: 500px 이하 */
+/* 반응형: 800px 이하 */
 @media (max-width: 800px) {
-  nav .logo span { display: none; }  /* ✅ 로고 텍스트 숨김 */
+  nav .logo span { display: none; }
 
   nav ul {
     display: none;
@@ -129,29 +129,39 @@ footer {
     top: 60px; left: 0;
     width: 100%;
     background: white;
-    flex-direction: column;   /* ✅ 세로 나열 */
+    flex-direction: column;
     z-index: 999;
   }
 
   nav ul li {
     width: 100%;
-    border-bottom: 1px solid #ddd; /* ✅ 메뉴 구분선 */
+    border-bottom: 1px solid #ddd;
   }
 
-  nav ul li a {
-    color: black;
-    padding: 12px;
+  /* ✅ 상위 메뉴 */
+  nav ul > li > a {
+    color: #222;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 14px;
+    background: #f9f9f9;
   }
 
+  /* ✅ 하위 메뉴 */
   nav ul li ul {
-    position: static;          /* ✅ absolute 제거 → 겹침 방지 */
+    position: static;
     border: none;
     box-shadow: none;
   }
-
   nav ul li ul li a {
-    padding-left: 20px;        /* ✅ 서브메뉴 들여쓰기 */
+    padding: 10px 14px 10px 30px;
     font-size: 14px;
+    font-weight: normal;
+    background: white;
+    color: #444;
+  }
+  nav ul li ul li a:hover {
+    background: #f0f0f0;
   }
 
   .menu-toggle { display: flex; }
