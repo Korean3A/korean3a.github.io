@@ -71,4 +71,6 @@ footer {
   nav ul li ul li a:hover {background:#f0f0f0;}
   .menu-toggle {display:flex;}
   nav.active ul {display:flex;}
+
+  #myframe {height:300%;}
 }
