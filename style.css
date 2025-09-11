@@ -72,6 +72,6 @@ footer {
   .menu-toggle {display:flex;}
   nav.active ul {display:flex;}
 
-  #frame_wraper{height:auto;}
+  #frame_wraper{height:2500px;}
   #myframe {height:500%;}
 }
