@@ -81,7 +81,7 @@ nav ul li ul li a {
   display: block;
 }
 nav ul li ul li a:hover {
-  background: white;
+  background: #f0f0f0;   /* ✅ hover 시 배경색 변경 */
   color: black;
 }
 
@@ -121,16 +121,37 @@ footer {
 
 /* 반응형: 500px 이하 */
 @media (max-width: 500px) {
-  nav .logo span { display: none; }  /* 로고 텍스트 숨김 */
+  nav .logo span { display: none; }  /* ✅ 로고 텍스트 숨김 */
+
   nav ul {
     display: none;
     position: absolute;
     top: 60px; left: 0;
     width: 100%;
     background: white;
-    flex-direction: column;
+    flex-direction: column;   /* ✅ 세로 나열 */
+    z-index: 999;
   }
-  nav ul li a { color: black; }
-  .menu-toggle { display: flex; }
-  nav.active ul { display: flex; }
-}
+
+  nav ul li {
+    width: 100%;
+    border-bottom: 1px solid #ddd; /* ✅ 메뉴 구분선 */
+  }
+
+  nav ul li a {
+    color: black;
+    padding: 12px;
+  }
+
+  nav ul li ul {
+    position: static;          /* ✅ absolute 제거 → 겹침 방지 */
+    border: none;
+    box-shadow: none;
+  }
+
+  nav ul li ul li a {
+    padding-left: 20px;        /* ✅ 서브메뉴 들여쓰기 */
+    font-size: 14px;
+  }
+
+  .menu-toggle { display:
