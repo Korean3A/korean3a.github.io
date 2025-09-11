@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>K3A/석면추방국민연대</title>
+  <title>홈 | 석면추방국민연대</title>
   <link rel="stylesheet" href="style.css">
   <script>
     function toggleMenu() {
@@ -18,26 +18,46 @@
   </script>
 </head>
 <body>
-  <nav>
-    <div class="logo">
-      <a href="index.html"><img src="images/logo_eng_white.png"><span>석면추방국민연대</span></a>
-    </div>
-    <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-    <ul>
-      <li><a href="about.html">소개</a></li>
-      <li><a href="news.html">News&Issue</a></li>
-      <li><a href="community.html">참여&소통</a></li>
-      <li><a href="join.html">참여하기</a></li>
-    </ul>
-  </nav>
+<nav>
+  <div class="logo">
+    <a href="index.html"><img src="images/logo_eng_white.png"><span>석면추방국민연대</span></a>
+  </div>
+  <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  <ul>
+    <li><a href="about.html">소개</a>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="people.html">함께하는 사람들</a></li>
+        <li><a href="history.html">연혁</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </li>
+    <li><a href="news.html">News&Issue</a>
+      <ul>
+        <li><a href="news.html">News&Issue</a></li>
+        <li><a href="notice.html">공지사항</a></li>
+        <li><a href="schedule.html">공식일정</a></li>
+        <li><a href="resources.html">자료실</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </li>
+    <li><a href="community.html">참여&소통</a>
+      <ul>
+        <li><a href="board.html">회원 게시판</a></li>
+        <li><a href="subscribe.html">Follow+Subscribe</a></li>
+      </ul>
+    </li>
+    <li><a href="join.html">참여하기(정회원가입)</a></li>
+  </ul>
+</nav>
+<main style="margin-top:60px; padding:20px;">
+  <iframe src="https://your-notion-url-for-home" width="100%" height="800px" style="border:none;"></iframe>
 
-  <main style="margin-top:60px; padding:20px;">
-    <iframe src="https://your-notion-url-for-home" width="100%" height="800px" style="border:none;"></iframe>
     <div id="disqus_thread"></div>
     <script>
       var disqus_config = function () {
         this.page.url = window.location.href;  
-        this.page.identifier = "home-page"; 
+        this.page.identifier = "index"; 
       };
       (function() {
         var d = document, s = d.createElement('script');
@@ -46,11 +66,9 @@
         (d.head || d.body).appendChild(s);
       })();
     </script>
-  </main>
+
+</main>
 
   <footer><div>© 2025 K3A 석면추방국민연대</div></footer>
-  <div style="position:fixed;right:20px;bottom:80px;width:200px;z-index:1100;">
-    <img src="images/chat.png" style="width:100%;">단체설립 후 기능활성화 가능
-  </div>
 </body>
 </html>
