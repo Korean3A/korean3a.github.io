@@ -120,7 +120,7 @@ footer {
 }
 
 /* 반응형: 500px 이하 */
-@media (max-width: 500px) {
+@media (max-width: 800px) {
   nav .logo span { display: none; }  /* ✅ 로고 텍스트 숨김 */
 
   nav ul {
