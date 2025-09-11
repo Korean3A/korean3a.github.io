@@ -64,6 +64,8 @@ footer {
   font-size: 18px;
 }
 
+.main-header .header-content a {color:white; text-decoration:none;}
+
 .main-header .header-content span {
   font-size: 20px;
   border:solid 1px;
