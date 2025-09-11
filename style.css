@@ -54,6 +54,7 @@ footer {
   align-items: center;
   color: white;
   text-align: center;
+  z-index:2000;
 }
 .main-header .header-content h1 {
   font-size: 36px;
