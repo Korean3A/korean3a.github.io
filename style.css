@@ -27,6 +27,7 @@
     margin-right: 80px;
     color: white;
    text-decoration: none;      /* 밑줄 안 생기도록 */   
+    width:20%;   
   }
 nav .logo a:visited,
 nav .logo a:link,
