@@ -1,10 +1,7 @@
 * {margin:0; padding:0; box-sizing:border-box;}
 body, html {height: 100%; font-family: sans-serif;}
-
-/* 네비게이션 바 */
 nav {
-  position: fixed;
-  top: 0; left: 0;
+  position: fixed; top: 0; left: 0;
   width: 100%; height: 60px;
   color: white; display: flex; align-items: center;
   padding: 0 20px; z-index: 1000;
@@ -12,158 +9,33 @@ nav {
   background-size: 800% 800%;
   animation: gradientShift 20s ease infinite;
 }
-
 @keyframes gradientShift {
   0% {background-position: 0% 50%;}
   50% {background-position: 100% 50%;}
   100% {background-position: 0% 50%;}
 }
-
-nav .logo {
-  display: flex;
-  align-items: center;
-  font-weight: bold; 
-  font-size: 18px; 
-  margin-right: 80px;
-  color: white;
-  text-decoration: none;
-  width: auto;
-}
-nav .logo a {
-  display: flex;
-  align-items: center;
-  color: white;
-  text-decoration: none;
-}
-nav .logo a:visited,
-nav .logo a:link,
-nav .logo a:hover,
-nav .logo a:active {
-  color: white;
-  text-decoration: none;
-}
-nav .logo img {
-  margin-right: 5px;
-  vertical-align: middle;
-  border:0px;
-  width:60px;
-}
-
-/* 메뉴 */
+nav .logo {display: flex; align-items: center; font-weight: bold; font-size: 18px; margin-right: 80px;}
+nav .logo a {display:flex; align-items:center; color:white; text-decoration:none;}
+nav .logo img {margin-right: 5px; width:60px;}
 nav ul {list-style: none; display: flex; margin-left:auto;}
 nav ul li {position: relative; margin-right: 20px;}
-nav ul li a {
-  color: white; text-decoration: none;
-  font-size: 15px; padding: 8px; display: block; cursor:pointer;
-}
+nav ul li a {color: white; text-decoration: none; font-size: 15px; padding: 8px; display: block;}
 nav ul li a:hover {background: rgba(255,255,255,0.2); border-radius: 5px;}
-
-/* 드롭다운 */
-nav ul li ul {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: white;
-  min-width: 180px;
-  border-radius: 4px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  border: 1px solid #ddd;
-}
+nav ul li ul {display: none; position: absolute; top: 100%; left: 0; background: white; min-width: 180px; border-radius: 4px; border:1px solid #ddd;}
 nav ul li:hover > ul {display: block;}
-nav ul li ul li a {
-  padding: 10px;
-  font-size: 14px;
-  color: black;
-  text-decoration: none;
-  display: block;
-}
-nav ul li ul li a:hover {
-  background: #f0f0f0;   /* hover 시 배경색 변경 */
-  color: black;
-}
-
-/* 햄버거 버튼 */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  margin-left: auto;
-}
-.menu-toggle span {
-  width: 25px;
-  height: 3px;
-  background: white;
-  margin: 4px 0;
-  border-radius: 2px;
-}
-
-/* iframe */
-#myIframe {
-  position: absolute;
-  top: 0px; left: 0; right: 0;
-  width: 100%; height: 105%;
-  border: none;
-}
-
-/* Footer */
-footer {
-  position: fixed;
-  bottom: 0; left: 0;
-  width: 100%; height: 60px;
-  background: #f2f2f2; color: #333;
-  font-size: 13px; display: flex;
-  justify-content: center; align-items: center;
-  border-top: 1px solid #ccc;
-}
-
-/* 반응형: 800px 이하 */
+nav ul li ul li a {padding: 10px; font-size: 14px; color: black;}
+nav ul li ul li a:hover {background:#f0f0f0; color:black;}
+.menu-toggle {display:none; flex-direction: column; cursor:pointer; margin-left:auto;}
+.menu-toggle span {width:25px; height:3px; background:white; margin:4px 0;}
+footer {position: fixed; bottom: 0; left: 0; width: 100%; height: 60px; background: #f2f2f2; color: #333; font-size: 13px; display: flex; justify-content: center; align-items: center; border-top: 1px solid #ccc;}
 @media (max-width: 800px) {
-  nav .logo span { display: none; }
-
-  nav ul {
-    display: none;
-    position: absolute;
-    top: 60px; left: 0;
-    width: 100%;
-    background: white;
-    flex-direction: column;
-    z-index: 999;
-  }
-
-  nav ul li {
-    width: 100%;
-    border-bottom: 1px solid #ddd;
-  }
-
-  /* ✅ 상위 메뉴 */
-  nav ul > li > a {
-    color: #222;
-    font-weight: bold;
-    font-size: 16px;
-    padding: 14px;
-    background: #f9f9f9;
-  }
-
-  /* ✅ 하위 메뉴 */
-  nav ul li ul {
-    position: static;
-    border: none;
-    box-shadow: none;
-  }
-  nav ul li ul li a {
-    padding: 10px 14px 10px 30px;
-    font-size: 14px;
-    font-weight: normal;
-    background: white;
-    color: #444;
-  }
-  nav ul li ul li a:hover {
-    background: #f0f0f0;
-  }
-
-  .menu-toggle { display: flex; }
-  nav.active ul { display: flex; }
+  nav .logo span {display:none;}
+  nav ul {display:none; position:absolute; top:60px; left:0; width:100%; background:white; flex-direction:column;}
+  nav ul li {width:100%; border-bottom:1px solid #ddd;}
+  nav ul > li > a {color:#222; font-weight:bold; font-size:16px; padding:14px; background:#f9f9f9;}
+  nav ul li ul {position:static; border:none; box-shadow:none;}
+  nav ul li ul li a {padding:10px 14px 10px 30px; font-size:14px; background:white; color:#444;}
+  nav ul li ul li a:hover {background:#f0f0f0;}
+  .menu-toggle {display:flex;}
+  nav.active ul {display:flex;}
 }
