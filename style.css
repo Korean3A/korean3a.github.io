@@ -154,4 +154,6 @@ footer {
     font-size: 14px;
   }
 
-  .menu-toggle { display:
+  .menu-toggle { display: flex; }
+  nav.active ul { display: flex; }
+}
