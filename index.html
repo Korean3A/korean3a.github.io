@@ -12,12 +12,28 @@
     function loadPage(url) {
       document.getElementById("myIframe").src = url;
     }
+    function toggleMenu() {
+      document.querySelector("nav").classList.toggle("active");
+    }
   </script>
 </head>
 <body>
   <!-- 네비게이션 -->
   <nav>
-    <div class="logo"><a href="https://korean3a.github.io/"><img src="images/logo_eng_white.png">석면추방국민연대</a></div>
+    <div class="logo">
+      <a href="https://korean3a.github.io/">
+        <img src="images/logo_eng_white.png">
+        <span>석면추방국민연대</span>
+      </a>
+    </div>
+
+    <!-- 햄버거 버튼 -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
     <ul>
       <li><a onclick="loadPage('https://dolomite-drop-27e.notion.site/ebd/269b9706c8598071affdcc7276a48c6a')">소개</a>
         <ul>
@@ -42,8 +58,7 @@
           <li><a onclick="loadPage('pages/board.html')">Follow+Subscribe</a></li>
         </ul>
       </li>
-      <li><a onclick="loadPage('https://dolomite-drop-27e.notion.site/ebd/26ab9706c85980d18b3ad4fe74481741')">참여하기(정회원가입)</a>
-      </li>
+      <li><a onclick="loadPage('https://dolomite-drop-27e.notion.site/ebd/26ab9706c85980d18b3ad4fe74481741')">참여하기(정회원가입)</a></li>
     </ul>
   </nav>
 
