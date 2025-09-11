@@ -15,6 +15,14 @@
     function toggleMenu() {
       document.querySelector("nav").classList.toggle("active");
     }
+    // 메뉴 이외 영역 클릭 시 닫기
+    document.addEventListener("click", function(e) {
+      const nav = document.querySelector("nav");
+      const toggle = document.querySelector(".menu-toggle");
+      if (!nav.contains(e.target) && nav.classList.contains("active")) {
+        nav.classList.remove("active");
+      }
+    });
   </script>
 </head>
 <body>
