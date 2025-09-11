@@ -27,7 +27,16 @@ nav ul li ul li a {padding: 10px; font-size: 14px; color: black;}
 nav ul li ul li a:hover {background:#f0f0f0; color:black;}
 .menu-toggle {display:none; flex-direction: column; cursor:pointer; margin-left:auto;}
 .menu-toggle span {width:25px; height:3px; background:white; margin:4px 0;}
+
+/* 메인 헤더 */
+.main-header {  margin-top: 60px; /* nav 높이 보정 */  height: 300px;  background: linear-gradient(270deg, #003366, #0066cc, #ff6600, #9900cc);  background-size: 800% 800%;  animation: gradientShift 20s ease infinite;  display: flex;  justify-content: center;  align-items: center;  color: white;  text-align: center;}
+.main-header .header-content h1 {  font-size: 36px;  margin-bottom: 10px;}
+.main-header .header-content p {  font-size: 18px;}
+
+
 footer {position: fixed; bottom: 0; left: 0; width: 100%; height: 60px; background: #f2f2f2; color: #333; font-size: 13px; display: flex; justify-content: center; align-items: center; border-top: 1px solid #ccc;}
+
+
 @media (max-width: 800px) {
   nav ul {display:none; position:absolute; top:60px; left:0; width:100%; background:white; flex-direction:column;}
   nav ul li {width:100%; border-bottom:1px solid #ddd;}
