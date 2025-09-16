@@ -25,15 +25,15 @@
     window.addEventListener("scroll", () => {
       // 헤더 숨김/표시
       if (window.scrollY > lastScrollY) {
-         console.log(lastScrollY);
-         console.log(window.scrollY);
+         console.log('lastScrollY:' + lastScrollY);
+         console.log('window.scrollY:' + window.scrollY + '입니다');
         header.style.top = "-300px";
       } 
       // 헤더 표시
       // 스크롤을 위로 올리고, 스크롤 위치가 맨 위에 도달했을 때
       else if (window.scrollY === 0) {
-         console.log(lastScrollY);
-         console.log(window.scrollY);
+         console.log('lastScrollY:' + lastScrollY);
+         console.log('window.scrollY:' + window.scrollY + '입니다');
         header.style.top = "60px";
       }
       lastScrollY = window.scrollY;
