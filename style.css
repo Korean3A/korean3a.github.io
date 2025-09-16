@@ -62,7 +62,7 @@ footer {
   z-index: 2000;
 
   transition: top 0.6s ease;   /* 부드럽게 숨김/표시 */
-  transition-delay: 0.15s;     /* 본문이 먼저 올라오고 나서 헤더가 사라짐 */
+  transition-delay: 0.05s;     /* 본문이 먼저 올라오고 나서 헤더가 사라짐 */
 }
 
 
