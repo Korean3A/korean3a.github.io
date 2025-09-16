@@ -1,103 +1,101 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>홈 | 석면추방국민연대</title>
-  <link rel="stylesheet" href="style.css">
-  <script>
-    function toggleMenu() {
-      document.querySelector("nav").classList.toggle("active");
-    }
-    document.addEventListener("click", function(e) {
-      const nav = document.querySelector("nav");
-      if (!nav.contains(e.target) && nav.classList.contains("active")) {
-        nav.classList.remove("active");
-      }
-    });
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>홈 | 석면추방국민연대</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body style="overflow: hidden;">
+  <!-- 네비게이션 -->
+  <nav>
+    <div class="logo">
+      <a href="index.html"><img src="images/logo_eng_white.png"><span>석면추방국민연대</span></a>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    <ul>
+      <li><a href="about.html">소개</a>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="people.html">함께하는 사람들</a></li>
+            <li><a href="history.html">걸어온 길</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </li>
+      <li><a href="news.html">News&Issue</a>
+        <ul>
+          <li><a href="news.html">News&Issue</a></li>
+          <li><a href="notice.html">공지사항</a></li>
+          <li><a href="schedule.html">공식일정</a></li>
+          <li><a href="resources.html">자료실</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </li>
+      <li><a href="community.html">참여&소통</a>
+        <ul>
+          <li><a href="board.html">회원 게시판</a></li>
+          <li><a href="subscribe.html">Follow+Subscribe</a></li>
+        </ul>
+      </li>
+      <li><a href="join.html">참여하기(정회원가입)</a></li>
+    </ul>
+  </nav>
 
-  document.addEventListener("DOMContentLoaded", () => {
-    let lastScrollY = window.scrollY;
-    const header = document.querySelector(".main-header");
-    const iframe = document.getElementById("myframe");
-    let expanded = false; // 이미 변경했는지 체크
+  <!-- 헤더 비주얼 영역 -->
+  <header class="main-header">
+    <div class="header-content">
+      <h1>안전한 환경과 국민건강을 지키는 연대의 힘!!</h1>
+      <p>안전한 삶을 위해 깨어서 연대해야 지킬 수 있습니다.</p>
+      <a href="https://korean3a.github.io/join.html"><span>석면추방국민연대와 함께하기</span></a>
+    </div>
+  </header>
 
-    window.addEventListener("scroll", () => {
-      // 헤더 숨김/표시
-      if (window.scrollY > lastScrollY) {
-        header.style.top = "-300px";
-      } 
-      // 헤더 표시
-      // 스크롤을 위로 올리고, 스크롤 위치가 맨 위에 도달했을 때
-      else if (window.scrollY === 0) {
+  <!-- 본문 -->
+  <div id="scrollable-content" style="height: 70vh; overflow-y: auto; margin-top: 360px;">
+    <main>
+      <div id="frame_wraper">
+        <iframe id="myframe" src="https://dolomite-drop-27e.notion.site/ebd/26ab9706c85980d4be65d4bc39291cdf"
+                scrolling="no" style="width: 100%; height: 2000px; border: none;"></iframe>
+      </div>
+    </main>
+  </div>
+  
+  <footer>
+    <div>© 2025 K3A 석면추방국민연대</div>
+  </footer>
+</body>
+<script>
+  function toggleMenu() {
+    document.querySelector("nav").classList.toggle("active");
+  }
+
+  document.addEventListener("click", function(e) {
+    const nav = document.querySelector("nav");
+    const menuToggle = document.querySelector(".menu-toggle");
+    if (!nav.contains(e.target) && !menuToggle.contains(e.target) && nav.classList.contains("active")) {
+      nav.classList.remove("active");
+    }
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const header = document.querySelector(".main-header");
+    const scrollableContent = document.getElementById("scrollable-content");
+    let lastScrollTop = 0;
+
+    // 브라우저 창 스크롤 대신 `scrollable-content` div의 스크롤을 감지합니다.
+    scrollableContent.addEventListener("scroll", () => {
+      const currentScrollTop = scrollableContent.scrollTop;
+
+      if (currentScrollTop > lastScrollTop) {
+        // 스크롤 다운
+        header.style.top = "-300px";
+      } else if (currentScrollTop === 0) {
+        // 스크롤 업 (맨 위로)
         header.style.top = "60px";
       }
-      lastScrollY = window.scrollY;
 
-      // iframe height 변경
-      if (window.scrollY > 0 && !expanded) {
-        iframe.style.height = "2000px";
-        expanded = true;
-      }
-    });
-  });
-
-  </script>
-</head>
-<body>
-  <!-- 네비게이션 -->
-  <nav>
-    <div class="logo">
-      <a href="index.html"><img src="images/logo_eng_white.png"><span>석면추방국민연대</span></a>
-    </div>
-    <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-    <ul>
-      <li><a href="about.html">소개</a>
-        <ul>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="people.html">함께하는 사람들</a></li>
-          <li><a href="history.html">걸어온 길</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </li>
-      <li><a href="news.html">News&Issue</a>
-        <ul>
-          <li><a href="news.html">News&Issue</a></li>
-          <li><a href="notice.html">공지사항</a></li>
-          <li><a href="schedule.html">공식일정</a></li>
-          <li><a href="resources.html">자료실</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-        </ul>
-      </li>
-      <li><a href="community.html">참여&소통</a>
-        <ul>
-          <li><a href="board.html">회원 게시판</a></li>
-          <li><a href="subscribe.html">Follow+Subscribe</a></li>
-        </ul>
-      </li>
-      <li><a href="join.html">참여하기(정회원가입)</a></li>
-    </ul>
-  </nav>
-
-  <!-- 헤더 비주얼 영역 -->
-  <header class="main-header">
-    <div class="header-content">
-      <h1>안전한 환경과 국민건강을 지키는 연대의 힘!!</h1>
-      <p>안전한 삶을 위해 깨어서 연대해야 지킬 수 있습니다.</p>
-      <a href="https://korean3a.github.io/join.html"><span>석면추방국민연대와 함께하기</span></a>
-    </div>
-  </header>
-
-  <!-- 본문 -->
-  <main>
-    <div id="frame_wraper">
-      <iframe id="myframe" src="https://dolomite-drop-27e.notion.site/ebd/26ab9706c85980d4be65d4bc39291cdf"
-              scrolling="yes"></iframe>
-    </div>  
-  </main>
-
-  <footer>
-    <div>© 2025 K3A 석면추방국민연대</div>
-  </footer>
-</body>
+      lastScrollTop = currentScrollTop;
+    });
+  });
+</script>
 </html>
