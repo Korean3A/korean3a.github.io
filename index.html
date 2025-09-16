@@ -16,6 +16,21 @@
       }
     });
   </script>
+  <script>
+  let lastScrollY = window.scrollY;
+  const header = document.querySelector(".main-header");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > lastScrollY) {
+      // 아래로 스크롤 → 헤더 숨김
+      header.style.top = "-300px"; // 헤더 높이만큼 위로 올려서 숨김
+    } else {
+      // 위로 스크롤 → 헤더 보이기
+      header.style.top = "60px"; // nav 보정값
+    }
+    lastScrollY = window.scrollY;
+  });
+</script>
 </head>
 <body>
   <!-- 네비게이션 -->
