@@ -26,6 +26,8 @@
       // 헤더 숨김/표시
       if (window.scrollY > lastScrollY) {
         header.style.top = "-300px";
+      } else if (window.scrollY < lastScrollY) {
+        header.style.top = "-300px";
       } else {
         header.style.top = "60px";
       }
