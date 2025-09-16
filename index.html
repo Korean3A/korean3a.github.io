@@ -16,23 +16,6 @@
       }
     });
 
-    // 스크롤 시 헤더 숨김/표시
-    document.addEventListener("DOMContentLoaded", () => {
-      let lastScrollY = window.scrollY;
-      const header = document.querySelector(".main-header");
-
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > lastScrollY) {
-          // 아래로 스크롤 → 헤더 숨김
-          header.style.top = "-300px";
-        } else {
-          // 위로 스크롤 → 헤더 다시 표시
-          header.style.top = "60px";
-        }
-        lastScrollY = window.scrollY;
-      });
-    });
-    
   document.addEventListener("DOMContentLoaded", () => {
     let lastScrollY = window.scrollY;
     const header = document.querySelector(".main-header");
