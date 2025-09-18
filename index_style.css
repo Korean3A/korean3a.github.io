@@ -109,7 +109,5 @@ footer {
   display:inline-block;
   z-index:1001;
   background-color: transparent;
-  border-color:yellow;
-  border:solid 2px;
   }
 }
