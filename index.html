@@ -20,17 +20,20 @@
     let lastScrollY = window.scrollY;
     const header = document.querySelector(".main-header");
     const iframe = document.getElementById("myframe");
+    const iframecover = document.getElementsByClassName('iframe_cover');
     let expanded = false; // 이미 변경했는지 체크
 
     window.addEventListener("scroll", () => {
       // 헤더 숨김/표시
       if (window.scrollY > lastScrollY) {
         header.style.top = "-300px";
+        iframecover.style.display = "none";
       } 
       // 헤더 표시
       // 스크롤을 위로 올리고, 스크롤 위치가 맨 위에 도달했을 때
       else if (window.scrollY === 0) {
         header.style.top = "60px";
+        iframecover.style.display = "inline-block";
       }
       lastScrollY = window.scrollY;
 
