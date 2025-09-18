@@ -28,12 +28,14 @@
       if (window.scrollY > lastScrollY) {
         header.style.top = "-300px";
         iframecover.style.display = "none";
+        console.log('iframe_cover를 제거합니다.');
       } 
       // 헤더 표시
       // 스크롤을 위로 올리고, 스크롤 위치가 맨 위에 도달했을 때
       else if (window.scrollY === 0) {
         header.style.top = "60px";
         iframecover.style.display = "inline-block";
+        console.log('iframe_cover를 재설치합니다.');
       }
       lastScrollY = window.scrollY;
 
