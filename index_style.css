@@ -88,16 +88,50 @@ footer {
   display: block;
 }
 
-/* 반응형 */
+/* 반응형 /
 @media (max-width: 800px) {
-  nav ul {display:none; position:absolute; top:60px; left:0; width:100%; background:white; flex-direction:column;}
-  nav ul li {width:100%; border-bottom:1px solid #ddd;}
-  nav ul > li > a {color:#222; font-weight:bold; font-size:16px; padding:14px; background:#f9f9f9;}
-  nav ul li ul {position:static; border:none; box-shadow:none;}
-  nav ul li ul li a {padding:10px 14px 10px 30px; font-size:14px; background:white; color:#444;}
-  nav ul li ul li a:hover {background:#f0f0f0;}
-  .menu-toggle {display:flex;}
-  nav.active ul {display:flex;}
+/ nav ul: 배경에 20% 투명도를 가진 흰색을 적용 /
+nav ul {
+display: none;
+position: absolute;
+top: 60px;
+left: 0;
+width: 100%;
+background: rgba(255, 255, 255, 0.8); / 20% 투명도 (불투명도 80%) /
+flex-direction: column;
+}
+nav ul li {
+width: 100%;
+border-bottom: 1px solid #ddd;
+}
+nav ul > li > a {
+color: #222;
+font-weight: bold;
+font-size: 16px;
+padding: 14px;
+background: #f9f9f9;
+}
+nav ul li ul {
+position: static;
+border: none;
+box-shadow: none;
+}
+/ 하위 메뉴: 들여쓰기 값 조정 /
+nav ul li ul li a {
+padding: 10px 14px 10px 45px; / 들여쓰기(padding-left)를 45px로 늘림 */
+font-size: 14px;
+background: white;
+color: #444;
+}
+nav ul li ul li a:hover {
+background: #f0f0f0;
+}
+.menu-toggle {
+display: flex;
+}
+nav.active ul {
+display: flex;
+}
 }
 
 @media (max-width: 500px) {
