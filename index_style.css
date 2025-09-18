@@ -89,7 +89,6 @@ footer {
 }
 
 /* 반응형 */
-
 @media (max-width: 800px) {
   nav ul {display:none; position:absolute; top:60px; left:0; width:100%; background:white; flex-direction:column;}
   nav ul li {width:100%; border-bottom:1px solid #ddd;}
