@@ -77,6 +77,8 @@ footer {
   display:inline-block;
   z-index:2000;
   background-color: transparent;
+  border:solid;
+  border-weight:1px;
 }
 
 /* 본문 프레임 */
