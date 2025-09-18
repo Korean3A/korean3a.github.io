@@ -4,50 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>홈 | 석면추방국민연대</title>
-  <link rel="stylesheet" href="index_style.css">
-  <script>
-    function toggleMenu() {
-      document.querySelector("nav").classList.toggle("active");
-    }
-    document.addEventListener("click", function(e) {
-      const nav = document.querySelector("nav");
-      if (!nav.contains(e.target) && nav.classList.contains("active")) {
-        nav.classList.remove("active");
-      }
-    });
-
-  document.addEventListener("DOMContentLoaded", () => {
-    let lastScrollY = window.scrollY;
-    const header = document.querySelector(".main-header");
-    const iframe = document.getElementById("myframe");
-    const iframecover = document.getElementsByClassName('iframe_cover');
-    let expanded = false; // 이미 변경했는지 체크
-
-    window.addEventListener("scroll", () => {
-      // 헤더 숨김/표시
-      if (window.scrollY > lastScrollY) {
-        header.style.top = "-300px";
-        iframecover.style.display = "none";
-        console.log('iframe_cover를 제거합니다.');
-      } 
-      // 헤더 표시
-      // 스크롤을 위로 올리고, 스크롤 위치가 맨 위에 도달했을 때
-      else if (window.scrollY === 0) {
-        header.style.top = "60px";
-        iframecover.style.display = "inline-block";
-        console.log('iframe_cover를 재설치합니다.');
-      }
-      lastScrollY = window.scrollY;
-
-      // iframe height 변경
-      if (window.scrollY > 0 && !expanded) {
-        iframe.style.height = "2000px";
-        expanded = true;
-      }
-    });
-  });
-
-  </script>
+  <link rel="stylesheet" href="index_style.css"> 
 </head>
 <body>
   <!-- 네비게이션 -->
@@ -105,5 +62,49 @@
   <footer>
     <div>© 2025 K3A 석면추방국민연대</div>
   </footer>
+
+   <script>
+    function toggleMenu() {
+      document.querySelector("nav").classList.toggle("active");
+    }
+    document.addEventListener("click", function(e) {
+      const nav = document.querySelector("nav");
+      if (!nav.contains(e.target) && nav.classList.contains("active")) {
+        nav.classList.remove("active");
+      }
+    });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    let lastScrollY = window.scrollY;
+    const header = document.querySelector(".main-header");
+    const iframe = document.getElementById("myframe");
+    const iframecover = document.getElementsByClassName('iframe_cover');
+    let expanded = false; // 이미 변경했는지 체크
+
+    window.addEventListener("scroll", () => {
+      // 헤더 숨김/표시
+      if (window.scrollY > lastScrollY) {
+        header.style.top = "-300px";
+        iframecover.style.display = "none";
+        console.log('iframe_cover를 제거합니다.');
+      } 
+      // 헤더 표시
+      // 스크롤을 위로 올리고, 스크롤 위치가 맨 위에 도달했을 때
+      else if (window.scrollY === 0) {
+        header.style.top = "60px";
+        iframecover.style.display = "inline-block";
+        console.log('iframe_cover를 재설치합니다.');
+      }
+      lastScrollY = window.scrollY;
+
+      // iframe height 변경
+      if (window.scrollY > 0 && !expanded) {
+        iframe.style.height = "2000px";
+        expanded = true;
+      }
+    });
+  });
+
+  </script>
 </body>
 </html>
