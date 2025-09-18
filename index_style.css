@@ -78,7 +78,8 @@ footer {
   z-index:2000;
   background-color: transparent;
   border:solid;
-  border-weight:1px;
+  border-weight:4px;
+  border-color:yellow;
 }
 
 /* 본문 프레임 */
