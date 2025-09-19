@@ -86,15 +86,12 @@ footer {
   display: block;
 }
 
-div#disqus_thread {width:50%;margin-top:-200px; margin-left:auto; margin-right:auto;z-index:1999;}
+div#disqus_thread {width:50%;margin-top:0px; margin-left:auto; margin-right:auto;z-index:1999;}
 
 div#disqus_thread iframe[sandbox] {
 max-height: 0px !important;
 }
 
-div#disqus_thread iframe[sandbox] {
-max-height: 0px !important;
-}
 
 /* 반응형 */
 @media (max-width: 800px) {
