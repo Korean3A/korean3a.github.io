@@ -86,7 +86,7 @@ footer {
   display: block;
 }
 
-div#disqus_thread {width:70%;margin:0 auto;}
+div#disqus_thread {width:70%;margin-top:-200px auto 0px auto;}
 
 div#disqus_thread iframe[sandbox] {
 max-height: 0px !important;
