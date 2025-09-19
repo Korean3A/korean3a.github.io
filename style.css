@@ -70,6 +70,13 @@ footer {
 .main-header .header-content a {color:white; text-decoration:none;}
 .main-header .header-content span {align-items:center; font-size: 20px; border:solid 1px; padding:5px 20px; margin:30px auto;}
 
+
+#disqus_thread {max-width:712px;margin-top:-200px; margin-left:auto; margin-right:auto;z-index:1999;}
+
+div#disqus_thread iframe[sandbox] {
+max-height: 0px !important;
+}
+
 /* 본문 프레임 */
 #frame_wraper {
   position: relative;
@@ -86,13 +93,6 @@ footer {
   transition: height 0.6s ease; /* 부드럽게 늘어나도록 */  
   display: block;
 }
-
-div#disqus_thread {max-width:712px;margin-top:-200px; margin-left:auto; margin-right:auto;z-index:1999;}
-
-div#disqus_thread iframe[sandbox] {
-max-height: 0px !important;
-}
-
 
 /* 반응형 */
 @media (max-width: 800px) {
