@@ -86,7 +86,11 @@ footer {
   display: block;
 }
 
-div#disqus_thread {width:70%;}
+div#disqus_thread {width:70%;margin:0 auto;}
+
+div#disqus_thread iframe[sandbox] {
+max-height: 0px !important;
+}
 
 div#disqus_thread iframe[sandbox] {
 max-height: 0px !important;
