@@ -71,11 +71,21 @@ footer {
 .main-header .header-content span {align-items:center; font-size: 20px; border:solid 1px; padding:5px 20px; margin:30px auto;}
 
 
-#disqus_thread {max-width:712px;margin-top:-200px; margin-left:auto; margin-right:auto;z-index:1999;}
+/* Disqus 댓글창 스타일 수정: 마이너스 마진을 제거하고 상대적 위치를 사용하여 iframe과 겹치도록 함 */
+#disqus_thread {
+    max-width: 712px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    /* iframe의 여백을 줄이기 위해 위쪽으로 200px 이동 */
+    top: -200px;
+    z-index: 100; /* iframe의 z-index보다 높은 값 */
+}
 
 div#disqus_thread iframe[sandbox] {
 max-height: 0px !important;
 }
+
 
 /* 본문 프레임 */
 #frame_wraper {
