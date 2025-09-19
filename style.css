@@ -86,7 +86,7 @@ footer {
   display: block;
 }
 
-div#disqus_thread {width:50%;margin-top:0px; margin-left:auto; margin-right:auto;z-index:1999;}
+div#disqus_thread {max-width:712px;margin-top:0px; margin-left:auto; margin-right:auto;z-index:1999;}
 
 div#disqus_thread iframe[sandbox] {
 max-height: 0px !important;
