@@ -116,3 +116,10 @@ max-height: 0px !important;
   .menu-toggle {display:flex;}
   nav.active ul {display:flex;}
 }
+
+@media (max-width: 500px) {
+
+#disqus_thread {
+  top:0px;
+}
+}
