@@ -78,6 +78,25 @@
 
   <footer><div>© 2025 K3A 석면추방국민연대</div></footer>
   <script id="dsq-count-scr" src="//seogmyeoncubanggugminyeondae.disqus.com/count.js" async></script>
-
+<script>
+      // myframe의 로드가 완료되면 스크롤바를 제한합니다.
+            if (myIframe) {
+                myIframe.onload = function() {
+                    try {
+                        const iframeDoc = myIframe.contentWindow.document;
+                        const notionBody = iframeDoc.body;
+                        if (notionBody && notionBody.classList.contains('notion-body')) {
+                            notionBody.style.overflow = 'hidden';
+                            console.log('Successfully disabled scrolling on notion-body.');
+                        } else {
+                            console.log('notion-body class was not found in the myframe iframe.');
+                        }
+                    } catch (e) {
+                        console.error('An error occurred while trying to access the myframe content:', e);
+                    }
+                };
+            } else {
+                console.log('The myframe iframe was not found.');
+</script>
 </body>
 </html>
