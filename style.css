@@ -76,6 +76,7 @@ footer {
   width: 100%;
   height: calc(100vh - 120px); /* nav(60) + footer(60) 보정 */
   margin-top: 0px; /* nav(60) + header(300) */
+  z-index:50;
 }
 
 #myframe {
@@ -86,7 +87,7 @@ footer {
   display: block;
 }
 
-div#disqus_thread {max-width:712px;margin-top:0px; margin-left:auto; margin-right:auto;z-index:1999;}
+div#disqus_thread {max-width:712px;margin-top:-200px; margin-left:auto; margin-right:auto;z-index:1999;}
 
 div#disqus_thread iframe[sandbox] {
 max-height: 0px !important;
