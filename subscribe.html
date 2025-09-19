@@ -78,35 +78,6 @@
 
   <footer><div>© 2025 K3A 석면추방국민연대</div></footer>
   <script id="dsq-count-scr" src="//seogmyeoncubanggugminyeondae.disqus.com/count.js" async></script>
-  <script>
-        window.onload = function() {
-            // Disqus 스레드 내부의 아이프레임을 찾습니다.
-            const disqusIframe = document.querySelector('#disqus_thread iframe');
-
-            // 아이프레임이 로드되었는지 확인합니다.
-            if (disqusIframe) {
-                // 아이프레임의 로드가 완료되면 이벤트를 처리합니다.
-                disqusIframe.onload = function() {
-                    try {
-                        const iframeDoc = disqusIframe.contentWindow.document;
-                        const targetElement = iframeDoc.getElementById('reactions__container');
-
-                        if (targetElement) {
-                            // 요소를 숨깁니다.
-                            targetElement.style.display = 'none';
-                            console.log('Successfully hid the reactions__container.');
-                        } else {
-                            console.log('The target element was not found inside the iframe.');
-                        }
-                    } catch (e) {
-                        console.error('An error occurred while trying to access the iframe content:', e);
-                    }
-                };
-            } else {
-                console.log('The iframe was not found.');
-            }
-        };
-    </script>
 
 </body>
 </html>
