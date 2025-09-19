@@ -52,14 +52,16 @@
 </nav>
   <!-- 본문 -->
   <main>
-    <div id="frame_wraper" style="overflow:hidden; height:682px;" >
+    <!-- iframe과 Disqus를 감싸는 부모 컨테이너가 없으므로 두 요소를 같은 레벨에 둡니다. -->
+    <div id="frame_wraper" >
       <iframe id="myframe" src="https://dolomite-drop-27e.notion.site/ebd/273b9706c85980ef8c75d2d671bc7def" scrolling="no"></iframe>
     </div>  
+    <!-- Disqus 댓글창은 iframe 아래에 위치하며, CSS로 위치를 조정합니다. -->
     <div id="disqus_thread"></div>
 <script>
     /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
     /*
     var disqus_config = function () {
     this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
