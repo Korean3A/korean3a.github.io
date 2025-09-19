@@ -32,15 +32,22 @@ nav ul li ul li a:hover {background:#f0f0f0; color:black;}
 .menu-toggle {display:none; flex-direction: column; cursor:pointer; margin-left:auto;}
 .menu-toggle span {width:25px; height:3px; background:white; margin:4px 0;}
 
-/* 푸터 */
+/* 기본 (라이트 모드) 푸터 스타일 */
 footer {
-  position: fixed; bottom: 0; left: 0;
-  width: 100%; height: 60px;
-  background: #f2f2f2; color: #333;
-  font-size: 13px; display: flex;
-  justify-content: center; align-items: center;
-  border-top: 1px solid #ccc;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: #f2f2f2; /* 밝은 배경색 */
+  color: #333; /* 어두운 글씨색 */
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #ccc; /* 밝은 경계선 */
   z-index: 3000;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* 부드러운 전환 효과 */
 }
 
 .main-header {
@@ -112,3 +119,11 @@ footer {
   }
 }
 
+/* 다크 모드일 때 적용될 스타일 */
+@media (prefers-color-scheme: dark) {
+  footer {
+    background: #333; /* 어두운 배경색 */
+    color: #f2f2f2; /* 밝은 글씨색 */
+    border-top: 1px solid #555; /* 어두운 경계선 */
+  }
+}
