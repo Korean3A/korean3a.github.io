@@ -73,6 +73,7 @@ footer {
 
 /* Disqus 댓글창 스타일 수정: 마이너스 마진을 제거하고 상대적 위치를 사용하여 iframe과 겹치도록 함 */
 #disqus_thread {
+    width:70%;
     max-width: 712px;
     margin-left: auto;
     margin-right: auto;
