@@ -78,7 +78,7 @@ footer {
     margin-right: auto;
     position: relative;
     /* iframe의 여백을 줄이기 위해 위쪽으로 200px 이동 */
-    top: -200px;
+    top: -300px;
     z-index: 100; /* iframe의 z-index보다 높은 값 */
 }
 
