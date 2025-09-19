@@ -133,7 +133,7 @@ max-height: 0px !important;
 
 /* 다크 모드일 때 적용될 스타일 */
 @media (prefers-color-scheme: dark) {
-  body {background: #000; /* 어두운 배경색 */}
+  body {background: #1C1C1E; /* 어두운 배경색 */}
   footer {
     background: #333; /* 어두운 배경색 */
     color: #f2f2f2; /* 밝은 글씨색 */
