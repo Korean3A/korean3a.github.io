@@ -126,8 +126,8 @@ max-height: 0px !important;
 
 @media (max-width: 500px) {
 
-#disqus_thread { position: relative; top: -50px;}
-#frame_weaper {height:150vh;}
+#disqus_thread { position: relative; top: -250px;}
+#frame_weaper {height:200vh;}
 #myframe {height:100%}  
 }
 
