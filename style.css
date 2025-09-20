@@ -125,10 +125,9 @@ max-height: 0px !important;
 }
 
 @media (max-width: 500px) {
-
-#disqus_thread { position: relative; top: -250px;}
 #frame_weaper {height:200vh;}
 #myframe {height:100%}  
+#disqus_thread { position: relative; top: -250px;}  
 }
 
 /* 다크 모드일 때 적용될 스타일 */
