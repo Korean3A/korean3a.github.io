@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.scrollY > lastScrollY) {
       header.style.top = "-300px";
       // 브라우저 가로 폭이 450px 미만일 때만 iframe_cover를 숨김
-      if (window.innerWidth < 450) {
+      if (window.innerWidth < 500) {
         if (iframecover) {
           iframecover.style.display = "none";
           console.log('iframe_cover를 제거합니다.');
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     else if (window.scrollY === 0) {
       header.style.top = "60px";
       // 브라우저 가로 폭이 450px 미만일 때만 iframe_cover를 표시
-      if (window.innerWidth < 450) {
+      if (window.innerWidth < 500) {
         if (iframecover) {
           iframecover.style.display = "inline-block";
           console.log('iframe_cover를 재설치합니다.');
