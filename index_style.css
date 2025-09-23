@@ -116,6 +116,7 @@ footer {
   display:inline-block;
   z-index:1001;
   background-color: transparent;
+  border:solid 1px;
   }
 }
 
