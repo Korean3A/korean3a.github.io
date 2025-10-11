@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공식일정 | 석면추방국민연대</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function toggleMenu() {
+      document.querySelector("nav").classList.toggle("active");
+    }
+    document.addEventListener("click", function(e) {
+      const nav = document.querySelector("nav");
+      if (!nav.contains(e.target) && nav.classList.contains("active")) {
+        nav.classList.remove("active");
+      }
+    });
+  </script>
+</head>
+<body>
+<nav>
+  <div class="logo">
+    <a href="index.html"><img src="images/logo_eng_white.png"><span>석면추방국민연대</span></a>
+  </div>
+  <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  <ul>
+    <li><a href="about.html">소개</a>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="people.html">함께하는 사람들</a></li>
+        <li><a href="history.html">걸어온 길</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </li>
+    <li><a href="news.html">News&Issue</a>
+      <ul>
+        <li><a href="news.html">News&Issue</a></li>
+        <li><a href="notice.html">공지사항</a></li>
+        <li><a href="schedule.html">공식일정</a></li>
+        <li><a href="resources.html">자료실</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </li>
+    <li><a href="community.html">참여&소통</a>
+      <ul>
+        <li><a href="board.html">회원 게시판</a></li>
+        <li><a href="subscribe.html">Follow+Subscribe</a></li>
+        <li><a href="report.html">신고하기(석면관련불법행위)</a></li>
+      </ul>
+    </li>
+    <li><a href="join.html">참여하기(정회원가입)</a></li>
+  </ul>
+</nav>
+  <!-- 본문 -->
+  <main>
+    <div id="frame_wraper">
+      <iframe id="myframe" src="https://dolomite-drop-27e.notion.site/ebd/289b9706c85980c89df2e2d6d270e82d"
+              scrolling="yes"></iframe>
+    </div>  
+  </main>
+
+  <footer><div>© 2025 K3A 석면추방국민연대</div></footer>
+</body>
+</html>
