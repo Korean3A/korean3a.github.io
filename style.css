@@ -112,6 +112,113 @@ max-height: 0px !important;
   display: block;
 }
 
+        /* 2단 레이아웃을 위한 컨테이너 (Flexbox 사용) */
+        .container {
+            display: flex;
+            justify-content: space-around; /* 항목 간 공간 배분 */
+            max-width: 1200px; /* 최대 너비 설정 */
+            margin: 0 auto; /* 중앙 정렬 */
+            background-color: #ffffff; /* 컨테이너 배경색 */
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* 그림자 효과 (선택 사항) */
+        }
+
+        /* 각 열(컬럼) 스타일 */
+        .column {
+            flex: 1; /* 너비를 동일하게 배분 */
+            padding: 0 20px;
+            text-align: center; /* 내부 요소 중앙 정렬 */
+        }
+
+        /* 컬럼 구분선 (선택 사항: 이미지를 단순화한 구조에서는 필요 없을 수 있음) */
+        .column-left {
+            border-right: 1px solid #ddd; /* 왼쪽 컬럼 오른쪽에 얇은 회색 구분선 추가 */
+        }
+        
+        /* 컬럼 헤더(상단 텍스트) 스타일 */
+        .column h2 {
+            font-size: 1.5em;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 30px;
+            min-height: 60px; /* 텍스트 내용이 적어도 레이아웃이 깨지지 않도록 최소 높이 설정 */
+        }
+
+        /* 이미지 컨테이너 스타일 */
+        .image-group {
+            display: flex;
+            flex-wrap: wrap; /* 이미지가 넘치면 줄 바꿈 */
+            justify-content: center; /* 이미지를 중앙 정렬 */
+            gap: 15px; /* 이미지 사이 간격 */
+            margin-bottom: 40px;
+            min-height: 300px; /* 이미지 영역 최소 높이 설정 */
+            align-items: center; /* 수직 중앙 정렬 (선택 사항) */
+        }
+
+        .image-group img {
+            max-width: 45%; /* 이미지 크기 조절 */
+            height: auto;
+            border: 1px solid #eee; /* 이미지 테두리 (선택 사항) */
+        }
+
+        /* 신고 및 제보하기 버튼 스타일 */
+        .report-button {
+            display: block;
+            width: 90%;
+            max-width: 400px;
+            margin: 20px auto 0;
+            padding: 20px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            text-decoration: none; /* 링크로 사용할 경우 텍스트 밑줄 제거 */
+            transition: background-color 0.3s;
+        }
+
+        /* 왼쪽 버튼 (빨간색) */
+        .report-button.left {
+            background-color: #e53935; /* 빨간색 */
+            box-shadow: 0 5px 0 #b71c1c; /* 3D 효과 */
+        }
+
+        .report-button.left:hover {
+            background-color: #f44336;
+        }
+
+        /* 오른쪽 버튼 (녹색) */
+        .report-button.right {
+            background-color: #4CAF50; /* 녹색 */
+            box-shadow: 0 5px 0 #388e3c; /* 3D 효과 */
+        }
+
+        .report-button.right:hover {
+            background-color: #66bb6a;
+        }
+
+        /* 아이콘 스타일 (이미지 첨부 대신 텍스트로 대체) */
+        .report-button span {
+            display: block;
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+        /* 💡 아이콘을 텍스트 대신 Font Awesome 같은 라이브러리로 대체 가능합니다. */
+
+        /* 미디어 쿼리: 화면 너비가 768px 이하일 때 1단 레이아웃으로 변경 */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* 수직으로 쌓기 */
+            }
+            .column-left {
+                border-right: none; /* 구분선 제거 */
+                border-bottom: 1px solid #ddd; /* 아래쪽에 구분선 추가 */
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+            }
+        }
+
 /* 반응형 */
 @media (max-width: 800px) {
   nav ul {display:none; position:absolute; top:60px; left:0; width:100%; background:white; flex-direction:column;}
