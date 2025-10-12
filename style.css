@@ -156,7 +156,7 @@ max-height: 0px !important;
         }
 
         .image-group img {
-            max-width: 45%; /* 이미지 크기 조절 */
+            max-width: 75%; /* 이미지 크기 조절 */
             height: auto;
             border: 1px solid #eee; /* 이미지 테두리 (선택 사항) */
         }
