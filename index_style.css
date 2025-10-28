@@ -84,7 +84,7 @@ footer {
   position: relative;
   width: 100%;
   height: calc(100vh - 120px); /* nav(60) + footer(60) 보정 */
-  margin-top: 315px; /* nav(60) + header(300) */
+  margin-top: 250px; /* nav(60) + header(300) */
 }
 
 #myframe {
