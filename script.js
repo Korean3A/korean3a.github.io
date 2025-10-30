@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // 2. 페이지 로드 시 한 번 실행하여 초기 상태를 설정 (맨 위에서는 푸터가 숨겨져야 함)
         window.addEventListener('load', handleScroll);
 
-
+const iframe = document.getElementById('myIframe'); // 'myIframe'은 iframe 요소의 ID입니다.
 const iframeDocument = iframe.contentWindow.document || iframe.contentDocument;
 
 if (iframeDocument) {
