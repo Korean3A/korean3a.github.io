@@ -15,6 +15,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const iframecover = document.getElementsByClassName('iframe_cover')[0];
   let expanded = false; // 이미 변경했는지 체크
 
+const iframeDocument = iframe.contentWindow.document || iframe.contentDocument;
+
+if (iframeDocument) {
+  const headerElement = iframeDocument.querySelector('header');
+  
+  if (headerElement) {
+    console.log('header 요소를 찾았습니다:', headerElement);
+    headerElement.style.display="none";
+    // 여기서 headerElement를 사용하여 작업을 수행합니다.
+  } else {
+    console.log('iframe 내부 문서에서 header 요소를 찾을 수 없습니다.');
+  }
+} else {
+  console.log('iframe 문서에 접근할 수 없습니다.');
+}
+  
   window.addEventListener("scroll", () => {
     // 헤더 숨김/표시
     if (window.scrollY > lastScrollY) {
@@ -90,19 +106,3 @@ document.addEventListener("DOMContentLoaded", () => {
         // 2. 페이지 로드 시 한 번 실행하여 초기 상태를 설정 (맨 위에서는 푸터가 숨겨져야 함)
         window.addEventListener('load', handleScroll);
 
-const iframe = document.getElementById('myIframe'); // 'myIframe'은 iframe 요소의 ID입니다. 
-const iframeDocument = iframe.contentWindow.document || iframe.contentDocument;
-
-if (iframeDocument) {
-  const headerElement = iframeDocument.querySelector('header');
-  
-  if (headerElement) {
-    console.log('header 요소를 찾았습니다:', headerElement);
-    headerElement.style.display="none";
-    // 여기서 headerElement를 사용하여 작업을 수행합니다.
-  } else {
-    console.log('iframe 내부 문서에서 header 요소를 찾을 수 없습니다.');
-  }
-} else {
-  console.log('iframe 문서에 접근할 수 없습니다.');
-}
