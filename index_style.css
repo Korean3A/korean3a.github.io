@@ -83,13 +83,13 @@ footer {
 #frame_wraper {
   position: relative;
   width: 100%;
-  height: calc(300vh - 120px); /* nav(60) + footer(60) 보정 */
+  height: calc(2000px - 120px); /* nav(60) + footer(60) 보정 */
   margin-top: 280px; /* nav(60) + header(300) */
 }
 
 #myframe {
   width: 100%;
-  height: calc(300vh - 120px);
+  height: calc(2000px - 120px);
   border: none;
   transition: height 0.6s ease; /* 부드럽게 늘어나도록 */  
   display: block;
