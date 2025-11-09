@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // iframe height 변경
     if (window.scrollY > 0 && !expanded) {
-      iframe.style.height = "3000px";
+      iframe.style.height = "2800px";
       expanded = true;
     }
   });
