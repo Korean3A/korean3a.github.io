@@ -83,7 +83,7 @@ footer {
 #frame_wraper {
   position: relative;
   width: 100%;
-  height: calc(200vh - 120px); /* nav(60) + footer(60) 보정 */
+  height: calc(250vh - 120px); /* nav(60) + footer(60) 보정 */
   margin-top: 280px; /* nav(60) + header(300) */
 }
 
