@@ -130,11 +130,15 @@ footer {
 /* -------------------- 3. 모바일 레이아웃 (미디어 쿼리) -------------------- */
 
 @media (max-width: 768px) {
+
+    footer{
+        height:500px;
+    }
+  
     .footer-container {
         flex-direction: column; /* 화면이 768px 이하일 때 세로 정렬로 변경 */
         align-items: center; /* 가운데 정렬 */
         text-align: center; /* 텍스트 가운데 정렬 */
-        height:500px;
     }
 
     .footer-section {
