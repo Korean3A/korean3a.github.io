@@ -134,6 +134,10 @@ footer {
     footer{
         height:500px;
     }
+
+  .logo-section img {
+    height: 150px;
+  }
   
     .footer-container {
         flex-direction: column; /* 화면이 768px 이하일 때 세로 정렬로 변경 */
