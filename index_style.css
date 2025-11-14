@@ -47,40 +47,42 @@ footer {
   transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* 부드러운 전환 효과 */
 }
 
+<style>
+/* -------------------- 1. 기본 및 색상 동적 설정 -------------------- */
+
 /* 기본 (라이트 모드) 스타일 */
 .k3a-footer {
-    background-color: #f0f0f0; /* 밝은 회색 배경 */
-    color: #333; /* 어두운 글자색 */
+    background-color: #f0f0f0;
+    color: #333;
     padding: 30px 20px;
     font-family: Arial, sans-serif;
-    font-size: 13px;
     line-height: 1.6;
 }
 
 .link-section a {
-    color: #007bff; /* 파란색 링크 텍스트 */
+    color: #007bff;
     text-decoration: underline;
     text-decoration-color: #007bff;
 }
 
-/* 시스템 설정이 다크 모드일 때 적용할 스타일 */
+/* 다크 모드 스타일 */
 @media (prefers-color-scheme: dark) {
     .k3a-footer {
-        background-color: #222; /* 어두운 배경색 (스크린샷 배경) */
-        color: #fff; /* 흰색 글자색 */
+        background-color: #222;
+        color: #fff;
     }
 
     .link-section a {
-        color: #fff; /* 흰색 링크 텍스트 */
+        color: #fff;
         text-decoration: underline;
-        text-decoration-color: #f00; /* 밑줄 색상 (빨간색) */
+        text-decoration-color: #f00;
     }
 }
 
-/* --- 레이아웃 관련 CSS (색상과 관계 없이 유지) --- */
+/* -------------------- 2. 데스크톱 레이아웃 (기본값) -------------------- */
 
 .footer-container {
-    display: flex;
+    display: flex; /* 데스크톱 기본은 가로 정렬 */
     justify-content: space-around;
     max-width: 1200px;
     margin: 0 auto;
@@ -89,7 +91,7 @@ footer {
 
 .footer-section {
     padding: 0 15px;
-    flex-basis: 30%;
+    flex-basis: 30%; /* 데스크톱에서 각 섹션의 너비 */
 }
 
 .logo-section {
@@ -99,12 +101,8 @@ footer {
 }
 
 .logo-section img {
-    height: 180px;
+    height: 80px;
     margin-right: 15px;
-}
-
-.logo-text {
-  display:none;
 }
 
 .logo-text p {
@@ -129,6 +127,51 @@ footer {
 .link-section a:hover {
     text-decoration: none;
 }
+
+/* -------------------- 3. 모바일 레이아웃 (미디어 쿼리) -------------------- */
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* 화면이 768px 이하일 때 세로 정렬로 변경 */
+        align-items: center; /* 가운데 정렬 */
+        text-align: center; /* 텍스트 가운데 정렬 */
+    }
+
+    .footer-section {
+        flex-basis: 100%; /* 너비를 100%로 확장 */
+        padding: 15px 0; /* 상하 간격 추가 */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* 섹션 구분선 (다크 모드 대비 투명한 흰색) */
+        width: 100%;
+        max-width: 350px; /* 섹션 내용의 최대 너비 제한 (선택 사항) */
+    }
+    
+    /* 마지막 섹션의 구분선 제거 */
+    .footer-section:last-child {
+        border-bottom: none;
+    }
+
+    /* 로고 섹션 재정렬 */
+    .logo-section {
+        flex-direction: column; /* 로고와 텍스트를 세로로 */
+        text-align: center;
+        margin-bottom: 10px;
+        flex-basis: auto;
+    }
+
+    .logo-section img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    /* 연락처 및 링크 목록 왼쪽 정렬 (모바일에서 가독성 향상) */
+    .info-section ul,
+    .link-section ul {
+        text-align: left;
+        max-width: 300px; /* 목록 너비 제한 */
+        margin: 0 auto;
+    }
+}
+</style>
 
 
 .main-header {
