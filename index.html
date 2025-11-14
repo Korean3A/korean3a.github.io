@@ -71,8 +71,42 @@
   <main>
     <div id="frame_wraper">    
       <iframe id="myframe" src="https://dolomite-drop-27e.notion.site/ebd/26ab9706c85980d4be65d4bc39291cdf"
-              scrolling="yes"></iframe>
-    </div>
+              scrolling="yes" onload="handleNotionIframeLoad(this)"></iframe>
+      <script>
+      /**
+ * Notion iframe 내부 로딩 후 특정 요소의 overflow 스타일을 변경하는 함수
+ * @param {HTMLIFrameElement} iframe - 로딩이 완료된 iframe 요소
+ */
+function handleNotionIframeLoad(iframe) {
+  // 1. iframe의 contentWindow/contentDocument에 접근합니다.
+  let notionDocument;
+  try {
+    notionDocument = iframe.contentWindow.document;
+  } catch (e) {
+    // CORS 보안 정책 등으로 인해 접근이 차단될 경우
+    console.error("iframe 내부 콘텐츠 접근 실패. CORS 또는 Same-Origin 정책 확인 필요:", e);
+    return; // 접근 실패 시 함수 종료
+  }
+
+  // 2. 원하는 요소를 찾습니다.
+  // class="notion-scroller vertical" 인 div 요소를 찾습니다.
+  const scrollerElement = notionDocument.querySelector('div.notion-scroller.vertical');
+
+  if (scrollerElement) {
+    // 3. 요소의 overflow 스타일을 변경합니다.
+    scrollerElement.style.overflow = "hidden";
+    
+    // 추가적으로 iframe 자체의 스크롤바를 숨길 수도 있습니다.
+    // 이는 notion 내부 스크롤이 아닌, iframe 자체에 스크롤이 생기는 경우를 대비합니다.
+    iframe.style.overflow = "hidden"; 
+    
+    console.log("Notion scroller overflow 스타일이 'hidden'으로 변경되었습니다.");
+  } else {
+    console.warn("클래스 'notion-scroller vertical'을 가진 요소를 iframe 내부에서 찾을 수 없습니다.");
+  }
+}
+    </script>
+    </div>    
   </main>
 
   <footer id="myFooter" class="k3a-footer">
