@@ -17,24 +17,34 @@ let expanded = false; // iframe 높이 변경 여부 체크 변수
 
 window.addEventListener("scroll", () => {
     // 1. 전체 스크롤 가능 높이 계산
-    // 뷰포트를 제외한 실제 스크롤 가능한 높이
     const totalScrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
  
     // 2. 현재 스크롤 위치의 백분율 계산 (0 ~ 1 사이의 값)
+    // totalScrollableHeight가 0일 경우(스크롤 불가)를 대비하여 0을 반환
     const scrollPercentage = totalScrollableHeight > 0 ? window.scrollY / totalScrollableHeight : 0;
  
-    // --- 💡 헤더 표시/숨김 로직 (기존 방향 기반 로직 유지) ---
-    // 헤더는 스크롤 방향에 따라 숨김/표시를 유지합니다.
-    if (window.scrollY > lastScrollY) {
-        // 스크롤 내릴 때: 헤더 숨김
-        header.style.top = "-300px";
+    
+    // --- 👇 헤더 표시/숨김 로직 수정 (20% 위치 기반) 👇 ---
+ 
+    // 3. 헤더 제어: 스크롤 위치가 20% 미만일 때 (상단 20% 영역)
+    if (scrollPercentage < 0.2) {
+        // 헤더 표시
+        if (header.style.top !== "60px") {
+            header.style.top = "60px";
+            console.log('헤더 표시 (스크롤 20% 미만)');
+        }
     } else {
-        // 스크롤 올릴 때: 헤더 표시 (단, 0이 아닐 경우)
-        header.style.top = "60px";
+        // 헤더 숨김 (스크롤 20% 이상)
+        if (header.style.top !== "-300px") {
+            header.style.top = "-300px";
+            console.log('헤더 숨김 (스크롤 20% 이상)');
+        }
     }
  
-    // --- 👇 iframe_cover 제어 (20% 위치 기반) 👇 ---
+    // --- 👆 헤더 표시/숨김 로직 수정 (20% 위치 기반) 👆 ---
  
+ 
+    // 4. iframe_cover 제어 (20% 위치 기반)
     // 브라우저 가로 폭이 500px 미만일 때만 iframe_cover 제어
     if (window.innerWidth < 500 && iframecover) {
         
@@ -54,12 +64,9 @@ window.addEventListener("scroll", () => {
         }
     }
  
-    // --- 👆 iframe_cover 제어 (20% 위치 기반) 👆 ---
- 
     lastScrollY = window.scrollY;
  
-    // iframe height 변경 (기존 로직 유지)
-    // 스크롤이 조금이라도 내려가면 iframe의 높이를 늘립니다.
+    // 5. iframe height 변경 (기존 로직 유지)
     if (iframe && window.scrollY > 0 && !expanded) {
         iframe.style.height = "3000px";
         expanded = true;
