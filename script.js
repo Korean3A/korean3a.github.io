@@ -128,7 +128,7 @@ window.addEventListener("scroll", () => {
             scrollIndicator.textContent = `스크롤: ${Math.round(scrollPercentage)}%`;
 
             // 95% 이상 스크롤했을 때 푸터를 'flex'로 표시하고, 아닐 때는 'none'으로 숨김
-            if (scrollPercentage >= 98) {
+            if (scrollPercentage >= 95) {
                 // 이전에 CSS에서 설정한 display: none; 을 덮어씀
                 footer.style.display = 'flex';
             } else {
