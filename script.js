@@ -9,60 +9,60 @@ document.addEventListener("click", function(e) {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  let lastScrollY = window.scrollY;
-  const header = document.querySelector(".main-header");
-  const iframe = document.getElementById("myframe");
-  const iframecover = document.getElementsByClassName('iframe_cover')[0];
-  let expanded = false; // 이미 변경했는지 체크
-  
- window.addEventListener("scroll", () => {
+let lastScrollY = window.scrollY;
+const header = document.querySelector(".main-header");
+const iframe = document.getElementById("myframe");
+const iframecover = document.getElementsByClassName('iframe_cover')[0];
+let expanded = false; // iframe 높이 변경 여부 체크 변수
+
+window.addEventListener("scroll", () => {
     // 1. 전체 스크롤 가능 높이 계산
-    // document.documentElement.scrollHeight: 전체 문서 높이
-    // window.innerHeight: 뷰포트 높이
+    // 뷰포트를 제외한 실제 스크롤 가능한 높이
     const totalScrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
  
     // 2. 현재 스크롤 위치의 백분율 계산 (0 ~ 1 사이의 값)
-    // 현재 스크롤 위치(window.scrollY)를 전체 스크롤 가능 높이로 나눔
-    const scrollPercentage = window.scrollY / totalScrollableHeight;
+    const scrollPercentage = totalScrollableHeight > 0 ? window.scrollY / totalScrollableHeight : 0;
  
-    // 스크롤 방향에 관계없이 헤더를 숨김/표시하는 로직은 그대로 유지
+    // --- 💡 헤더 표시/숨김 로직 (기존 방향 기반 로직 유지) ---
+    // 헤더는 스크롤 방향에 따라 숨김/표시를 유지합니다.
     if (window.scrollY > lastScrollY) {
+        // 스크롤 내릴 때: 헤더 숨김
         header.style.top = "-300px";
     } else {
-        // 스크롤을 위로 올릴 때만 헤더가 표시되도록
+        // 스크롤 올릴 때: 헤더 표시 (단, 0이 아닐 경우)
         header.style.top = "60px";
     }
  
-    // 브라우저 가로 폭이 500px 미만일 때만 iframe_cover 제어
-    if (window.innerWidth < 500) {
-        if (iframecover) {
-            // --- 👇 이 부분이 요청하신 20% 로직입니다. 👇 ---
+    // --- 👇 iframe_cover 제어 (20% 위치 기반) 👇 ---
  
-            // 3. 스크롤을 20% 이상 내렸을 때 (숨김)
-            if (scrollPercentage >= 0.2) {
-                if (iframecover.style.display !== "none") {
-                    iframecover.style.display = "none";
-                    console.log('iframe_cover를 제거합니다. (스크롤 20% 이상)');
-                }
+    // 브라우저 가로 폭이 500px 미만일 때만 iframe_cover 제어
+    if (window.innerWidth < 500 && iframecover) {
+        
+        // cover 표시 조건: 스크롤이 20% 미만일 때 (상단 20% 영역)
+        if (scrollPercentage < 0.2) {
+            if (iframecover.style.display !== "inline-block") {
+                iframecover.style.display = "inline-block";
+                console.log('iframe_cover를 재설치합니다. (스크롤 20% 미만)');
             }
-            // 4. 스크롤을 20% 미만으로 올렸을 때 (표시)
-            // 즉, 상단 20% 지점까지 다시 도달했을 때
-            else if (scrollPercentage < 0.2) {
-                if (iframecover.style.display !== "inline-block") {
-                    iframecover.style.display = "inline-block";
-                    console.log('iframe_cover를 재설치합니다. (스크롤 20% 미만)');
-                }
+        }
+        // cover 숨김 조건: 스크롤이 20% 이상일 때
+        else { // scrollPercentage >= 0.2
+            if (iframecover.style.display !== "none") {
+                iframecover.style.display = "none";
+                console.log('iframe_cover를 제거합니다. (스크롤 20% 이상)');
             }
-            // --- 👆 이 부분이 요청하신 20% 로직입니다. 👆 ---
         }
     }
  
+    // --- 👆 iframe_cover 제어 (20% 위치 기반) 👆 ---
+ 
     lastScrollY = window.scrollY;
-
-       // iframe height 변경
-    if (window.scrollY > 0 && !expanded) {
-      iframe.style.height = "3000px";
-      expanded = true;
+ 
+    // iframe height 변경 (기존 로직 유지)
+    // 스크롤이 조금이라도 내려가면 iframe의 높이를 늘립니다.
+    if (iframe && window.scrollY > 0 && !expanded) {
+        iframe.style.height = "3000px";
+        expanded = true;
     }
 });
 
