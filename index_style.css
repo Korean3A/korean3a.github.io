@@ -99,8 +99,12 @@ footer {
 }
 
 .logo-section img {
-    height: 80px;
+    height: 180px;
     margin-right: 15px;
+}
+
+.logo-text {
+  display:none;
 }
 
 .logo-text p {
