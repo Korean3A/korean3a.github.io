@@ -108,6 +108,9 @@ footer {
 .logo-text {
   display:none;
 }
+.info-section .link-section {
+  margin : auto;
+}
 
 .info-section ul,
 .link-section ul {
