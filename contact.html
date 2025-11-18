@@ -6,7 +6,6 @@
   <title>Contact Us | 석면추방국민연대</title>
   <link rel="stylesheet" href="style.css">
 <link rel="shortcut icon" href="images/favicon.ico">
-  <script src="script.js"></script>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-66JZRCVRGE"></script>
 <script>
@@ -18,40 +17,7 @@
 </script>
 </head>
 <body>
-<nav>
-  <div class="logo">
-    <a href="index.html"><img src="images/logo_eng_white.png"><span>석면추방국민연대</span></a>
-  </div>
-  <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-  <ul>
-    <li><a href="about.html">소개</a>
-      <ul>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="people.html">함께하는 사람들</a></li>
-        <li><a href="history.html">걸어온 길</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-    </li>
-    <li><a href="news.html">News&Issue</a>
-      <ul>
-        <li><a href="news.html">News&Issue</a></li>
-        <li><a href="notice.html">공지사항</a></li>
-        <li><a href="schedule.html">공식일정</a></li>
-        <li><a href="resources.html">자료실</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-      </ul>
-    </li>
-    <li><a href="community.html">참여&소통</a>
-      <ul>
-        <li><a href="board.html">회원 게시판</a></li>
-        <li><a href="report.html">제보하기</a></li>        
-        <li><a href="join.html">참여하기(정회원가입)</a></li>
-        <li><a href="https://secure.donus.org/korean3a/mypage/login">후원내역확인</a></li>       
-      </ul>
-    </li>
-    <li><a href="join.html">참여하기(정회원가입)</a></li>
-  </ul>
-</nav>
+<nav></nav>
       <div class="scroll-indicator" id="scrollPercentage">
         스크롤: 0%
     </div>
@@ -63,33 +29,16 @@
     </div>  
   </main>
 
-   <footer id="myFooter" class="k3a-footer">
-    <div class="footer-container">
-        <div class="footer-section logo-section">
-            <img src="https://k3a.net/images/logo_eng.png" alt="KOREAN ALLIANCE AGAINST ASBESTOS 로고">
-            <div class="logo-text">                
-            </div>
-        </div>
-
-        <div class="footer-section info-section">
-            <ul>
-                <li>• [민간단체]석면추방국민연대 • 고유번호 : 182-80-03387</li>
-                <li>• 서울특별시 강서구 마곡중앙6로 11, 보타닉파크타워3차, 3층 (마곡동 771-3), (우)07801</li>
-                <li>• 전화 : 02.3663.4072</li>
-                <li>• 대표 이메일 : kepoples.ae@gmail.com</li>
-            </ul>
-        </div>
-
-        <div class="footer-section link-section">
-            <ul>
-                <li>• <a href="https://dolomite-drop-27e.notion.site/26bb9706c859804ca11fd737e8a4db96?pvs=25" target="myframe">개인정보처리방침 바로가기</a></li>
-                <li>• <a href="https://k3a.net/join.html" target="myframe">>참여하기(정회원가입) 바로가기</a></li>
-                <li>• <a href="https://k3a.net/board.html" target="myframe">>회원게시판 바로가기</a></li>
-                <li>• <a href="https://www.youtube.com/@korean3a" target="_blank">>YOUTUBE 바로가기</a></li>
-            </ul>
-        </div>
-    </div>
-  </footer>
+   <footer id="myFooter" class="k3a-footer"></footer>
+  <script src="script.js"></script>
+  <script>
+    // 문서 로드 후 함수를 호출하여 공통 요소를 불러옵니다.
+    document.addEventListener('DOMContentLoaded', () => {
+      includeHTML('nav.html', 'nav');
+      includeHTML('footer.html', '#myFooter');
+    });
+    // (기존에 있던 ChannelIO 스크립트 등 다른 스크립트는 그대로 유지)
+  </script>  
   <script>
   (function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.");}var ch=function(){ch.c(arguments);};ch.q=[];ch.c=function(args){ch.q.push(args);};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return;}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x);}}if(document.readyState==="complete"){l();}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l);}})();
 
