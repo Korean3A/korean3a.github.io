@@ -1,4 +1,4 @@
-* {
+﻿* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,7 +10,7 @@ html {
     font-family: sans-serif;
 }
 
-/* 네비게이션 */
+/* ?ㅻ퉬寃뚯씠??*/
 nav {
     position: fixed;
     top: 0;
@@ -125,7 +125,7 @@ nav ul li ul li a:hover {
     margin: 4px 0;
 }
 
-/* 기본 (라이트 모드) 푸터 스타일 */
+/* 湲곕낯 (?쇱씠??紐⑤뱶) ?명꽣 ?ㅽ???*/
 footer {
     position: relative;
     width: 100%;
@@ -134,16 +134,16 @@ footer {
     justify-content: center;
     align-items: center;
     border-top: 1px solid #ccc;
-    /* 밝은 경계선 */
+    /* 諛앹? 寃쎄퀎??*/
     z-index: 3000;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-    /* 부드러운 전환 효과 */
+    /* 遺?쒕윭???꾪솚 ?④낵 */
 }
 
 
-/* -------------------- 1. 기본 및 색상 동적 설정 -------------------- */
+/* -------------------- 1. 湲곕낯 諛??됱긽 ?숈쟻 ?ㅼ젙 -------------------- */
 
-/* 기본 (라이트 모드) 스타일 */
+/* 湲곕낯 (?쇱씠??紐⑤뱶) ?ㅽ???*/
 .k3a-footer {
     background-color: #f0f0f0;
     color: #333;
@@ -158,7 +158,7 @@ footer {
     text-decoration-color: #007bff;
 }
 
-/* 다크 모드 스타일 */
+/* ?ㅽ겕 紐⑤뱶 ?ㅽ???*/
 @media (prefers-color-scheme: dark) {
     .k3a-footer {
         background-color: #222;
@@ -172,11 +172,11 @@ footer {
     }
 }
 
-/* -------------------- 2. 데스크톱 레이아웃 (기본값) -------------------- */
+/* -------------------- 2. ?곗뒪?ы넲 ?덉씠?꾩썐 (湲곕낯媛? -------------------- */
 
 .footer-container {
     display: flex;
-    /* 데스크톱 기본은 가로 정렬 */
+    /* ?곗뒪?ы넲 湲곕낯? 媛濡??뺣젹 */
     justify-content: space-around;
     max-width: 1200px;
     margin: 0 auto;
@@ -186,7 +186,7 @@ footer {
 .footer-section {
     padding: 0 15px;
     flex-basis: 30%;
-    /* 데스크톱에서 각 섹션의 너비 */
+    /* ?곗뒪?ы넲?먯꽌 媛??뱀뀡???덈퉬 */
     margin: auto;
 }
 
@@ -222,7 +222,7 @@ footer {
     text-decoration: none;
 }
 
-/* -------------------- 3. 모바일 레이아웃 (미디어 쿼리) -------------------- */
+/* -------------------- 3. 紐⑤컮???덉씠?꾩썐 (誘몃뵒??荑쇰━) -------------------- */
 
 @media (max-width: 768px) {
 
@@ -236,34 +236,34 @@ footer {
 
     .footer-container {
         flex-direction: column;
-        /* 화면이 768px 이하일 때 세로 정렬로 변경 */
+        /* ?붾㈃??768px ?댄븯?????몃줈 ?뺣젹濡?蹂寃?*/
         align-items: center;
-        /* 가운데 정렬 */
+        /* 媛?대뜲 ?뺣젹 */
         text-align: center;
-        /* 텍스트 가운데 정렬 */
+        /* ?띿뒪??媛?대뜲 ?뺣젹 */
     }
 
     .footer-section {
         flex-basis: 100%;
-        /* 너비를 100%로 확장 */
+        /* ?덈퉬瑜?100%濡??뺤옣 */
         padding: 15px 0;
-        /* 상하 간격 추가 */
+        /* ?곹븯 媛꾧꺽 異붽? */
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        /* 섹션 구분선 (다크 모드 대비 투명한 흰색) */
+        /* ?뱀뀡 援щ텇??(?ㅽ겕 紐⑤뱶 ?鍮??щ챸???곗깋) */
         width: 100%;
         max-width: 350px;
-        /* 섹션 내용의 최대 너비 제한 (선택 사항) */
+        /* ?뱀뀡 ?댁슜??理쒕? ?덈퉬 ?쒗븳 (?좏깮 ?ы빆) */
     }
 
-    /* 마지막 섹션의 구분선 제거 */
+    /* 留덉?留??뱀뀡??援щ텇???쒓굅 */
     .footer-section:last-child {
         border-bottom: none;
     }
 
-    /* 로고 섹션 재정렬 */
+    /* 濡쒓퀬 ?뱀뀡 ?ъ젙??*/
     .logo-section {
         flex-direction: column;
-        /* 로고와 텍스트를 세로로 */
+        /* 濡쒓퀬? ?띿뒪?몃? ?몃줈濡?*/
         text-align: center;
         margin-bottom: 10px;
         flex-basis: auto;
@@ -274,12 +274,12 @@ footer {
         margin-bottom: 10px;
     }
 
-    /* 연락처 및 링크 목록 왼쪽 정렬 (모바일에서 가독성 향상) */
+    /* ?곕씫泥?諛?留곹겕 紐⑸줉 ?쇱そ ?뺣젹 (紐⑤컮?쇱뿉??媛?낆꽦 ?μ긽) */
     .info-section ul,
     .link-section ul {
         text-align: left;
         max-width: 300px;
-        /* 목록 너비 제한 */
+        /* 紐⑸줉 ?덈퉬 ?쒗븳 */
         margin: 0 auto;
     }
 }
@@ -288,7 +288,7 @@ footer {
 .main-header {
     position: fixed;
     top: 60px;
-    /* nav 높이 보정 */
+    /* nav ?믪씠 蹂댁젙 */
     left: 0;
     width: 100%;
     height: 300px;
@@ -305,14 +305,14 @@ footer {
     z-index: 1000;
 
     transition: top 0.2s ease;
-    /* 부드럽게 숨김/표시 */
+    /* 遺?쒕읇寃??④?/?쒖떆 */
 }
 
 .main-header {
     position: relative;
-    /* Fixed에서 Relative로 변경하여 본문과 함께 스크롤 */
-    margin-top: 60px;
-    /* nav 높이 보정 */
+    /* Fixed?먯꽌 Relative濡?蹂寃쏀븯??蹂몃Ц怨??④퍡 ?ㅽ겕濡?*/
+    margin-top: 0;
+    /* nav ?믪씠 蹂댁젙 */
     width: 100%;
     height: 240px;
     background:
@@ -351,17 +351,17 @@ footer {
 }
 
 
-/* Disqus 댓글창 스타일 수정: 마이너스 마진을 제거하고 상대적 위치를 사용하여 iframe과 겹치도록 함 */
+/* Disqus ?볤?李??ㅽ????섏젙: 留덉씠?덉뒪 留덉쭊???쒓굅?섍퀬 ?곷????꾩튂瑜??ъ슜?섏뿬 iframe怨?寃뱀튂?꾨줉 ??*/
 #disqus_thread {
     width: 70%;
     max-width: 712px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    /* iframe의 여백을 줄이기 위해 위쪽으로 200px 이동 */
+    /* iframe???щ갚??以꾩씠湲??꾪빐 ?꾩そ?쇰줈 200px ?대룞 */
     top: -350px;
     z-index: 100;
-    /* iframe의 z-index보다 높은 값 */
+    /* iframe??z-index蹂대떎 ?믪? 媛?*/
 }
 
 div#disqus_thread iframe[sandbox] {
@@ -369,7 +369,7 @@ div#disqus_thread iframe[sandbox] {
 }
 
 
-/* 공통 본문 레이아웃 */
+/* 怨듯넻 蹂몃Ц ?덉씠?꾩썐 */
 .page-container {
     max-width: 900px;
     margin: 40px auto 100px;
@@ -391,7 +391,7 @@ div#disqus_thread iframe[sandbox] {
     color: #003366;
 }
 
-/* 노션 스타일 Aside */
+/* ?몄뀡 ?ㅽ???Aside */
 .notion-aside {
     background: #f1f3f5;
     padding: 25px;
@@ -419,7 +419,7 @@ div#disqus_thread iframe[sandbox] {
     gap: 10px;
 }
 
-/* 인트로 이미지 */
+/* ?명듃濡??대?吏 */
 .intro-image-wrap {
     margin: 40px 0;
     border-radius: 12px;
@@ -432,7 +432,7 @@ div#disqus_thread iframe[sandbox] {
     display: block;
 }
 
-/* 비전 & 활동 카드 */
+/* 鍮꾩쟾 & ?쒕룞 移대뱶 */
 .grid-cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -469,7 +469,7 @@ div#disqus_thread iframe[sandbox] {
     margin-bottom: 10px;
 }
 
-/* 로고 섹션 */
+/* 濡쒓퀬 ?뱀뀡 */
 .logo-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -492,7 +492,7 @@ div#disqus_thread iframe[sandbox] {
     word-break: keep-all;
 }
 
-/* 참여하기 강조 버튼 */
+/* 李몄뿬?섍린 媛뺤“ 踰꾪듉 */
 .cta-button {
     display: inline-block;
     background: #ff6600;
@@ -510,7 +510,7 @@ div#disqus_thread iframe[sandbox] {
     transform: scale(1.05);
 }
 
-/* 다크 모드 */
+/* ?ㅽ겕 紐⑤뱶 */
 @media (prefers-color-scheme: dark) {
     .page-container {
         color: #e0e0e0;
@@ -551,11 +551,11 @@ div#disqus_thread iframe[sandbox] {
     }
 }
 
-/* 다크 모드일 때 적용될 스타일 */
+/* ?ㅽ겕 紐⑤뱶?????곸슜???ㅽ???*/
 @media (prefers-color-scheme: dark) {
     body {
         background: #191919;
-        /* 어두운 배경색 */
+        /* ?대몢??諛곌꼍??*/
     }
 
     .column h2 {
@@ -564,14 +564,14 @@ div#disqus_thread iframe[sandbox] {
 
     footer {
         background: #333;
-        /* 어두운 배경색 */
+        /* ?대몢??諛곌꼍??*/
         color: #f2f2f2;
-        /* 밝은 글씨색 */
+        /* 諛앹? 湲?⑥깋 */
         border-top: 1px solid #555;
-        /* 어두운 경계선 */
+        /* ?대몢??寃쎄퀎??*/
     }
 }
-/* ������ �̹��� */
+/* 조직도 이미지 */
 .org-chart {
   text-align: center;
   margin: 60px 0;
@@ -586,7 +586,7 @@ div#disqus_thread iframe[sandbox] {
   border-radius: 8px;
 }
 
-/* �ӿ��� ����Ʈ */
+/* 임원진 리스트 */
 .member-list {
   background: #f8f9fa;
   padding: 30px;
@@ -628,7 +628,7 @@ div#disqus_thread iframe[sandbox] {
   color: #555;
 }
 
-/* Ư���ⱸ �� ȸ�� �ȳ� */
+/* 특별기구 및 회원 안내 */
 .special-committee {
   margin-bottom: 50px;
 }
@@ -648,7 +648,7 @@ div#disqus_thread iframe[sandbox] {
   gap: 10px;
   font-size: 1.3rem;
   margin-bottom: 10px;
-  color: #ffcc00; /* ����Ʈ �÷� */
+  color: #ffcc00; /* 포인트 컬러 */
 }
 
 .type-item p {
@@ -657,7 +657,7 @@ div#disqus_thread iframe[sandbox] {
   margin: 0;
 }
 
-/* ������ ���� ���� */
+/* 마지막 강조 문구 */
 .final-message {
   text-align: center;
   font-size: 1.8rem;
@@ -666,7 +666,7 @@ div#disqus_thread iframe[sandbox] {
   color: #003366;
 }
 
-/* ��ũ ��� �߰� */
+/* 다크 모드 추가 */
 @media (prefers-color-scheme: dark) {
   .member-list { background: #252525; border-left-color: #66b3ff; }
   .member-list h2 { border-bottom-color: #444; color: #eee; }
@@ -680,7 +680,7 @@ div#disqus_thread iframe[sandbox] {
   width: 100%;
   height: 350px;
   background: url('images/people.png') center/cover no-repeat;
-  margin-top: 60px;
+  margin-top: 0;
   border-bottom: 1px solid #eee;
 }
 
@@ -693,7 +693,7 @@ div#disqus_thread iframe[sandbox] {
   width: 100%;
   height: 350px;
   background: url('images/history.jpg') center/cover no-repeat;
-  margin-top: 60px;
+  margin-top: 0;
 }
 
 .timeline-section h2 {
@@ -760,7 +760,7 @@ div#disqus_thread iframe[sandbox] {
   width: 100%;
   height: 350px;
   background: url('images/contactus.png') center/cover no-repeat;
-  margin-top: 60px;
+  margin-top: 0;
   border-bottom: 1px solid #eee;
 }
 
@@ -769,8 +769,8 @@ div#disqus_thread iframe[sandbox] {
 }
 .main-header {
   position: relative;
-  margin-top: 60px;
-  /* nav ?믪씠 蹂댁젙 */
+  margin-top: 0;
+  /* nav ?誘れ뵠 癰귣똻??*/
   width: 100%;
   height: 300px;
   background:
@@ -814,7 +814,7 @@ div#disqus_thread iframe[sandbox] {
   display: none;
 }
 
-/* 蹂몃Ц ?댁슜 ?ㅽ???*/
+/* 癰귣챶揆 ??곸뒠 ?????*/
 .content-container {
   max-width: 900px;
   margin: 300px auto 100px;
@@ -863,7 +863,7 @@ div#disqus_thread iframe[sandbox] {
   font-weight: 800;
 }
 
-/* 媛ㅻ윭由?洹몃━??*/
+/* 揶쎼끇??뵳?域밸챶???*/
 .gallery-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -898,7 +898,7 @@ div#disqus_thread iframe[sandbox] {
   background: #f8f9fa;
 }
 
-/* ?쒕낫 ?덈궡 諛뺤뒪 */
+/* ??뺣궖 ??덇땀 獄쏅벡??*/
 .report-alert {
   background: #fff4e5;
   border-left: 5px solid #ff6600;
@@ -920,7 +920,7 @@ div#disqus_thread iframe[sandbox] {
   color: #444;
 }
 
-/* ?≪뀡 踰꾪듉 */
+/* ??る?甕곌쑵??*/
 .action-buttons {
   display: grid;
   grid-template-columns: 1fr;
@@ -959,7 +959,7 @@ div#disqus_thread iframe[sandbox] {
   font-size: 0.9rem;
 }
 
-/* ?섎떒 留곹겕 */
+/* ??롫뼊 筌띻낱寃?*/
 .links-footer {
   display: flex;
   flex-wrap: wrap;
@@ -984,7 +984,7 @@ div#disqus_thread iframe[sandbox] {
   color: #333;
 }
 
-/* 諛섏쓳??*/
+/* 獄쏆꼷???*/
 @media (max-width: 800px) {
   .gallery-grid {
     grid-template-columns: 1fr;
@@ -1043,7 +1043,7 @@ div#disqus_thread iframe[sandbox] {
   }
 }
 
-/* ?ㅽ겕 紐⑤뱶 */
+/* ??쎄쾿 筌뤴뫀諭?*/
 @media (prefers-color-scheme: dark) {
 
   body,
