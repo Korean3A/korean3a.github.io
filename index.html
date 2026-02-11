@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="석면으로 부터 국민건강을 지키기 위해 석면추방국민연대 라는 이름으로 모였습니다.">
   <title>석면추방국민연대</title>
-  <link rel="stylesheet" href="index_style.css">
+  <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="images/favicon.ico">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-66JZRCVRGE"></script>
@@ -35,18 +35,54 @@
 
   <!-- 본문 -->
   <main class="content-container">
-    <!-- 인트로 섹션 -->
-    <section class="intro-section">
-      <div class="intro-banner">
-        <img src="images/logo_eng.png" alt="Korean Alliance Against Asbestos" id="main_logo_img">
-      </div>
-      <p class="intro-description">
-        석면처리관련 정책과 집행을 감시하며 부족한 제도를 개선하고 꼭 필요한 법과 정책을 제시합니다.
-        오늘도 바쁘게 움직이는 <strong>석면추방국민연대</strong>의 활동을 확인해보세요.
-      </p>
-    </section>
 
-    <!-- 갤러리 섹션 -->
+    <!-- PC용 2단 레이아웃 래퍼 -->
+    <div class="index-pc-wrapper">
+
+      <!-- 좌측: 인트로 (로고 + 설명) -->
+      <section class="intro-section">
+        <div class="intro-banner">
+          <img src="images/logo_eng.png" alt="Korean Alliance Against Asbestos" id="main_logo_img">
+        </div>
+        <p class="intro-description">
+          석면처리관련 정책과 집행을 감시하며 부족한 제도를 개선하고 꼭 필요한 법과 정책을 제시합니다.
+          오늘도 바쁘게 움직이는 <strong>석면추방국민연대</strong>의 활동을 확인해보세요.
+        </p>
+      </section>
+
+      <!-- 우측: 사이드바 (제보 + 버튼) -->
+      <div class="index-sidebar">
+        <!-- 제보 안내 섹션 -->
+        <div class="report-alert">
+          <div class="alert-icon">👮🏻</div>
+          <div class="alert-text">
+            폐석면 방치현장, 사업자(석면해체제거 등록업, 운반업, 중간처분업, 최종처분업)의 권리침해 및 관계기관의 부당요구 관련하여 제보해주세요.<br>
+            <strong>석면추방국민연대가 여러분과 함께 하겠습니다.</strong>
+          </div>
+        </div>
+
+        <!-- 주요 액션 버튼 -->
+        <div class="action-buttons">
+          <a href="https://dolomite-drop-27e.notion.site/289b9706c85980c89df2e2d6d270e82d" class="btn-notion"
+            target="_blank">
+            <span>석면관련 불법행위 제보하기</span>
+            <small>▲ 제보하기 (Notion)</small>
+          </a>
+          <a href="https://dolomite-drop-27e.notion.site/28ab9706c85980a0a24ce90bb9084b29?pvs=105" class="btn-notion"
+            target="_blank">
+            <span>권리침해, 부당요구, 갑질행위 제보하기</span>
+            <small>▲ 제보하기 (Notion)</small>
+          </a>
+          <a href="report.html" class="btn-notion">
+            <span>제보가 필요한 폐석면 관련 불법 사례</span>
+            <small>내부 페이지 이동</small>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 갤러리 섹션 (하단 배치) -->
     <div class="gallery-grid">
       <figure>
         <img src="images/header-bg.jpg" alt="석면추방국민연대 창립대회">
@@ -56,33 +92,6 @@
         <img src="images/report1.png" alt="지역별 폐석면 방치현장">
         <figcaption>지역별 폐석면 방치현장</figcaption>
       </figure>
-    </div>
-
-    <!-- 제보 안내 섹션 -->
-    <div class="report-alert">
-      <div class="alert-icon">👮🏻</div>
-      <div class="alert-text">
-        폐석면 방치현장, 사업자(석면해체제거 등록업, 운반업, 중간처분업, 최종처분업)의 권리침해 및 관계기관의 부당요구 관련하여 제보해주세요.<br>
-        <strong>석면추방국민연대가 여러분과 함께 하겠습니다.</strong>
-      </div>
-    </div>
-
-    <!-- 주요 액션 버튼 (제보하기) -->
-    <div class="action-buttons">
-      <a href="https://dolomite-drop-27e.notion.site/289b9706c85980c89df2e2d6d270e82d" class="btn-notion"
-        target="_blank">
-        <span>석면관련 불법행위 제보하기</span>
-        <small>▲ 제보하기 (Notion)</small>
-      </a>
-      <a href="https://dolomite-drop-27e.notion.site/28ab9706c85980a0a24ce90bb9084b29?pvs=105" class="btn-notion"
-        target="_blank">
-        <span>권리침해, 부당요구, 갑질행위 제보하기</span>
-        <small>▲ 제보하기 (Notion)</small>
-      </a>
-      <a href="report.html" class="btn-notion">
-        <span>제보가 필요한 폐석면 관련 불법 사례</span>
-        <small>내부 페이지 이동</small>
-      </a>
     </div>
 
     <!-- 하단 기타 링크 -->

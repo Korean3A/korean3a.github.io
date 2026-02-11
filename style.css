@@ -767,3 +767,371 @@ div#disqus_thread iframe[sandbox] {
 @media (max-width: 768px) {
   .contact-header { height: 200px; }
 }
+.main-header {
+  position: relative;
+  margin-top: 60px;
+  /* nav ?믪씠 蹂댁젙 */
+  width: 100%;
+  height: 300px;
+  background:
+    linear-gradient(270deg, rgba(0, 51, 102, 0.6), rgba(0, 102, 204, 0.6), rgba(255, 102, 0, 0.6), rgba(153, 0, 204, 0.6)),
+    url("images/header-bg.jpg") center/cover no-repeat;
+  background-size: 800% 800%, cover;
+  animation: gradientShift 20s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  z-index: 1000;
+}
+
+
+.main-header .header-content h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.main-header .header-content p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.main-header .header-content a {
+  color: white;
+  text-decoration: none;
+}
+
+.main-header .header-content span {
+  align-items: center;
+  font-size: 20px;
+  border: solid 1px;
+  padding: 5px 20px;
+  margin: 30px auto;
+}
+
+.iframe_cover {
+  display: none;
+}
+
+/* 蹂몃Ц ?댁슜 ?ㅽ???*/
+.content-container {
+  max-width: 900px;
+  margin: 300px auto 100px;
+  /* nav(60) + header(240) + margin */
+  padding: 0 20px;
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.intro-section {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.intro-banner {
+  margin-bottom: 30px;
+}
+
+.intro-banner img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  /* box-shadow: 0 10px 30px rgba(0,0,0,0.1); */
+}
+
+.intro-description {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: #333;
+  word-break: keep-all;
+}
+
+.intro-description strong {
+  color: #0066cc;
+  font-weight: 800;
+}
+
+/* 媛ㅻ윭由?洹몃━??*/
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.gallery-grid figure {
+  margin: 0;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid figure:hover {
+  transform: translateY(-5px);
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.gallery-grid figcaption {
+  padding: 15px;
+  text-align: center;
+  font-weight: 600;
+  color: #555;
+  background: #f8f9fa;
+}
+
+/* ?쒕낫 ?덈궡 諛뺤뒪 */
+.report-alert {
+  background: #fff4e5;
+  border-left: 5px solid #ff6600;
+  padding: 30px;
+  border-radius: 8px;
+  margin-bottom: 60px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.alert-icon {
+  font-size: 2rem;
+}
+
+.alert-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* ?≪뀡 踰꾪듉 */
+.action-buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+.btn-notion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  background: linear-gradient(135deg, #003366, #0066cc);
+  color: white;
+  text-decoration: none;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.2);
+}
+
+.btn-notion:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 102, 204, 0.3);
+  background: linear-gradient(135deg, #004080, #0073e6);
+}
+
+.btn-notion span {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.btn-notion small {
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+/* ?섎떒 留곹겕 */
+.links-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  border-top: 1px solid #eee;
+  padding-top: 40px;
+}
+
+.aside-link {
+  padding: 10px 20px;
+  background: #f0f2f5;
+  color: #666;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.aside-link:hover {
+  background: #e4e6e9;
+  color: #333;
+}
+
+/* 諛섏쓳??*/
+@media (max-width: 800px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .content-container {
+    margin-top: 250px;
+  }
+
+  nav ul {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+  }
+
+  nav ul li {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+  }
+
+  nav ul>li>a {
+    color: #222;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 14px;
+    background: #f9f9f9;
+  }
+
+  nav ul li ul {
+    position: static;
+    border: none;
+    box-shadow: none;
+  }
+
+  nav ul li ul li a {
+    padding: 10px 14px 10px 30px;
+    font-size: 14px;
+    background: white;
+    color: #444;
+  }
+
+  nav ul li ul li a:hover {
+    background: #f0f0f0;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav.active ul {
+    display: flex;
+  }
+}
+
+/* ?ㅽ겕 紐⑤뱶 */
+@media (prefers-color-scheme: dark) {
+
+  body,
+  footer {
+    background: #121212;
+    color: #e0e0e0;
+  }
+
+  .intro-description {
+    color: #ccc;
+  }
+
+  .gallery-grid figure {
+    background: #1e1e1e;
+  }
+
+  .gallery-grid figcaption {
+    background: #252525;
+    color: #aaa;
+  }
+
+  .report-alert {
+    background: #2a1b0a;
+    border-left-color: #ff9900;
+  }
+
+  .alert-text {
+    color: #ddd;
+  }
+
+  .aside-link {
+    background: #2a2a2a;
+    color: #aaa;
+  }
+
+  .aside-link:hover {
+    background: #333;
+    color: #fff;
+  }
+}
+
+/* ---------------------------------------------------- */
+/* Index Page Responsive Layout Improvements (User Request) */
+/* ---------------------------------------------------- */
+
+/* Wrap main content area for PC layout */
+.index-pc-wrapper {
+  display: flex;
+  flex-direction: column; /* Default mobile stack */
+  gap: 40px;
+}
+
+/* On PC (Desktop/Large screens) switch to 2-column layout */
+@media (min-width: 1024px) {
+  .index-pc-wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .intro-section {
+    flex: 1;
+    text-align: left; /* Align text left on PC for better readability */
+    padding-right: 40px; /* Spacing */
+  }
+
+  .index-sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 0; /* Align with top */
+  }
+
+  /* Reduce banner image size on PC so it does not take full screen */
+  .intro-banner img {
+    max-width: 100%; /* Relative to column */
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto 20px 0; /* Align left */
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .intro-banner img {
+    max-width: 80%; /* Slightly smaller on tablets */
+    margin: 0 auto;
+  }
+}
+
