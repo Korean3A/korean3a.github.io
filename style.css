@@ -1,4 +1,42 @@
-﻿* {
+﻿:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --text-muted: #666666;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.08);
+  --border-color: #eeeeee;
+  --footer-bg: #f0f0f0;
+  --faq-question: #004080;
+  --faq-answer: #444444;
+  --faq-card: #f8f9fa;
+  --alert-bg: #fff4e5;
+  --aside-bg: #f1f3f5;
+  --aside-border: #adb5bd;
+  --headline-color: #333333;
+  --accent-blue: #004080;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --text-muted: #aaaaaa;
+    --card-bg: #1e1e1e;
+    --card-shadow: rgba(0, 0, 0, 0.3);
+    --border-color: #333333;
+    --footer-bg: #1a1a1a;
+    --faq-question: #ffcc00;
+    --faq-answer: #dddddd;
+    --faq-card: #252525;
+    --alert-bg: #2a1b0a;
+    --aside-bg: #1e1e1e;
+    --aside-border: #444444;
+    --headline-color: #ffffff;
+    --accent-blue: #3399ff;
+  }
+}
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -8,6 +46,9 @@ body,
 html {
   height: 100%;
   font-family: sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 /* ?ㅻ퉬寃뚯씠??*/
@@ -90,10 +131,10 @@ nav ul li ul {
   position: absolute;
   top: 100%;
   left: 0;
-  background: white;
+  background: var(--bg-color);
   min-width: 180px;
   border-radius: 4px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
 }
 
 nav ul li:hover>ul {
@@ -103,12 +144,12 @@ nav ul li:hover>ul {
 nav ul li ul li a {
   padding: 10px;
   font-size: 14px;
-  color: black;
+  color: var(--text-color);
 }
 
 nav ul li ul li a:hover {
-  background: #f0f0f0;
-  color: black;
+  background: var(--border-color);
+  color: var(--text-color);
 }
 
 .menu-toggle {
@@ -145,8 +186,8 @@ footer {
 
 /* 湲곕낯 (?쇱씠??紐⑤뱶) ?ㅽ???*/
 .k3a-footer {
-  background-color: #f0f0f0;
-  color: #333;
+  background-color: var(--footer-bg);
+  color: var(--text-color);
   padding: 30px 20px;
   font-family: Arial, sans-serif;
   line-height: 1.6;
@@ -158,19 +199,7 @@ footer {
   text-decoration-color: #007bff;
 }
 
-/* ?ㅽ겕 紐⑤뱶 ?ㅽ???*/
-@media (prefers-color-scheme: dark) {
-  .k3a-footer {
-    background-color: #222;
-    color: #fff;
-  }
-
-  .link-section a {
-    color: #fff;
-    text-decoration: underline;
-    text-decoration-color: #f00;
-  }
-}
+/* Dark mode footer handling moved to variables */
 
 /* -------------------- 2. ?곗뒪?ы넲 ?덉씠?꾩썐 (湲곕낯媛? -------------------- */
 
@@ -375,40 +404,52 @@ div#disqus_thread iframe[sandbox] {
   margin: 40px auto 100px;
   padding: 0 20px;
   line-height: 1.8;
-  color: #333;
+  color: var(--text-color);
 }
 
 .page-container h1 {
   font-size: 2.5rem;
   margin-bottom: 30px;
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid var(--border-color);
   padding-bottom: 10px;
 }
 
 .page-container h2 {
   font-size: 1.8rem;
   margin: 40px 0 20px;
-  color: #003366;
+  color: var(--faq-question);
 }
 
-/* ?몄뀡 ?ㅽ???Aside */
+/* Section Style Aside */
 .notion-aside {
-  background: #f1f3f5;
+  background: var(--aside-bg);
   padding: 25px;
   border-radius: 8px;
   margin: 30px 0;
-  border-left: 4px solid #adb5bd;
+  border-left: 4px solid var(--aside-border);
   position: relative;
 }
 
 .notion-aside.light-bulb {
   border-left-color: #ffd43b;
-  background: #fff9db;
+  background: var(--aside-bg);
+}
+
+@media (prefers-color-scheme: light) {
+  .notion-aside.light-bulb {
+    background: #fff9db;
+  }
 }
 
 .notion-aside.people {
   border-left-color: #4dabf7;
-  background: #e7f5ff;
+  background: var(--aside-bg);
+}
+
+@media (prefers-color-scheme: light) {
+  .notion-aside.people {
+    background: #e7f5ff;
+  }
 }
 
 .notion-aside h2 {
@@ -419,12 +460,12 @@ div#disqus_thread iframe[sandbox] {
   gap: 10px;
 }
 
-/* ?명듃濡??대?吏 */
+/* Intro Image */
 .intro-image-wrap {
   margin: 40px 0;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px var(--card-shadow);
 }
 
 .intro-image-wrap img {
@@ -432,7 +473,7 @@ div#disqus_thread iframe[sandbox] {
   display: block;
 }
 
-/* 鍮꾩쟾 & ?쒕룞 移대뱶 */
+/* Vision & Activity Cards */
 .grid-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -444,6 +485,7 @@ div#disqus_thread iframe[sandbox] {
   padding: 30px;
   border-radius: 12px;
   color: white;
+  box-shadow: 0 4px 15px var(--card-shadow);
 }
 
 .card.vision {
@@ -469,7 +511,7 @@ div#disqus_thread iframe[sandbox] {
   margin-bottom: 10px;
 }
 
-/* 濡쒓퀬 ?뱀뀡 */
+/* Logo Grid */
 .logo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -487,12 +529,12 @@ div#disqus_thread iframe[sandbox] {
 
 .logo-item p {
   font-size: 0.9rem;
-  color: #666;
+  color: var(--text-muted);
   padding: 0 10px;
   word-break: keep-all;
 }
 
-/* 李몄뿬?섍린 媛뺤“ 踰꾪듉 */
+/* CTA Button */
 .cta-button {
   display: inline-block;
   background: #ff6600;
@@ -510,36 +552,7 @@ div#disqus_thread iframe[sandbox] {
   transform: scale(1.05);
 }
 
-/* ?ㅽ겕 紐⑤뱶 */
-@media (prefers-color-scheme: dark) {
-  .page-container {
-    color: #e0e0e0;
-  }
-
-  .page-container h1 {
-    border-bottom-color: #333;
-  }
-
-  .notion-aside {
-    background: #1e1e1e;
-    border-left-color: #444;
-    color: #ccc;
-  }
-
-  .notion-aside.light-bulb {
-    background: #2b2610;
-    border-left-color: #fcc419;
-  }
-
-  .notion-aside.people {
-    background: #101c2b;
-    border-left-color: #339af0;
-  }
-
-  .logo-item p {
-    color: #999;
-  }
-}
+/* Dark mode handling moved to variables */
 
 @media (max-width: 768px) {
   .grid-cards {
@@ -551,32 +564,13 @@ div#disqus_thread iframe[sandbox] {
   }
 }
 
-/* ?ㅽ겕 紐⑤뱶?????곸슜???ㅽ???*/
-@media (prefers-color-scheme: dark) {
-  body {
-    background: #191919;
-    /* ?대몢??諛곌꼍??*/
-  }
-
-  .column h2 {
-    color: #f2f2f2;
-  }
-
-  footer {
-    background: #333;
-    /* ?대몢??諛곌꼍??*/
-    color: #f2f2f2;
-    /* 諛앹? 湲?⑥깋 */
-    border-top: 1px solid #555;
-    /* ?대몢??寃쎄퀎??*/
-  }
-}
+/* Dark mode handling moved to variables */
 
 /* 조직도 이미지 */
 .org-chart {
   text-align: center;
   margin: 60px 0;
-  background: #111;
+  background: var(--card-bg);
   padding: 40px;
   border-radius: 12px;
 }
@@ -584,22 +578,22 @@ div#disqus_thread iframe[sandbox] {
 .org-chart img {
   max-width: 100%;
   height: auto;
-  border: 1px solid #333;
+  border: 1px solid var(--border-color);
   border-radius: 8px;
 }
 
 /* 임원진 리스트 */
 .member-list {
-  background: #f8f9fa;
+  background: var(--faq-card);
   padding: 30px;
   border-radius: 12px;
-  border-left: 5px solid #003366;
+  border-left: 5px solid var(--accent-blue);
   margin-bottom: 50px;
 }
 
 .member-list h2 {
   margin-top: 0;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid var(--border-color);
   padding-bottom: 15px;
   margin-bottom: 20px;
 }
@@ -619,7 +613,7 @@ div#disqus_thread iframe[sandbox] {
 
 .member-list li::before {
   content: '';
-  color: #003366;
+  color: var(--accent-blue);
   font-weight: bold;
   margin-right: 10px;
 }
@@ -627,7 +621,7 @@ div#disqus_thread iframe[sandbox] {
 .member-list strong {
   min-width: 100px;
   display: inline-block;
-  color: #555;
+  color: var(--text-muted);
 }
 
 /* 특별기구 및 회원 안내 */
@@ -907,10 +901,10 @@ div#disqus_thread iframe[sandbox] {
 
 .gallery-grid figure {
   margin: 0;
-  background: white;
+  background: var(--card-bg);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px var(--card-shadow);
   transition: transform 0.3s ease;
 }
 
@@ -928,13 +922,13 @@ div#disqus_thread iframe[sandbox] {
   padding: 15px;
   text-align: center;
   font-weight: 600;
-  color: #555;
-  background: #f8f9fa;
+  color: var(--text-color);
+  background: var(--footer-bg);
 }
 
-/* ??뺣궖 ??덇땀 獄쏅벡??*/
+/* Alert Section */
 .report-alert {
-  background: #fff4e5;
+  background: var(--alert-bg);
   border-left: 5px solid #ff6600;
   padding: 30px;
   border-radius: 8px;
@@ -951,10 +945,10 @@ div#disqus_thread iframe[sandbox] {
 .alert-text {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: #444;
+  color: var(--text-color);
 }
 
-/* ??る?甕곌쑵??*/
+/* Action Buttons Area */
 .action-buttons {
   display: grid;
   grid-template-columns: 1fr;
@@ -973,12 +967,12 @@ div#disqus_thread iframe[sandbox] {
   text-decoration: none;
   border-radius: 16px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.2);
+  box-shadow: 0 4px 15px var(--card-shadow);
 }
 
 .btn-notion:hover {
   transform: scale(1.02);
-  box-shadow: 0 8px 25px rgba(0, 102, 204, 0.3);
+  box-shadow: 0 8px 25px var(--card-shadow);
   background: linear-gradient(135deg, #004080, #0073e6);
 }
 
@@ -993,20 +987,20 @@ div#disqus_thread iframe[sandbox] {
   font-size: 0.9rem;
 }
 
-/* ??롫뼊 筌띻낱寃?*/
+/* Footer Links */
 .links-footer {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--border-color);
   padding-top: 40px;
 }
 
 .aside-link {
   padding: 10px 20px;
-  background: #f0f2f5;
-  color: #666;
+  background: var(--footer-bg);
+  color: var(--text-color);
   text-decoration: none;
   border-radius: 20px;
   font-size: 0.9rem;
@@ -1014,8 +1008,8 @@ div#disqus_thread iframe[sandbox] {
 }
 
 .aside-link:hover {
-  background: #e4e6e9;
-  color: #333;
+  background: var(--border-color);
+  color: var(--text-color);
 }
 
 /* 獄쏆꼷???*/
@@ -1077,47 +1071,7 @@ div#disqus_thread iframe[sandbox] {
   }
 }
 
-/* ??쎄쾿 筌뤴뫀諭?*/
-@media (prefers-color-scheme: dark) {
-
-  body,
-  footer {
-    background: #121212;
-    color: #e0e0e0;
-  }
-
-  .intro-description {
-    color: #ccc;
-  }
-
-  .gallery-grid figure {
-    background: #1e1e1e;
-  }
-
-  .gallery-grid figcaption {
-    background: #252525;
-    color: #aaa;
-  }
-
-  .report-alert {
-    background: #2a1b0a;
-    border-left-color: #ff9900;
-  }
-
-  .alert-text {
-    color: #ddd;
-  }
-
-  .aside-link {
-    background: #2a2a2a;
-    color: #aaa;
-  }
-
-  .aside-link:hover {
-    background: #333;
-    color: #fff;
-  }
-}
+/* Dark mode handled by variables */
 
 /* ---------------------------------------------------- */
 /* Index Page Responsive Layout Improvements (User Request) */
@@ -1248,19 +1202,18 @@ div#disqus_thread iframe[sandbox] {
   font-size: 2.5rem;
   font-weight: 800;
   margin-bottom: 50px;
-  color: #333;
+  color: var(--headline-color);
 }
 
-@media (prefers-color-scheme: dark) {
-  .page-cover-headline {
-    color: #fff;
-  }
-}
+/* Dark mode handling moved to variables */
+
 /* Iframe Page Layout (board, etc.) */
 #frame_wraper {
   width: 100%;
-  height: 800px; /* Default height, can be adjusted or set to calc */
-  margin-top: 60px; /* Offset for fixed nav */
+  height: 800px;
+  /* Default height, can be adjusted or set to calc */
+  margin-top: 60px;
+  /* Offset for fixed nav */
   position: relative;
 }
 
@@ -1285,7 +1238,7 @@ div#disqus_thread iframe[sandbox] {
 }
 
 .faq-header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 60px;
 }
 
@@ -1293,25 +1246,26 @@ div#disqus_thread iframe[sandbox] {
   font-size: 5rem;
   color: #ff2d55;
   font-weight: 900;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 .faq-title {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #fff;
-  margin-bottom: 30px;
+  color: var(--headline-color);
+  margin-bottom: 5px;
 }
 
 .faq-ai-alert {
-  background: #2d2644;
-  color: #b39ddb;
+  background: var(--card-bg);
+  color: var(--text-muted);
   padding: 15px 25px;
   border-radius: 8px;
   display: inline-block;
   font-size: 0.95rem;
-  margin-bottom: 50px;
+  margin-bottom: 0px;
   text-align: left;
+  border: 1px solid var(--border-color);
 }
 
 .faq-category {
@@ -1321,16 +1275,17 @@ div#disqus_thread iframe[sandbox] {
 .faq-category-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--headline-color);
   margin-bottom: 25px;
   padding-left: 5px;
 }
 
 .faq-card {
-  background: #252525;
+  background: var(--faq-card);
   border-radius: 12px;
   padding: 30px;
   margin-bottom: 20px;
+  box-shadow: 0 4px 15px var(--card-shadow);
 }
 
 .faq-item {
@@ -1344,14 +1299,13 @@ div#disqus_thread iframe[sandbox] {
 .faq-question {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #ffcc00;
+  color: var(--faq-question);
   margin-bottom: 12px;
   display: block;
 }
 
 .faq-answer {
-  color: #ddd;
+  color: var(--faq-answer);
   line-height: 1.7;
   font-size: 1.1rem;
 }
-
