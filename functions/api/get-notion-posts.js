@@ -23,7 +23,11 @@ export async function onRequest(context) {
     const NOTION_API_KEY = (env.NOTION_API_KEY || '').trim();
 
     if (!NOTION_API_KEY) {
-      return new Response(JSON.stringify({ success: false, error: 'NOTION_API_KEY가 없습니다.' }), { status: 500, headers: corsHeaders });
+      return new Response(JSON.stringify({
+        success: false,
+        error: 'NOTION_API_KEY가 없습니다.',
+        detectedKeys: Object.keys(env) // 현재 인식된 모든 변수명 리스트
+      }), { status: 500, headers: corsHeaders });
     }
 
     // URL에서 type 파라미터 추출
