@@ -152,21 +152,55 @@ function renderBlocks(blocks) {
         return `<ul><li>${getRichText(value.rich_text)}</li></ul>`;
       case 'numbered_list_item':
         return `<ol><li>${getRichText(value.rich_text)}</li></ol>`;
-      case 'image':
+      case 'image': {
         const url = value.type === 'external' ? value.external.url : value.file.url;
         const caption = getRichText(value.caption);
-        return `<figure><img src="${url}" alt="image">${caption ? `<figcaption>${caption}</figcaption>` : ''}</figure>`;
+        return `<figure class="post-image-wrap"><img src="${url}" alt="image">${caption ? `<figcaption>${caption}</figcaption>` : ''}</figure>`;
+      }
+      case 'video': {
+        const url = value.type === 'external' ? value.external.url : value.file.url;
+        if (url.includes('youtube.com') || url.includes('youtu.be')) {
+          const videoId = url.includes('v=') ? url.split('v=')[1].split('&')[0] : url.split('/').pop();
+          return `<div class="aspect-ratio-wrap"><iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe></div>`;
+        }
+        return `<video controls src="${url}" style="width:100%; border-radius:12px; margin:20px 0;"></video>`;
+      }
+      case 'file':
+      case 'pdf': {
+        const url = value.type === 'external' ? value.external.url : value.file.url;
+        const fileName = value.name || (value.caption?.[0]?.plain_text) || '첨부파일 다운로드';
+        return `
+          <div class="file-attachment">
+            <span class="file-icon">📁</span>
+            <a href="${url}" target="_blank" rel="noopener noreferrer" class="file-link">
+              ${escapeHtml(fileName)}
+            </a>
+          </div>
+        `;
+      }
+      case 'embed': {
+        const url = value.url;
+        // Google Drive 등 임베드 처리
+        if (url.includes('drive.google.com')) {
+          const embedUrl = url.replace('/view', '/preview');
+          return `<div class="aspect-ratio-wrap"><iframe src="${embedUrl}" width="100%" height="480" allow="autoplay"></iframe></div>`;
+        }
+        return `<div class="aspect-ratio-wrap"><iframe src="${url}" frameborder="0"></iframe></div>`;
+      }
       case 'divider':
         return `<hr class="section-divider">`;
       case 'quote':
         return `<blockquote>${getRichText(value.rich_text)}</blockquote>`;
       case 'code':
-        return `<pre><code>${getRichText(value.rich_text)}</code></pre>`;
-      case 'callout':
+        return `<div class="code-block"><pre><code>${getRichText(value.rich_text)}</code></pre></div>`;
+      case 'callout': {
         const icon = value.icon?.emoji || 'ℹ️';
         return `<div class="notion-aside"><p>${icon} ${getRichText(value.rich_text)}</p></div>`;
+      }
+      case 'table':
+        return `<p class="empty-message-small">⚠️ 표(Table) 블록은 현재 목록 보기에서 지원하지 않습니다.</p>`;
       default:
-        return ''; // 지원하지 않는 블록은 건너뜀
+        return '';
     }
   }).join('').replace(/<\/ul><ul>/g, '').replace(/<\/ol><ol>/g, ''); // 연속된 리스트 합치기
 }
