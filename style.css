@@ -1,143 +1,143 @@
 ﻿* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body,
 html {
-    height: 100%;
-    font-family: sans-serif;
+  height: 100%;
+  font-family: sans-serif;
 }
 
 /* ?ㅻ퉬寃뚯씠??*/
 nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    z-index: 3000;
-    background: linear-gradient(270deg, #003366, #0066cc, #ff6600, #9900cc);
-    background-size: 800% 800%;
-    animation: gradientShift 20s ease infinite;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 3000;
+  background: linear-gradient(270deg, #003366, #0066cc, #ff6600, #9900cc);
+  background-size: 800% 800%;
+  animation: gradientShift 20s ease infinite;
 }
 
 @keyframes gradientShift {
-    0% {
-        background-position: 0% 50%;
-    }
+  0% {
+    background-position: 0% 50%;
+  }
 
-    50% {
-        background-position: 100% 50%;
-    }
+  50% {
+    background-position: 100% 50%;
+  }
 
-    100% {
-        background-position: 0% 50%;
-    }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 nav .logo {
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    font-size: 18px;
-    margin-right: 80px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 80px;
 }
 
 nav .logo a {
-    display: flex;
-    align-items: center;
-    color: white;
-    text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
 }
 
 nav .logo img {
-    margin-right: 5px;
-    width: 60px;
+  margin-right: 5px;
+  width: 60px;
 }
 
 nav ul {
-    list-style: none;
-    display: flex;
-    margin-left: auto;
+  list-style: none;
+  display: flex;
+  margin-left: auto;
 }
 
 nav ul li {
-    position: relative;
-    margin-right: 20px;
+  position: relative;
+  margin-right: 20px;
 }
 
 nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 15px;
-    padding: 8px;
-    display: block;
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 8px;
+  display: block;
 }
 
 nav ul li a:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
 }
 
 nav ul li ul {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    min-width: 180px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  min-width: 180px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
 }
 
 nav ul li:hover>ul {
-    display: block;
+  display: block;
 }
 
 nav ul li ul li a {
-    padding: 10px;
-    font-size: 14px;
-    color: black;
+  padding: 10px;
+  font-size: 14px;
+  color: black;
 }
 
 nav ul li ul li a:hover {
-    background: #f0f0f0;
-    color: black;
+  background: #f0f0f0;
+  color: black;
 }
 
 .menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    margin-left: auto;
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-left: auto;
 }
 
 .menu-toggle span {
-    width: 25px;
-    height: 3px;
-    background: white;
-    margin: 4px 0;
+  width: 25px;
+  height: 3px;
+  background: white;
+  margin: 4px 0;
 }
 
 /* 湲곕낯 (?쇱씠??紐⑤뱶) ?명꽣 ?ㅽ???*/
 footer {
-    position: relative;
-    width: 100%;
-    min-height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top: 1px solid #ccc;
-    /* 諛앹? 寃쎄퀎??*/
-    z-index: 3000;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-    /* 遺?쒕윭???꾪솚 ?④낵 */
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #ccc;
+  /* 諛앹? 寃쎄퀎??*/
+  z-index: 3000;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  /* 遺?쒕윭???꾪솚 ?④낵 */
 }
 
 
@@ -145,432 +145,433 @@ footer {
 
 /* 湲곕낯 (?쇱씠??紐⑤뱶) ?ㅽ???*/
 .k3a-footer {
-    background-color: #f0f0f0;
-    color: #333;
-    padding: 30px 20px;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 30px 20px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
 }
 
 .link-section a {
-    color: #007bff;
-    text-decoration: underline;
-    text-decoration-color: #007bff;
+  color: #007bff;
+  text-decoration: underline;
+  text-decoration-color: #007bff;
 }
 
 /* ?ㅽ겕 紐⑤뱶 ?ㅽ???*/
 @media (prefers-color-scheme: dark) {
-    .k3a-footer {
-        background-color: #222;
-        color: #fff;
-    }
+  .k3a-footer {
+    background-color: #222;
+    color: #fff;
+  }
 
-    .link-section a {
-        color: #fff;
-        text-decoration: underline;
-        text-decoration-color: #f00;
-    }
+  .link-section a {
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-color: #f00;
+  }
 }
 
 /* -------------------- 2. ?곗뒪?ы넲 ?덉씠?꾩썐 (湲곕낯媛? -------------------- */
 
 .footer-container {
-    display: flex;
-    /* ?곗뒪?ы넲 湲곕낯? 媛濡??뺣젹 */
-    justify-content: space-around;
-    max-width: 1200px;
-    margin: 0 auto;
-    align-items: flex-start;
+  display: flex;
+  /* ?곗뒪?ы넲 湲곕낯? 媛濡??뺣젹 */
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start;
 }
 
 .footer-section {
-    padding: 0 15px;
-    flex-basis: 30%;
-    /* ?곗뒪?ы넲?먯꽌 媛??뱀뀡???덈퉬 */
-    margin: auto;
+  padding: 0 15px;
+  flex-basis: 30%;
+  /* ?곗뒪?ы넲?먯꽌 媛??뱀뀡???덈퉬 */
+  margin: auto;
 }
 
 .logo-section {
-    display: flex;
-    align-items: center;
-    flex-basis: 35%;
+  display: flex;
+  align-items: center;
+  flex-basis: 35%;
 }
 
 .logo-section img {
-    height: 250px;
-    margin-right: 15px;
+  height: 250px;
+  margin-right: 15px;
 }
 
 .logo-text {
-    display: none;
+  display: none;
 }
 
 .info-section ul,
 .link-section ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .info-section li,
 .link-section li {
-    font-size: 14px;
-    margin-bottom: 5px;
+  font-size: 14px;
+  margin-bottom: 5px;
 }
 
 .link-section a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 /* -------------------- 3. 紐⑤컮???덉씠?꾩썐 (誘몃뵒??荑쇰━) -------------------- */
 
 @media (max-width: 768px) {
 
-    footer {
-        height: 500px;
-    }
+  footer {
+    height: 500px;
+  }
 
-    .logo-section img {
-        height: 150px;
-    }
+  .logo-section img {
+    height: 150px;
+  }
 
-    .footer-container {
-        flex-direction: column;
-        /* ?붾㈃??768px ?댄븯?????몃줈 ?뺣젹濡?蹂寃?*/
-        align-items: center;
-        /* 媛?대뜲 ?뺣젹 */
-        text-align: center;
-        /* ?띿뒪??媛?대뜲 ?뺣젹 */
-    }
+  .footer-container {
+    flex-direction: column;
+    /* ?붾㈃??768px ?댄븯?????몃줈 ?뺣젹濡?蹂寃?*/
+    align-items: center;
+    /* 媛?대뜲 ?뺣젹 */
+    text-align: center;
+    /* ?띿뒪??媛?대뜲 ?뺣젹 */
+  }
 
-    .footer-section {
-        flex-basis: 100%;
-        /* ?덈퉬瑜?100%濡??뺤옣 */
-        padding: 15px 0;
-        /* ?곹븯 媛꾧꺽 異붽? */
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        /* ?뱀뀡 援щ텇??(?ㅽ겕 紐⑤뱶 ?鍮??щ챸???곗깋) */
-        width: 100%;
-        max-width: 350px;
-        /* ?뱀뀡 ?댁슜??理쒕? ?덈퉬 ?쒗븳 (?좏깮 ?ы빆) */
-    }
+  .footer-section {
+    flex-basis: 100%;
+    /* ?덈퉬瑜?100%濡??뺤옣 */
+    padding: 15px 0;
+    /* ?곹븯 媛꾧꺽 異붽? */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /* ?뱀뀡 援щ텇??(?ㅽ겕 紐⑤뱶 ?鍮??щ챸???곗깋) */
+    width: 100%;
+    max-width: 350px;
+    /* ?뱀뀡 ?댁슜??理쒕? ?덈퉬 ?쒗븳 (?좏깮 ?ы빆) */
+  }
 
-    /* 留덉?留??뱀뀡??援щ텇???쒓굅 */
-    .footer-section:last-child {
-        border-bottom: none;
-    }
+  /* 留덉?留??뱀뀡??援щ텇???쒓굅 */
+  .footer-section:last-child {
+    border-bottom: none;
+  }
 
-    /* 濡쒓퀬 ?뱀뀡 ?ъ젙??*/
-    .logo-section {
-        flex-direction: column;
-        /* 濡쒓퀬? ?띿뒪?몃? ?몃줈濡?*/
-        text-align: center;
-        margin-bottom: 10px;
-        flex-basis: auto;
-    }
+  /* 濡쒓퀬 ?뱀뀡 ?ъ젙??*/
+  .logo-section {
+    flex-direction: column;
+    /* 濡쒓퀬? ?띿뒪?몃? ?몃줈濡?*/
+    text-align: center;
+    margin-bottom: 10px;
+    flex-basis: auto;
+  }
 
-    .logo-section img {
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
+  .logo-section img {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 
-    /* ?곕씫泥?諛?留곹겕 紐⑸줉 ?쇱そ ?뺣젹 (紐⑤컮?쇱뿉??媛?낆꽦 ?μ긽) */
-    .info-section ul,
-    .link-section ul {
-        text-align: left;
-        max-width: 300px;
-        /* 紐⑸줉 ?덈퉬 ?쒗븳 */
-        margin: 0 auto;
-    }
+  /* ?곕씫泥?諛?留곹겕 紐⑸줉 ?쇱そ ?뺣젹 (紐⑤컮?쇱뿉??媛?낆꽦 ?μ긽) */
+  .info-section ul,
+  .link-section ul {
+    text-align: left;
+    max-width: 300px;
+    /* 紐⑸줉 ?덈퉬 ?쒗븳 */
+    margin: 0 auto;
+  }
 }
 
 
 .main-header {
-    position: fixed;
-    top: 60px;
-    /* nav ?믪씠 蹂댁젙 */
-    left: 0;
-    width: 100%;
-    height: 300px;
-    background:
-        linear-gradient(270deg, rgba(0, 51, 102, 0.6), rgba(0, 102, 204, 0.6), rgba(255, 102, 0, 0.6), rgba(153, 0, 204, 0.6)),
-        url("images/header-bg.jpg") center/cover no-repeat;
-    background-size: 800% 800%, cover;
-    animation: gradientShift 20s ease infinite;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-    z-index: 1000;
+  position: fixed;
+  top: 60px;
+  /* nav ?믪씠 蹂댁젙 */
+  left: 0;
+  width: 100%;
+  height: 300px;
+  background:
+    linear-gradient(270deg, rgba(0, 51, 102, 0.6), rgba(0, 102, 204, 0.6), rgba(255, 102, 0, 0.6), rgba(153, 0, 204, 0.6)),
+    url("images/header-bg.jpg") center/cover no-repeat;
+  background-size: 800% 800%, cover;
+  animation: gradientShift 20s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  z-index: 1000;
 
-    transition: top 0.2s ease;
-    /* 遺?쒕읇寃??④?/?쒖떆 */
+  transition: top 0.2s ease;
+  /* 遺?쒕읇寃??④?/?쒖떆 */
 }
 
 .main-header {
-    position: relative;
-    /* Fixed?먯꽌 Relative濡?蹂寃쏀븯??蹂몃Ц怨??④퍡 ?ㅽ겕濡?*/
-    margin-top: 0;
-    /* nav ?믪씠 蹂댁젙 */
-    width: 100%;
-    height: 240px;
-    background:
-        linear-gradient(270deg, rgba(0, 51, 102, 0.8), rgba(0, 102, 204, 0.8)),
-        url("images/header-bg.jpg") center/cover no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-    z-index: 1000;
+  position: relative;
+  /* Fixed?먯꽌 Relative濡?蹂寃쏀븯??蹂몃Ц怨??④퍡 ?ㅽ겕濡?*/
+  margin-top: 0;
+  /* nav ?믪씠 蹂댁젙 */
+  width: 100%;
+  height: 240px;
+  background:
+    linear-gradient(270deg, rgba(0, 51, 102, 0.8), rgba(0, 102, 204, 0.8)),
+    url("images/header-bg.jpg") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  z-index: 1000;
 }
 
 
 .main-header .header-content h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
+  font-size: 36px;
+  margin-bottom: 10px;
 }
 
 .main-header .header-content p {
-    font-size: 18px;
-    margin-bottom: 10px;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .main-header .header-content a {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 
 .main-header .header-content span {
-    align-items: center;
-    font-size: 20px;
-    border: solid 1px;
-    padding: 5px 20px;
-    margin: 30px auto;
+  align-items: center;
+  font-size: 20px;
+  border: solid 1px;
+  padding: 5px 20px;
+  margin: 30px auto;
 }
 
 
 /* Disqus ?볤?李??ㅽ????섏젙: 留덉씠?덉뒪 留덉쭊???쒓굅?섍퀬 ?곷????꾩튂瑜??ъ슜?섏뿬 iframe怨?寃뱀튂?꾨줉 ??*/
 #disqus_thread {
-    width: 70%;
-    max-width: 712px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    /* iframe???щ갚??以꾩씠湲??꾪빐 ?꾩そ?쇰줈 200px ?대룞 */
-    top: -350px;
-    z-index: 100;
-    /* iframe??z-index蹂대떎 ?믪? 媛?*/
+  width: 70%;
+  max-width: 712px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  /* iframe???щ갚??以꾩씠湲??꾪빐 ?꾩そ?쇰줈 200px ?대룞 */
+  top: -350px;
+  z-index: 100;
+  /* iframe??z-index蹂대떎 ?믪? 媛?*/
 }
 
 div#disqus_thread iframe[sandbox] {
-    max-height: 0px !important;
+  max-height: 0px !important;
 }
 
 
 /* 怨듯넻 蹂몃Ц ?덉씠?꾩썐 */
 .page-container {
-    max-width: 900px;
-    margin: 40px auto 100px;
-    padding: 0 20px;
-    line-height: 1.8;
-    color: #333;
+  max-width: 900px;
+  margin: 40px auto 100px;
+  padding: 0 20px;
+  line-height: 1.8;
+  color: #333;
 }
 
 .page-container h1 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
 }
 
 .page-container h2 {
-    font-size: 1.8rem;
-    margin: 40px 0 20px;
-    color: #003366;
+  font-size: 1.8rem;
+  margin: 40px 0 20px;
+  color: #003366;
 }
 
 /* ?몄뀡 ?ㅽ???Aside */
 .notion-aside {
-    background: #f1f3f5;
-    padding: 25px;
-    border-radius: 8px;
-    margin: 30px 0;
-    border-left: 4px solid #adb5bd;
-    position: relative;
+  background: #f1f3f5;
+  padding: 25px;
+  border-radius: 8px;
+  margin: 30px 0;
+  border-left: 4px solid #adb5bd;
+  position: relative;
 }
 
 .notion-aside.light-bulb {
-    border-left-color: #ffd43b;
-    background: #fff9db;
+  border-left-color: #ffd43b;
+  background: #fff9db;
 }
 
 .notion-aside.people {
-    border-left-color: #4dabf7;
-    background: #e7f5ff;
+  border-left-color: #4dabf7;
+  background: #e7f5ff;
 }
 
 .notion-aside h2 {
-    margin-top: 0;
-    font-size: 1.4rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  margin-top: 0;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 /* ?명듃濡??대?吏 */
 .intro-image-wrap {
-    margin: 40px 0;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin: 40px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .intro-image-wrap img {
-    width: 100%;
-    display: block;
+  width: 100%;
+  display: block;
 }
 
 /* 鍮꾩쟾 & ?쒕룞 移대뱶 */
 .grid-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin: 40px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 40px 0;
 }
 
 .card {
-    padding: 30px;
-    border-radius: 12px;
-    color: white;
+  padding: 30px;
+  border-radius: 12px;
+  color: white;
 }
 
 .card.vision {
-    background: linear-gradient(135deg, #868e96, #495057);
+  background: linear-gradient(135deg, #868e96, #495057);
 }
 
 .card.activity {
-    background: linear-gradient(135deg, #1c7ed6, #1864ab);
+  background: linear-gradient(135deg, #1c7ed6, #1864ab);
 }
 
 .card h2 {
-    color: white;
-    margin-top: 0;
-    border: none;
-    font-size: 1.5rem;
+  color: white;
+  margin-top: 0;
+  border: none;
+  font-size: 1.5rem;
 }
 
 .card ul {
-    padding-left: 20px;
+  padding-left: 20px;
 }
 
 .card li {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 /* 濡쒓퀬 ?뱀뀡 */
 .logo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    margin-top: 40px;
-    text-align: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+  text-align: center;
 }
 
 .logo-item img {
-    max-width: 100%;
-    height: 150px;
-    object-fit: contain;
-    margin-bottom: 15px;
+  max-width: 100%;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 15px;
 }
 
 .logo-item p {
-    font-size: 0.9rem;
-    color: #666;
-    padding: 0 10px;
-    word-break: keep-all;
+  font-size: 0.9rem;
+  color: #666;
+  padding: 0 10px;
+  word-break: keep-all;
 }
 
 /* 李몄뿬?섍린 媛뺤“ 踰꾪듉 */
 .cta-button {
-    display: inline-block;
-    background: #ff6600;
-    color: white;
-    padding: 15px 40px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin: 20px 0;
-    transition: transform 0.2s;
+  display: inline-block;
+  background: #ff6600;
+  color: white;
+  padding: 15px 40px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 20px 0;
+  transition: transform 0.2s;
 }
 
 .cta-button:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 /* ?ㅽ겕 紐⑤뱶 */
 @media (prefers-color-scheme: dark) {
-    .page-container {
-        color: #e0e0e0;
-    }
+  .page-container {
+    color: #e0e0e0;
+  }
 
-    .page-container h1 {
-        border-bottom-color: #333;
-    }
+  .page-container h1 {
+    border-bottom-color: #333;
+  }
 
-    .notion-aside {
-        background: #1e1e1e;
-        border-left-color: #444;
-        color: #ccc;
-    }
+  .notion-aside {
+    background: #1e1e1e;
+    border-left-color: #444;
+    color: #ccc;
+  }
 
-    .notion-aside.light-bulb {
-        background: #2b2610;
-        border-left-color: #fcc419;
-    }
+  .notion-aside.light-bulb {
+    background: #2b2610;
+    border-left-color: #fcc419;
+  }
 
-    .notion-aside.people {
-        background: #101c2b;
-        border-left-color: #339af0;
-    }
+  .notion-aside.people {
+    background: #101c2b;
+    border-left-color: #339af0;
+  }
 
-    .logo-item p {
-        color: #999;
-    }
+  .logo-item p {
+    color: #999;
+  }
 }
 
 @media (max-width: 768px) {
-    .grid-cards {
-        grid-template-columns: 1fr;
-    }
+  .grid-cards {
+    grid-template-columns: 1fr;
+  }
 
-    .page-container h1 {
-        font-size: 2rem;
-    }
+  .page-container h1 {
+    font-size: 2rem;
+  }
 }
 
 /* ?ㅽ겕 紐⑤뱶?????곸슜???ㅽ???*/
 @media (prefers-color-scheme: dark) {
-    body {
-        background: #191919;
-        /* ?대몢??諛곌꼍??*/
-    }
+  body {
+    background: #191919;
+    /* ?대몢??諛곌꼍??*/
+  }
 
-    .column h2 {
-        color: #f2f2f2;
-    }
+  .column h2 {
+    color: #f2f2f2;
+  }
 
-    footer {
-        background: #333;
-        /* ?대몢??諛곌꼍??*/
-        color: #f2f2f2;
-        /* 諛앹? 湲?⑥깋 */
-        border-top: 1px solid #555;
-        /* ?대몢??寃쎄퀎??*/
-    }
+  footer {
+    background: #333;
+    /* ?대몢??諛곌꼍??*/
+    color: #f2f2f2;
+    /* 諛앹? 湲?⑥깋 */
+    border-top: 1px solid #555;
+    /* ?대몢??寃쎄퀎??*/
+  }
 }
+
 /* 조직도 이미지 */
 .org-chart {
   text-align: center;
@@ -579,6 +580,7 @@ div#disqus_thread iframe[sandbox] {
   padding: 40px;
   border-radius: 12px;
 }
+
 .org-chart img {
   max-width: 100%;
   height: auto;
@@ -648,7 +650,8 @@ div#disqus_thread iframe[sandbox] {
   gap: 10px;
   font-size: 1.3rem;
   margin-bottom: 10px;
-  color: #ffcc00; /* 포인트 컬러 */
+  color: #ffcc00;
+  /* 포인트 컬러 */
 }
 
 .type-item p {
@@ -668,11 +671,27 @@ div#disqus_thread iframe[sandbox] {
 
 /* 다크 모드 추가 */
 @media (prefers-color-scheme: dark) {
-  .member-list { background: #252525; border-left-color: #66b3ff; }
-  .member-list h2 { border-bottom-color: #444; color: #eee; }
-  .member-list li { color: #ccc; }
-  .member-list strong { color: #aaa; } 
-  .final-message { color: #fff; }
+  .member-list {
+    background: #252525;
+    border-left-color: #66b3ff;
+  }
+
+  .member-list h2 {
+    border-bottom-color: #444;
+    color: #eee;
+  }
+
+  .member-list li {
+    color: #ccc;
+  }
+
+  .member-list strong {
+    color: #aaa;
+  }
+
+  .final-message {
+    color: #fff;
+  }
 }
 
 /* People Page Header */
@@ -685,7 +704,9 @@ div#disqus_thread iframe[sandbox] {
 }
 
 @media (max-width: 768px) {
-  .people-header { height: 200px; }
+  .people-header {
+    height: 200px;
+  }
 }
 
 /* History Page */
@@ -746,13 +767,23 @@ div#disqus_thread iframe[sandbox] {
   width: 100%;
   display: block;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 @media (max-width: 768px) {
-  .timeline-item { flex-direction: column; align-items: flex-start; }
-  .timeline-image { width: 100%; flex: 0 0 auto; }
-  .history-header { height: 200px; }
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .timeline-image {
+    width: 100%;
+    flex: 0 0 auto;
+  }
+
+  .history-header {
+    height: 200px;
+  }
 }
 
 /* Contact Page Header */
@@ -765,8 +796,11 @@ div#disqus_thread iframe[sandbox] {
 }
 
 @media (max-width: 768px) {
-  .contact-header { height: 200px; }
+  .contact-header {
+    height: 200px;
+  }
 }
+
 .main-header {
   position: relative;
   margin-top: 0;
@@ -817,7 +851,7 @@ div#disqus_thread iframe[sandbox] {
 /* 癰귣챶揆 ??곸뒠 ?????*/
 .content-container {
   max-width: 900px;
-  margin: 60px auto 100px;
+  margin: 120px auto 100px;
   /* nav(60) + header(240) + margin */
   padding: 0 20px;
   animation: fadeIn 1s ease-out;
@@ -1092,7 +1126,8 @@ div#disqus_thread iframe[sandbox] {
 /* Wrap main content area for PC layout */
 .index-pc-wrapper {
   display: flex;
-  flex-direction: column; /* Default mobile stack */
+  flex-direction: column;
+  /* Default mobile stack */
   gap: 40px;
 }
 
@@ -1106,8 +1141,10 @@ div#disqus_thread iframe[sandbox] {
 
   .intro-section {
     flex: 1;
-    text-align: left; /* Align text left on PC for better readability */
-    padding-right: 40px; /* Spacing */
+    text-align: left;
+    /* Align text left on PC for better readability */
+    padding-right: 40px;
+    /* Spacing */
   }
 
   .index-sidebar {
@@ -1115,22 +1152,26 @@ div#disqus_thread iframe[sandbox] {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    margin-top: 0; /* Align with top */
+    margin-top: 0;
+    /* Align with top */
   }
 
   /* Reduce banner image size on PC so it does not take full screen */
   .intro-banner img {
-    max-width: 100%; /* Relative to column */
+    max-width: 100%;
+    /* Relative to column */
     height: auto;
     object-fit: contain;
-    margin: 0 auto 20px 0; /* Align left */
+    margin: 0 auto 20px 0;
+    /* Align left */
   }
 }
 
 /* Tablet adjustments */
 @media (min-width: 768px) and (max-width: 1023px) {
   .intro-banner img {
-    max-width: 80%; /* Slightly smaller on tablets */
+    max-width: 80%;
+    /* Slightly smaller on tablets */
     margin: 0 auto;
   }
 }
@@ -1203,7 +1244,7 @@ div#disqus_thread iframe[sandbox] {
 
 /* Page Cover Headline */
 .page-cover-headline {
-  text-align: center;
+  text-align: left;
   font-size: 2.5rem;
   font-weight: 800;
   margin-bottom: 50px;
@@ -1215,4 +1256,3 @@ div#disqus_thread iframe[sandbox] {
     color: #fff;
   }
 }
-
