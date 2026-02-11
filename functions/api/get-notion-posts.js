@@ -65,7 +65,7 @@ export async function onRequest(context) {
         },
         body: JSON.stringify({
           sorts: [{ timestamp: 'created_time', direction: 'descending' }],
-          page_size: (type === 'schedule' ? 3 : (type === 'album' ? 5 : 15))
+          page_size: (type === 'schedule' ? 3 : (type === 'album' ? 6 : 15))
         }),
       }
     );
