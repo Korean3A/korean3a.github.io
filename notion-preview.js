@@ -160,10 +160,10 @@ function initNotionTabs() {
     });
   });
 
-  // 초기 데이터 로드 (기본값: 앨범)
-  const defaultBtn = document.querySelector('.notion-tab-btn[data-type="album"]');
+  // 초기 데이터 로드 (기본값: News&Issue)
+  const defaultBtn = document.querySelector('.notion-tab-btn[data-type="news"]');
   if (defaultBtn) {
-    switchTab('album', defaultBtn);
+    switchTab('news', defaultBtn);
   }
 }
 

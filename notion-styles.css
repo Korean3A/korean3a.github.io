@@ -1,74 +1,87 @@
+/* 가로 구분선 스타일 */
+.section-divider {
+  border: 0;
+  height: 1px;
+  background: var(--border-color);
+  margin: 40px 0;
+  opacity: 0.5;
+}
+
 /* Notion 통합 섹션 스타일 */
 .notion-integrated-section {
-  margin: 50px auto;
+  margin: 30px auto 60px;
   max-width: 1200px;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 
 .notion-tabs {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 12px;
   margin-bottom: 30px;
   flex-wrap: wrap;
 }
 
 .notion-tab-btn {
-  padding: 12px 24px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 30px;
-  background: #1e1e1e;
-  color: #999;
+  border-radius: 25px;
+  background: var(--card-bg);
+  color: var(--text-muted);
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 500;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px var(--card-shadow);
 }
 
 .notion-tab-btn:hover {
-  background: #2a2a2a;
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.3);
+  background: var(--border-color);
+  color: var(--text-color);
+  border-color: var(--text-muted);
 }
 
 .notion-tab-btn.active {
-  background: #2563eb;
+  background: var(--accent-blue);
   color: #fff;
-  border-color: #2563eb;
-  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
-  transform: translateY(-2px);
+  border-color: var(--accent-blue);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+  border-radius: 12px;
+  /* 탭 형태 강조를 위해 곡률 살짝 조정 */
 }
 
+/* 콘텐츠 영역: 다크/라이트 모드 자동 대응 */
 .notion-content-area {
   min-height: 400px;
-  background: #111;
-  border-radius: 20px;
-  padding: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
+  background: var(--card-bg);
+  /* 고정된 검은색 대신 변수 사용 */
+  border-radius: 16px;
+  padding: 25px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px var(--card-shadow);
   transition: opacity 0.3s ease;
 }
 
 /* 갤러리 그리드 (앨범용) */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
 }
 
 .notion-gallery-item {
   margin: 0;
-  background: #1a1a1a;
+  background: var(--card-bg);
   border-radius: 12px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
 }
 
 .notion-gallery-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px var(--card-shadow);
 }
 
 .notion-gallery-item a {
@@ -80,17 +93,17 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  background: #222;
+  background: var(--aside-bg);
   display: block;
 }
 
 .notion-gallery-item figcaption {
-  padding: 18px;
-  font-size: 1.05rem;
+  padding: 15px;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: #fff;
-  line-height: 1.5;
-  background: linear-gradient(rgba(255, 255, 255, 0.02), transparent);
+  color: var(--text-color);
+  line-height: 1.4;
+  text-align: center;
 }
 
 /* 리스트 스타일 (News, 공지사항 등) */
@@ -101,7 +114,7 @@
 }
 
 .notion-list-item {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .notion-list-item:last-child {
@@ -112,21 +125,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 10px;
+  padding: 15px 10px;
   text-decoration: none;
-  color: #ccc;
+  color: var(--text-color);
   transition: all 0.2s ease;
 }
 
 .notion-list-item a:hover {
-  background: rgba(255, 255, 255, 0.03);
-  color: #fff;
-  padding-left: 20px;
+  background: var(--aside-bg);
+  padding-left: 15px;
 }
 
 .list-title {
   flex: 1;
-  font-size: 1.05rem;
+  font-size: 1rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -134,9 +146,8 @@
 }
 
 .list-date {
-  font-size: 0.9rem;
-  color: #666;
-  font-family: monospace;
+  font-size: 0.85rem;
+  color: var(--text-muted);
 }
 
 /* 일정 스타일 */
@@ -145,40 +156,38 @@
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 15px;
+  gap: 12px;
 }
 
 .notion-schedule-item {
-  background: rgba(37, 99, 235, 0.05);
-  border-left: 4px solid #2563eb;
+  background: var(--aside-bg);
+  border-left: 4px solid var(--accent-blue);
   border-radius: 8px;
   transition: transform 0.2s ease;
 }
 
 .notion-schedule-item:hover {
   transform: translateX(5px);
-  background: rgba(37, 99, 235, 0.1);
 }
 
 .notion-schedule-item a {
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 15px 20px;
   text-decoration: none;
 }
 
 .schedule-date {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  color: #2563eb;
-  margin-bottom: 8px;
-  letter-spacing: 1px;
+  color: var(--accent-blue);
+  margin-bottom: 5px;
 }
 
 .schedule-title {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 500;
-  color: #eee;
+  color: var(--text-color);
 }
 
 /* 로딩/에러 */
@@ -187,17 +196,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 100px 0;
+  padding: 80px 0;
 }
 
 .spinner {
-  width: 50px;
-  height: 50px;
-  border: 4px solid rgba(255, 255, 255, 0.1);
-  border-top-color: #2563eb;
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--accent-blue);
   border-radius: 50%;
   animation: spin 1s linear infinite;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 @keyframes spin {
@@ -208,32 +217,18 @@
 
 .notion-error {
   text-align: center;
-  padding: 80px 20px;
+  padding: 60px 20px;
   color: #ef4444;
-}
-
-.error-details {
-  margin-top: 15px;
-  font-size: 0.9rem;
-  opacity: 0.6;
 }
 
 /* 모바일 대응 */
 @media (max-width: 768px) {
-  .notion-tabs {
-    gap: 8px;
-  }
-
   .notion-tab-btn {
-    padding: 10px 18px;
-    font-size: 0.9rem;
-  }
-
-  .notion-content-area {
-    padding: 15px;
+    padding: 8px 15px;
+    font-size: 0.85rem;
   }
 
   .list-title {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 }
