@@ -53,9 +53,36 @@ export async function onRequest(context) {
     const databaseId = dbMapping[type];
     const pageSize = pageSizeMapping[type] || 5;
 
+    // 디버깅: 환경 변수 확인
+    console.log('Environment check:', {
+      hasAPIKey: !!NOTION_API_KEY,
+      type,
+      databaseId,
+      allDBs: {
+        news: !!env.NOTION_DB_NEWS,
+        notice: !!env.NOTION_DB_NOTICE,
+        resources: !!env.NOTION_DB_RESOURCES,
+        schedule: !!env.NOTION_DB_SCHEDULE,
+        album: !!env.NOTION_DB_ALBUM,
+      }
+    });
+
     if (!databaseId) {
       return new Response(
-        JSON.stringify({ error: `유효하지 않은 타입: ${type}` }),
+        JSON.stringify({
+          error: `유효하지 않은 타입: ${type}`,
+          debug: {
+            type,
+            availableTypes: Object.keys(dbMapping),
+            envVars: {
+              news: !!env.NOTION_DB_NEWS,
+              notice: !!env.NOTION_DB_NOTICE,
+              resources: !!env.NOTION_DB_RESOURCES,
+              schedule: !!env.NOTION_DB_SCHEDULE,
+              album: !!env.NOTION_DB_ALBUM,
+            }
+          }
+        }),
         { status: 400, headers: corsHeaders }
       );
     }
