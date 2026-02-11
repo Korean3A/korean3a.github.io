@@ -1,35 +1,225 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us | 석면추방국민연대</title>
   <link rel="stylesheet" href="style.css">
-<link rel="shortcut icon" href="images/favicon.ico">
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-66JZRCVRGE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <!-- FontAwesome for SNS icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  gtag('config', 'G-66JZRCVRGE');
-</script>
+  <style>
+    /* Contact Page Specific Styles */
+    .contact-cover-wrap {
+      width: 100%;
+      margin-bottom: 40px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-cover {
+      width: 100%;
+      height: auto;
+      max-height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .contact-section {
+      margin-bottom: 50px;
+    }
+
+    .map-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      /* 16:9 ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .map-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .contact-info-list {
+      list-style: none;
+      padding: 0;
+      font-size: 1.1em;
+      line-height: 1.8;
+    }
+
+    .contact-info-list li {
+      margin-bottom: 12px;
+      word-break: keep-all;
+    }
+
+    .contact-info-list strong {
+      font-weight: 600;
+      margin-right: 8px;
+      color: #333;
+    }
+
+    .address-en {
+      display: block;
+      color: #666;
+      font-size: 0.9em;
+      margin-top: 4px;
+      margin-left: 0;
+    }
+
+    .sns-container {
+      background: #f9f9f9;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .sns-note {
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .sns-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .sns-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #333;
+      transition: transform 0.2s;
+    }
+
+    .sns-item:hover {
+      transform: translateY(-5px);
+      color: #007bff;
+    }
+
+    .sns-icon-circle {
+      width: 60px;
+      height: 60px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 10px;
+      transition: all 0.2s;
+    }
+
+    .sns-item:hover .sns-icon-circle {
+      background: #007bff;
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      .sns-links {
+        gap: 15px;
+      }
+
+      .sns-icon-circle {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+      }
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-66JZRCVRGE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-66JZRCVRGE');
+  </script>
 </head>
+
 <body>
-<nav></nav>
-      <div class="scroll-indicator" id="scrollPercentage">
-        스크롤: 0%
-    </div>
+  <nav></nav>
+
   <!-- 본문 -->
-  <main>
-    <div id="frame_wraper">
-      <iframe id="myframe" src="https://dolomite-drop-27e.notion.site/ebd/26ab9706c859809f83fef23d90bc4f01"
-              scrolling="yes"></iframe>
-    </div>  
+  <main class="page-container" style="margin-top: 100px; padding-top: 20px;">
+    <h1>Contact Us</h1>
+
+    <!-- Cover Image -->
+    <div class="contact-cover-wrap">
+      <img src="images/contactus.png" alt="Contact Us Cover" class="contact-cover">
+    </div>
+
+    <section class="contact-section">
+      <h2>오시는길</h2>
+
+      <!-- Map -->
+      <div class="map-container">
+        <iframe src="https://maps.google.com/maps?cid=2642906084604787083&output=embed" allowfullscreen=""
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <!-- Info -->
+      <ul class="contact-info-list">
+        <li>
+          <strong>주소 :</strong> 서울특별시 강서구 마곡중앙6로 11, 보타닉파크타워3차, 3층(마곡동 771-3), (우)07801
+          <span class="address-en">[11 Magokjungang 6-ro, Gangseo-gu, Seoul, Republic of Korea]</span>
+        </li>
+        <li>
+          <strong>전화 :</strong> 02.3663.4072
+        </li>
+        <li>
+          <strong>대표 이메일 :</strong> <a href="mailto:kepoples.ae@gmail.com">kepoples.ae@gmail.com</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="contact-section sns-container">
+      <h2>SNS</h2>
+      <p class="sns-note">(단체 설립후 공식 SNS 운영예정)</p>
+
+      <div class="sns-links">
+        <a href="https://www.facebook.com/korean3a" target="_blank" class="sns-item">
+          <div class="sns-icon-circle"><i class="fab fa-facebook-f"></i></div>
+          <span>@korean3a</span>
+        </a>
+
+        <a href="https://x.com/Korean3a" target="_blank" class="sns-item">
+          <div class="sns-icon-circle"><i class="fab fa-x-twitter"></i></div>
+          <span>@Korean3a</span>
+        </a>
+
+        <a href="https://www.instagram.com/korean3a/" target="_blank" class="sns-item">
+          <div class="sns-icon-circle"><i class="fab fa-instagram"></i></div>
+          <span>@Korean3a</span>
+        </a>
+
+        <a href="https://www.youtube.com/@korean3a" target="_blank" class="sns-item">
+          <div class="sns-icon-circle"><i class="fab fa-youtube"></i></div>
+          <span>@korean3a</span>
+        </a>
+      </div>
+    </section>
+
   </main>
 
-   <footer id="myFooter" class="k3a-footer"></footer>
+  <footer id="myFooter" class="k3a-footer"></footer>
   <script src="script.js"></script>
   <script>
     // 문서 로드 후 함수를 호출하여 공통 요소를 불러옵니다.
@@ -37,14 +227,14 @@
       includeHTML('nav.html', 'nav');
       includeHTML('footer.html', '#myFooter');
     });
-    // (기존에 있던 ChannelIO 스크립트 등 다른 스크립트는 그대로 유지)
-  </script>  
+  </script>
   <script>
-  (function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.");}var ch=function(){ch.c(arguments);};ch.q=[];ch.c=function(args){ch.q.push(args);};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return;}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x);}}if(document.readyState==="complete"){l();}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l);}})();
+    (function () { var w = window; if (w.ChannelIO) { return w.console.error("ChannelIO script included twice."); } var ch = function () { ch.c(arguments); }; ch.q = []; ch.c = function (args) { ch.q.push(args); }; w.ChannelIO = ch; function l() { if (w.ChannelIOInitialized) { return; } w.ChannelIOInitialized = true; var s = document.createElement("script"); s.type = "text/javascript"; s.async = true; s.src = "https://cdn.channel.io/plugin/ch-plugin-web.js"; var x = document.getElementsByTagName("script")[0]; if (x.parentNode) { x.parentNode.insertBefore(s, x); } } if (document.readyState === "complete") { l(); } else { w.addEventListener("DOMContentLoaded", l); w.addEventListener("load", l); } })();
 
-  ChannelIO('boot', {
-    "pluginKey": "bdaf307a-deca-45bb-bbb6-b6df31f7df1f"
-  });
-</script>
+    ChannelIO('boot', {
+      "pluginKey": "bdaf307a-deca-45bb-bbb6-b6df31f7df1f"
+    });
+  </script>
 </body>
+
 </html>
