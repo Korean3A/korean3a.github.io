@@ -85,18 +85,24 @@
 
     </div>
 
-    <!-- 갤러리 섹션 (Notion 앨범 DB에서 동적 로드) -->
-    <div class="gallery-grid">
-      <!-- Notion API에서 로드됨 -->
-    </div>
+    <!-- Notion 통합 섹션 (탭 형태) -->
+    <section class="notion-integrated-section">
+      <div class="notion-tabs">
+        <button class="notion-tab-btn active" data-type="album">앨범</button>
+        <button class="notion-tab-btn" data-type="news">News&Issue</button>
+        <button class="notion-tab-btn" data-type="notice">공지사항</button>
+        <button class="notion-tab-btn" data-type="schedule">공식일정</button>
+        <button class="notion-tab-btn" data-type="resources">자료실</button>
+      </div>
 
-    <!-- 하단 기타 링크 (호버 시 Notion 미리보기 표시) -->
-    <div class="links-footer">
-      <a href="news.html" class="aside-link">News&Issue</a>
-      <a href="notice.html" class="aside-link">공지사항</a>
-      <a href="schedule.html" class="aside-link">공식일정</a>
-      <a href="resources.html" class="aside-link">자료실</a>
-    </div>
+      <div id="notion-content-area" class="notion-content-area">
+        <!-- Notion API에서 로드됨 -->
+        <div class="notion-loading">
+          <div class="spinner"></div>
+          <p>불러오는 중...</p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer id="myFooter" class="k3a-footer"></footer>

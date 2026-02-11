@@ -95,10 +95,22 @@ export async function onRequest(context) {
         }
       }
 
-      // 커버 이미지
+      // 커버 이미지 우선 확인
       let coverUrl = null;
       if (page.cover) {
         coverUrl = page.cover.type === 'external' ? page.cover.external.url : page.cover.file?.url;
+      }
+
+      // 커버가 없으면 properties에서 '이미지', '사진', 'File', 'Files' 등의 필드 확인
+      if (!coverUrl) {
+        for (const key in props) {
+          const prop = props[key];
+          if (prop.type === 'files' && prop.files?.length > 0) {
+            const firstFile = prop.files[0];
+            coverUrl = firstFile.type === 'external' ? firstFile.external.url : firstFile.file?.url;
+            if (coverUrl) break;
+          }
+        }
       }
 
       // 일정 날짜
