@@ -82,8 +82,29 @@ export async function onRequest(context) {
       return new Response(JSON.stringify({ success: false, error: '노션 API 에러', details: data.message || responseText }), { status: notionResponse.status, headers: corsHeaders });
     }
 
+    // 본문 블록에서 첫 번째 이미지 추출하는 헬퍼 함수
+    const getFirstImageFromBlocks = async (blockId) => {
+      try {
+        const res = await fetch(`https://api.notion.com/v1/blocks/${blockId}/children?page_size=20`, {
+          headers: {
+            'Authorization': `Bearer ${NOTION_API_KEY}`,
+            'Notion-Version': '2022-06-28',
+          }
+        });
+        if (!res.ok) return null;
+        const blockData = await res.json();
+        const imageBlock = (blockData.results || []).find(b => b.type === 'image');
+        if (imageBlock) {
+          return imageBlock.image.type === 'external' ? imageBlock.image.external.url : imageBlock.image.file?.url;
+        }
+      } catch (e) {
+        console.error('Block fetch error:', e);
+      }
+      return null;
+    };
+
     // 안전한 데이터 파싱
-    const posts = (data.results || []).map((page) => {
+    const posts = await Promise.all((data.results || []).map(async (page) => {
       let title = '제목 없음';
       const props = page.properties || {};
 
@@ -113,9 +134,15 @@ export async function onRequest(context) {
           }
           // URL 속성 확인
           else if (prop.type === 'url' && prop.url) {
-            // 이미지 확장자를 포함하는지 확인 (선택 사항이지만 안전함)
             if (/\.(jpg|jpeg|png|webp|gif|svg)/i.test(prop.url)) {
               coverUrl = prop.url;
+            }
+          }
+          // Rich Text 내의 URL 확인 (가끔 텍스트로 넣는 경우 대비)
+          else if (prop.type === 'rich_text' && prop.rich_text?.length > 0) {
+            const text = prop.rich_text[0].plain_text;
+            if (/^https?:\/\/.*?\.(jpg|jpeg|png|webp|gif|svg)/i.test(text)) {
+              coverUrl = text;
             }
           }
 
@@ -123,10 +150,15 @@ export async function onRequest(context) {
         }
       }
 
-      // 3. 페이지 아이콘 확인 (마지막 수단)
+      // 3. 페이지 아이콘 확인
       if (!coverUrl && page.icon) {
         if (page.icon.type === 'external') coverUrl = page.icon.external.url;
         else if (page.icon.type === 'file') coverUrl = page.icon.file?.url;
+      }
+
+      // 4. 앨범 타입인데 여전히 이미지가 없으면 본문(블록) 뒤지기
+      if (!coverUrl && type === 'album') {
+        coverUrl = await getFirstImageFromBlocks(page.id);
       }
 
       // 일정 날짜
@@ -144,7 +176,7 @@ export async function onRequest(context) {
         pageUrl: page.url,
         scheduleDate,
       };
-    });
+    }));
 
     return new Response(JSON.stringify({ success: true, type, posts }), { status: 200, headers: corsHeaders });
 
@@ -153,3 +185,4 @@ export async function onRequest(context) {
     return new Response(JSON.stringify({ success: false, error: '서버 내부 오류', details: error.message }), { status: 500, headers: corsHeaders });
   }
 }
+
