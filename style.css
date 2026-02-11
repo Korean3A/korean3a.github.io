@@ -214,8 +214,7 @@ footer {
 .footer-section {
   padding: 0 15px;
   flex-basis: 30%;
-  /* ?곗뒪?ы넲?먯꽌 媛??뱀뀡???덈퉬 */
-  margin: auto;
+  /* margin: auto; 제거 - 상단 정렬 기준 padding으로 미세 조정 */
 }
 
 .logo-section {
@@ -225,7 +224,8 @@ footer {
 }
 
 .logo-section img {
-  height: 250px;
+  height: 200px;
+  /* 250px에서 200px로 축소 */
   margin-right: 15px;
 }
 
@@ -238,6 +238,12 @@ footer {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+.info-section,
+.link-section {
+  padding-top: 50px;
+  /* 로고 텍스트 시작 지점에 맞춤 */
 }
 
 .info-section li,
