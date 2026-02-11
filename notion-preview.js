@@ -83,15 +83,11 @@ const renderers = {
 };
 
 /**
- * 탭 클릭 핸들러
+ * 특정 타입의 게시물을 영역에 로드 (탭 없이 사용 가능)
  */
-async function switchTab(type, button) {
-  const contentArea = document.getElementById('notion-content-area');
+async function loadNotionPosts(type, targetId = 'notion-content-area') {
+  const contentArea = document.getElementById(targetId);
   if (!contentArea) return;
-
-  // 활성 버튼 스타일 변경
-  document.querySelectorAll('.notion-tab-btn').forEach(btn => btn.classList.remove('active'));
-  button.classList.add('active');
 
   // 로딩 표시
   contentArea.innerHTML = `
@@ -130,6 +126,17 @@ async function switchTab(type, button) {
 }
 
 /**
+ * 탭 클릭 핸들러
+ */
+async function switchTab(type, button) {
+  // 활성 버튼 스타일 변경
+  document.querySelectorAll('.notion-tab-btn').forEach(btn => btn.classList.remove('active'));
+  button.classList.add('active');
+
+  await loadNotionPosts(type);
+}
+
+/**
  * 유틸리티 함수들
  */
 function formatDate(dateString) {
@@ -151,19 +158,20 @@ function initNotionTabs() {
   const buttons = document.querySelectorAll('.notion-tab-btn');
   const contentArea = document.getElementById('notion-content-area');
 
-  if (!contentArea || buttons.length === 0) return;
-
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      const type = button.getAttribute('data-type');
-      switchTab(type, button);
+  // 탭 버튼이 있는 경우에만 처리
+  if (buttons.length > 0) {
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const type = button.getAttribute('data-type');
+        switchTab(type, button);
+      });
     });
-  });
 
-  // 초기 데이터 로드 (기본값: News&Issue)
-  const defaultBtn = document.querySelector('.notion-tab-btn[data-type="news"]');
-  if (defaultBtn) {
-    switchTab('news', defaultBtn);
+    // 메인 페이지(index.html)에서 기본 탭 로드
+    const defaultBtn = document.querySelector('.notion-tab-btn[data-type="news"]');
+    if (defaultBtn && defaultBtn.classList.contains('active')) {
+      switchTab('news', defaultBtn);
+    }
   }
 }
 
