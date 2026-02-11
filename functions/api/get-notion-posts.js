@@ -19,14 +19,19 @@ export async function onRequest(context) {
   }
 
   try {
-    // 환경 변수 추출 및 공백 제거 (매우 중요)
-    const NOTION_API_KEY = (env.NOTION_API_KEY || '').trim();
+    // 환경 변수 이름(키) 자체에 공백이 포함된 경우까지 대비한 매칭 함수
+    const getEnv = (keyName) => {
+      const realKey = Object.keys(env).find(k => k.trim() === keyName);
+      return (env[realKey || keyName] || '').trim();
+    };
+
+    const NOTION_API_KEY = getEnv('NOTION_API_KEY');
 
     if (!NOTION_API_KEY) {
       return new Response(JSON.stringify({
         success: false,
         error: 'NOTION_API_KEY가 없습니다.',
-        detectedKeys: Object.keys(env) // 현재 인식된 모든 변수명 리스트
+        detectedKeys: Object.keys(env)
       }), { status: 500, headers: corsHeaders });
     }
 
@@ -36,11 +41,11 @@ export async function onRequest(context) {
 
     // DB ID 매핑
     const dbMapping = {
-      news: (env.NOTION_DB_NEWS || '').trim(),
-      notice: (env.NOTION_DB_NOTICE || '').trim(),
-      resources: (env.NOTION_DB_RESOURCES || '').trim(),
-      schedule: (env.NOTION_DB_SCHEDULE || '').trim(),
-      album: (env.NOTION_DB_ALBUM || '').trim(),
+      news: getEnv('NOTION_DB_NEWS'),
+      notice: getEnv('NOTION_DB_NOTICE'),
+      resources: getEnv('NOTION_DB_RESOURCES'),
+      schedule: getEnv('NOTION_DB_SCHEDULE'),
+      album: getEnv('NOTION_DB_ALBUM'),
     };
 
     const databaseId = dbMapping[type];
