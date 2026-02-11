@@ -1355,7 +1355,7 @@ div#disqus_thread iframe[sandbox] {
 /* 컨텐츠 컨테이너 */
 .content-container {
   max-width: 1200px;
-  margin: 60px auto;
+  margin: 120px auto;
   padding: 0 20px;
 }
 
