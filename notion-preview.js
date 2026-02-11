@@ -34,7 +34,23 @@ async function fetchNotionPosts(type) {
  */
 function handlePostClick(pageId, event) {
   if (event) event.preventDefault();
-  showPostDetail(pageId);
+
+  const isIndex = window.location.pathname.endsWith('index.html') ||
+    window.location.pathname === '/' ||
+    window.location.pathname.endsWith('/');
+
+  if (isIndex) {
+    // index.html에서 클릭 시 해당 카테고리 페이지로 이동
+    // lastType(news, notice, resources 등)에 따라 이동할 페이지 결정
+    let targetPage = `${lastType}.html`;
+
+    // 앨범의 경우 전용 페이지가 없다면 index에서 처리하거나 보드 페이지로 연결 가능
+    // 현재는 news, notice, resources, schedule 페이지가 존재함
+    window.location.href = `${targetPage}?id=${pageId}`;
+  } else {
+    // 이미 상세 페이지인 경우 바로 뷰어 가동
+    showPostDetail(pageId);
+  }
 }
 
 /**
@@ -43,6 +59,13 @@ function handlePostClick(pageId, event) {
 async function showPostDetail(pageId) {
   const contentArea = document.getElementById(lastTargetId);
   if (!contentArea) return;
+
+  // URL 파라미터 업데이트 (히스토리에 남겨서 뒤로가기 대응)
+  if (!window.location.search.includes(pageId)) {
+    const newUrl = new URL(window.location.href);
+    newUrl.searchParams.set('id', pageId);
+    window.history.pushState({ pageId }, '', newUrl);
+  }
 
   // 로딩 표시
   contentArea.innerHTML = `
@@ -323,8 +346,15 @@ function escapeHtml(text) {
   return div.innerHTML;
 }
 
+/**
+ * 초기화
+ */
 function initNotionTabs() {
   const buttons = document.querySelectorAll('.notion-tab-btn');
+  const urlParams = new URLSearchParams(window.location.search);
+  const postIdFromUrl = urlParams.get('id');
+
+  // 1. 탭 버튼이 있는 경우 (index.html 등)
   if (buttons.length > 0) {
     buttons.forEach(button => {
       button.addEventListener('click', () => {
@@ -332,12 +362,33 @@ function initNotionTabs() {
         switchTab(type, button);
       });
     });
+
     const defaultBtn = document.querySelector('.notion-tab-btn[data-type="news"]');
     if (defaultBtn && defaultBtn.classList.contains('active')) {
       switchTab('news', defaultBtn);
     }
   }
+
+  // 2. 만약 URL에 id가 있다면 즉시 본문 로드
+  if (postIdFromUrl) {
+    // 상세 페이지에서 바로 로드된 경우, 로딩 애니메이션이 보일 영역이 필요함
+    // news.html 등에서는 이미 loadNotionPosts가 호출되므로 잠시 후 실행되도록 함
+    setTimeout(() => {
+      showPostDetail(postIdFromUrl);
+    }, 500);
+  }
 }
+
+/**
+ * 뒤로가기 대응
+ */
+window.addEventListener('popstate', (event) => {
+  if (event.state && event.state.pageId) {
+    showPostDetail(event.state.pageId);
+  } else {
+    backToList();
+  }
+});
 
 document.addEventListener('DOMContentLoaded', initNotionTabs);
 if (document.readyState !== 'loading') initNotionTabs();
