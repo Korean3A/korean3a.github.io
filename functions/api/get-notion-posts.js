@@ -22,10 +22,7 @@ export async function onRequest(context) {
     const NOTION_API_KEY = env.NOTION_API_KEY;
 
     if (!NOTION_API_KEY) {
-      return new Response(
-        JSON.stringify({ error: 'NOTION_API_KEY가 설정되지 않았습니다.' }),
-        { status: 500, headers: corsHeaders }
-      );
+      throw new Error('NOTION_API_KEY가 환경 변수에 설정되지 않았습니다.');
     }
 
     // URL에서 type 파라미터 추출
@@ -53,42 +50,12 @@ export async function onRequest(context) {
     const databaseId = dbMapping[type];
     const pageSize = pageSizeMapping[type] || 5;
 
-    // 디버깅: 환경 변수 확인
-    console.log('Environment check:', {
-      hasAPIKey: !!NOTION_API_KEY,
-      type,
-      databaseId,
-      allDBs: {
-        news: !!env.NOTION_DB_NEWS,
-        notice: !!env.NOTION_DB_NOTICE,
-        resources: !!env.NOTION_DB_RESOURCES,
-        schedule: !!env.NOTION_DB_SCHEDULE,
-        album: !!env.NOTION_DB_ALBUM,
-      }
-    });
-
     if (!databaseId) {
-      return new Response(
-        JSON.stringify({
-          error: `유효하지 않은 타입: ${type}`,
-          debug: {
-            type,
-            availableTypes: Object.keys(dbMapping),
-            envVars: {
-              news: !!env.NOTION_DB_NEWS,
-              notice: !!env.NOTION_DB_NOTICE,
-              resources: !!env.NOTION_DB_RESOURCES,
-              schedule: !!env.NOTION_DB_SCHEDULE,
-              album: !!env.NOTION_DB_ALBUM,
-            }
-          }
-        }),
-        { status: 400, headers: corsHeaders }
-      );
+      throw new Error(`DB ID를 찾을 수 없습니다. (Type: ${type}). 환경 변수 설정을 확인하세요.`);
     }
 
     // Notion API 호출
-    const response = await fetch(
+    const notionResponse = await fetch(
       `https://api.notion.com/v1/databases/${databaseId}/query`,
       {
         method: 'POST',
@@ -109,49 +76,47 @@ export async function onRequest(context) {
       }
     );
 
-    if (!response.ok) {
-      const errorData = await response.text();
-      console.error('Notion API Error:', errorData);
+    const data = await notionResponse.json();
+
+    if (!notionResponse.ok) {
+      console.error('Notion API Error Body:', data);
       return new Response(
-        JSON.stringify({ error: 'Notion API 호출 실패', details: errorData }),
-        { status: response.status, headers: corsHeaders }
+        JSON.stringify({
+          success: false,
+          error: 'Notion API 호출 중 에러 발생',
+          details: data.message || '알 수 없는 오류',
+          code: data.code
+        }),
+        { status: notionResponse.status, headers: corsHeaders }
       );
     }
 
-    const data = await response.json();
-
-    // 데이터 파싱 및 포맷팅
-    const posts = data.results.map((page) => {
-      // 제목 추출 (다양한 속성명 지원)
+    // 데이터 파싱
+    const posts = (data.results || []).map((page) => {
+      // 제목 찾기 (Notion은 DB마다 제목 필드명이 다를 수 있음)
       let title = '제목 없음';
-      const titleProperty = page.properties.Name || page.properties.이름 || page.properties.제목 || page.properties.Title;
+      const properties = page.properties || {};
 
-      if (titleProperty?.title?.length > 0) {
-        title = titleProperty.title[0].plain_text;
-      }
-
-      // 커버 이미지 URL 추출
-      let coverUrl = null;
-      if (page.cover) {
-        if (page.cover.type === 'external') {
-          coverUrl = page.cover.external.url;
-        } else if (page.cover.type === 'file') {
-          coverUrl = page.cover.file.url;
+      // 제목 타입의 속성을 찾아서 제목으로 사용
+      for (const key in properties) {
+        if (properties[key].type === 'title' && properties[key].title?.length > 0) {
+          title = properties[key].title[0].plain_text;
+          break;
         }
       }
 
-      // 생성일 추출
-      const createdTime = page.created_time;
+      // 커버 이미지
+      let coverUrl = null;
+      if (page.cover) {
+        coverUrl = page.cover.type === 'external' ? page.cover.external.url : page.cover.file?.url;
+      }
 
-      // 페이지 URL
-      const pageUrl = page.url;
-
-      // 일정 타입인 경우 날짜 정보 추출
+      // 일정 날짜
       let scheduleDate = null;
       if (type === 'schedule') {
-        const dateProperty = page.properties.날짜 || page.properties.Date || page.properties.일정;
-        if (dateProperty?.date) {
-          scheduleDate = dateProperty.date.start;
+        const dateProp = properties['날짜'] || properties['Date'] || properties['일정'];
+        if (dateProp?.date) {
+          scheduleDate = dateProp.date.start;
         }
       }
 
@@ -159,8 +124,8 @@ export async function onRequest(context) {
         id: page.id,
         title,
         coverUrl,
-        createdTime,
-        pageUrl,
+        createdTime: page.created_time,
+        pageUrl: page.url,
         scheduleDate,
       };
     });
@@ -171,9 +136,13 @@ export async function onRequest(context) {
     );
 
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Function Error:', error.message);
     return new Response(
-      JSON.stringify({ error: '서버 오류가 발생했습니다.', details: error.message }),
+      JSON.stringify({
+        success: false,
+        error: '서버 내부 오류',
+        details: error.message
+      }),
       { status: 500, headers: corsHeaders }
     );
   }
