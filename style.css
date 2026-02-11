@@ -1256,3 +1256,23 @@ div#disqus_thread iframe[sandbox] {
     color: #fff;
   }
 }
+/* Iframe Page Layout (board, etc.) */
+#frame_wraper {
+  width: 100%;
+  height: 800px; /* Default height, can be adjusted or set to calc */
+  margin-top: 60px; /* Offset for fixed nav */
+  position: relative;
+}
+
+#myframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@media (min-width: 1024px) {
+  #frame_wraper {
+    height: calc(100vh - 60px);
+  }
+}
+

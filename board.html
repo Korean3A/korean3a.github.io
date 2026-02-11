@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>회원 게시판 | 석면추방국민연대</title>
   <link rel="stylesheet" href="style.css">
-<link rel="shortcut icon" href="images/favicon.ico">
+  <link rel="shortcut icon" href="images/favicon.ico">
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-66JZRCVRGE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-66JZRCVRGE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-66JZRCVRGE');
-</script>
+    gtag('config', 'G-66JZRCVRGE');
+  </script>
 </head>
+
 <body>
-<nav></nav>
-      <div class="scroll-indicator" id="scrollPercentage">
-        스크롤: 0%
-    </div>
+  <nav></nav>
+  <div class="scroll-indicator" id="scrollPercentage">
+    스크롤: 0%
+  </div>
   <!-- 본문 -->
   <main>
     <div id="frame_wraper">
-      <iframe id="myframe" src="https://board.k3a.net/home/board/" style="margin-top:-30px;"
-              scrolling="yes"></iframe>
-    </div>  
+      <iframe id="myframe" src="https://board.k3a.net/home/board/" scrolling="yes"></iframe>
+    </div>
   </main>
 
-   <footer id="myFooter" class="k3a-footer"></footer>
+  <footer id="myFooter" class="k3a-footer"></footer>
   <script src="script.js"></script>
   <script>
     // 문서 로드 후 함수를 호출하여 공통 요소를 불러옵니다.
@@ -38,13 +39,14 @@
       includeHTML('footer.html', '#myFooter');
     });
     // (기존에 있던 ChannelIO 스크립트 등 다른 스크립트는 그대로 유지)
-  </script>  
+  </script>
   <script>
-  (function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.");}var ch=function(){ch.c(arguments);};ch.q=[];ch.c=function(args){ch.q.push(args);};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return;}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x);}}if(document.readyState==="complete"){l();}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l);}})();
+    (function () { var w = window; if (w.ChannelIO) { return w.console.error("ChannelIO script included twice."); } var ch = function () { ch.c(arguments); }; ch.q = []; ch.c = function (args) { ch.q.push(args); }; w.ChannelIO = ch; function l() { if (w.ChannelIOInitialized) { return; } w.ChannelIOInitialized = true; var s = document.createElement("script"); s.type = "text/javascript"; s.async = true; s.src = "https://cdn.channel.io/plugin/ch-plugin-web.js"; var x = document.getElementsByTagName("script")[0]; if (x.parentNode) { x.parentNode.insertBefore(s, x); } } if (document.readyState === "complete") { l(); } else { w.addEventListener("DOMContentLoaded", l); w.addEventListener("load", l); } })();
 
-  ChannelIO('boot', {
-    "pluginKey": "bdaf307a-deca-45bb-bbb6-b6df31f7df1f"
-  });
-</script>
+    ChannelIO('boot', {
+      "pluginKey": "bdaf307a-deca-45bb-bbb6-b6df31f7df1f"
+    });
+  </script>
 </body>
+
 </html>
