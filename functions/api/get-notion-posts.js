@@ -95,22 +95,38 @@ export async function onRequest(context) {
         }
       }
 
-      // 커버 이미지 우선 확인
+      // 1. 커버 이미지 확인
       let coverUrl = null;
       if (page.cover) {
         coverUrl = page.cover.type === 'external' ? page.cover.external.url : page.cover.file?.url;
       }
 
-      // 커버가 없으면 properties에서 '이미지', '사진', 'File', 'Files' 등의 필드 확인
+      // 2. 모든 properties를 뒤져서 이미지/URL 찾기 (커버가 없을 경우)
       if (!coverUrl) {
         for (const key in props) {
           const prop = props[key];
+
+          // 파일 및 미디어 속성 확인
           if (prop.type === 'files' && prop.files?.length > 0) {
             const firstFile = prop.files[0];
             coverUrl = firstFile.type === 'external' ? firstFile.external.url : firstFile.file?.url;
-            if (coverUrl) break;
           }
+          // URL 속성 확인
+          else if (prop.type === 'url' && prop.url) {
+            // 이미지 확장자를 포함하는지 확인 (선택 사항이지만 안전함)
+            if (/\.(jpg|jpeg|png|webp|gif|svg)/i.test(prop.url)) {
+              coverUrl = prop.url;
+            }
+          }
+
+          if (coverUrl) break;
         }
+      }
+
+      // 3. 페이지 아이콘 확인 (마지막 수단)
+      if (!coverUrl && page.icon) {
+        if (page.icon.type === 'external') coverUrl = page.icon.external.url;
+        else if (page.icon.type === 'file') coverUrl = page.icon.file?.url;
       }
 
       // 일정 날짜
