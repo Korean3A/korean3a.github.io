@@ -817,7 +817,7 @@ div#disqus_thread iframe[sandbox] {
 /* 癰귣챶揆 ??곸뒠 ?????*/
 .content-container {
   max-width: 900px;
-  margin: 300px auto 100px;
+  margin: 60px auto 100px;
   /* nav(60) + header(240) + margin */
   padding: 0 20px;
   animation: fadeIn 1s ease-out;
@@ -1198,5 +1198,21 @@ div#disqus_thread iframe[sandbox] {
 .btn-action-primary:hover {
   background: linear-gradient(135deg, #004080, #003366);
   box-shadow: 0 8px 25px rgba(0, 51, 102, 0.5);
+}
+
+
+/* Page Cover Headline */
+.page-cover-headline {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 50px;
+  color: #333;
+}
+
+@media (prefers-color-scheme: dark) {
+  .page-cover-headline {
+    color: #fff;
+  }
 }
 
