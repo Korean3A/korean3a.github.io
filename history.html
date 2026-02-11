@@ -1,35 +1,64 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>연혁 | 석면추방국민연대</title>
   <link rel="stylesheet" href="style.css">
-<link rel="shortcut icon" href="images/favicon.ico">  
+  <link rel="shortcut icon" href="images/favicon.ico">
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-66JZRCVRGE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-66JZRCVRGE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-66JZRCVRGE');
-</script>
+    gtag('config', 'G-66JZRCVRGE');
+  </script>
 </head>
+
 <body>
-<nav></nav>
-      <div class="scroll-indicator" id="scrollPercentage">
-        스크롤: 0%
-    </div>
+  <nav></nav>
+  <header class="history-header"></header>
+
   <!-- 본문 -->
-  <main>
-    <div id="frame_wraper">
-      <iframe id="myframe" src="https://dolomite-drop-27e.notion.site/ebd/26ab9706c85980bda113e16d0f64ab0a"
-              scrolling="yes"></iframe>
-    </div>  
+  <main class="page-container" style="margin-top: 50px;">
+    <div style="text-align: center; margin-bottom: 50px;">
+      <h1>걸어온 길</h1>
+      <p style="font-size: 1.2rem; color: #666;">그동안 묵묵히 걸어온 석면추방국민연대의 주요 활동을 소개합니다.</p>
+    </div>
+
+    <hr style="margin: 40px 0; border: none; border-top: 1px solid #eee;">
+
+    <div class="timeline-section">
+      <h2>2025년~</h2>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <ul>
+            <li><strong>발기인 대회</strong> (2025. 09. 12)</li>
+          </ul>
+        </div>
+        <div class="timeline-image">
+          <img src="images/photo_6215375409336405041_y.jpg" alt="발기인 대회">
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <ul>
+            <li><strong>창립총회</strong> (2025.10.01)</li>
+          </ul>
+        </div>
+        <div class="timeline-image">
+          <img src="images/photo_6269415671405940181_y.jpg" alt="창립총회">
+        </div>
+      </div>
+    </div>
   </main>
 
-   <footer id="myFooter" class="k3a-footer"></footer>
+  <footer id="myFooter" class="k3a-footer"></footer>
   <script src="script.js"></script>
   <script>
     // 문서 로드 후 함수를 호출하여 공통 요소를 불러옵니다.
@@ -38,13 +67,14 @@
       includeHTML('footer.html', '#myFooter');
     });
     // (기존에 있던 ChannelIO 스크립트 등 다른 스크립트는 그대로 유지)
-  </script>  
+  </script>
   <script>
-  (function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.");}var ch=function(){ch.c(arguments);};ch.q=[];ch.c=function(args){ch.q.push(args);};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return;}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x);}}if(document.readyState==="complete"){l();}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l);}})();
+    (function () { var w = window; if (w.ChannelIO) { return w.console.error("ChannelIO script included twice."); } var ch = function () { ch.c(arguments); }; ch.q = []; ch.c = function (args) { ch.q.push(args); }; w.ChannelIO = ch; function l() { if (w.ChannelIOInitialized) { return; } w.ChannelIOInitialized = true; var s = document.createElement("script"); s.type = "text/javascript"; s.async = true; s.src = "https://cdn.channel.io/plugin/ch-plugin-web.js"; var x = document.getElementsByTagName("script")[0]; if (x.parentNode) { x.parentNode.insertBefore(s, x); } } if (document.readyState === "complete") { l(); } else { w.addEventListener("DOMContentLoaded", l); w.addEventListener("load", l); } })();
 
-  ChannelIO('boot', {
-    "pluginKey": "bdaf307a-deca-45bb-bbb6-b6df31f7df1f"
-  });
-</script>
+    ChannelIO('boot', {
+      "pluginKey": "bdaf307a-deca-45bb-bbb6-b6df31f7df1f"
+    });
+  </script>
 </body>
+
 </html>

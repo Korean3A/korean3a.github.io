@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,29 +8,69 @@
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="images/favicon.ico">
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-66JZRCVRGE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-66JZRCVRGE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-66JZRCVRGE');
-</script>
+    gtag('config', 'G-66JZRCVRGE');
+  </script>
 </head>
+
 <body>
-<nav></nav>
-      <div class="scroll-indicator" id="scrollPercentage">
-        스크롤: 0%
-    </div>
+  <nav></nav>
+
+  <header class="people-header"></header>
+
   <!-- 본문 -->
-  <main>
-    <div id="frame_wraper">
-      <iframe id="myframe" src="https://dolomite-drop-27e.notion.site/ebd/26ab9706c85980ee8a38d686fa342e7f"
-              scrolling="yes"></iframe>
-    </div>  
+  <main class="page-container">
+    <div style="text-align: center; margin-bottom: 50px;">
+      <h1>함께하는 사람들</h1>
+      <p style="font-size: 1.2rem; color: #666;">석면추방국민연대와 함께해주셔서 감사합니다!</p>
+    </div>
+
+    <!-- 조직도 섹션 -->
+    <div class="org-chart">
+      <img src="images/organization.webp" alt="Organization Chart: 총회, 이사회, 상임대표, 감사, 공동대표, 고문단, 사무국, 정책위원회 등">
+    </div>
+
+    <!-- 임원진 리스트 -->
+    <div class="member-list">
+      <h2>주요임원</h2>
+      <aside class="notion-aside" style="border-left: none;"> <!-- 회색 선 제거 -->
+        <ul style="list-style: none; padding: 0; line-height: 2;">
+          <li><strong>상임대표 : 안홍용</strong></li>
+          <li><strong>감사 : 이창윤</strong></li>
+          <li><strong>이사 : 박재규, 김택식, 최문환, 김도윤, 이두현</strong></li>
+          <li><strong>사무총장 : 이진선</strong></li>
+          <li><strong>고문 : 유충권</strong></li>
+        </ul>
+      </aside>
+    </div>
+
+    <!-- 특별기구 및 회원 안내 (반응형 그리드) -->
+    <div class="special-committee">
+      <h2>특별기구 및 특별위원회</h2>
+      <p style="margin-bottom: 20px;">필요시 설치. 조직 및 운영은 이사회에서 별도의 내규로 정함. 특별위원회 위원장은 해당 위원회에서 선출.</p>
+
+      <aside class="notion-aside" style="border-left-color: #ff922b; margin-top: 20px;">
+        <h3 style="margin-top: 0; margin-bottom: 5px;">🥰 정회원</h3>
+        <p style="margin-bottom: 25px;">석면추방국민연대에 뜻을 같이하고 정기후원가입을 해주신 소중한 분들</p>
+
+        <h3 style="margin-bottom: 5px;">☺️ 후원회원</h3>
+        <p style="margin-bottom: 25px;">석면추방국민연대에 비정기 후원을 해주신 소중한 분들</p>
+
+        <h3 style="margin-bottom: 5px;">😊 구독자</h3>
+        <p style="margin-bottom: 0;">SNS팔로우 및 구독으로 격려와 응원을 남겨주시는 소중한 분들</p>
+      </aside>
+
+    </div>
+
+    <h2 class="final-message">모두가 연대하여 함께하기에 큰 힘이 됩니다!!</h2>
   </main>
 
-   <footer id="myFooter" class="k3a-footer"></footer>
+  <footer id="myFooter" class="k3a-footer"></footer>
   <script src="script.js"></script>
   <script>
     // 문서 로드 후 함수를 호출하여 공통 요소를 불러옵니다.
@@ -38,13 +79,14 @@
       includeHTML('footer.html', '#myFooter');
     });
     // (기존에 있던 ChannelIO 스크립트 등 다른 스크립트는 그대로 유지)
-  </script>  
+  </script>
   <script>
-  (function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.");}var ch=function(){ch.c(arguments);};ch.q=[];ch.c=function(args){ch.q.push(args);};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return;}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x);}}if(document.readyState==="complete"){l();}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l);}})();
+    (function () { var w = window; if (w.ChannelIO) { return w.console.error("ChannelIO script included twice."); } var ch = function () { ch.c(arguments); }; ch.q = []; ch.c = function (args) { ch.q.push(args); }; w.ChannelIO = ch; function l() { if (w.ChannelIOInitialized) { return; } w.ChannelIOInitialized = true; var s = document.createElement("script"); s.type = "text/javascript"; s.async = true; s.src = "https://cdn.channel.io/plugin/ch-plugin-web.js"; var x = document.getElementsByTagName("script")[0]; if (x.parentNode) { x.parentNode.insertBefore(s, x); } } if (document.readyState === "complete") { l(); } else { w.addEventListener("DOMContentLoaded", l); w.addEventListener("load", l); } })();
 
-  ChannelIO('boot', {
-    "pluginKey": "bdaf307a-deca-45bb-bbb6-b6df31f7df1f"
-  });
-</script>
+    ChannelIO('boot', {
+      "pluginKey": "bdaf307a-deca-45bb-bbb6-b6df31f7df1f"
+    });
+  </script>
 </body>
+
 </html>

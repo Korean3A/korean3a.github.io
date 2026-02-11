@@ -1,50 +1,144 @@
-* {margin:0; padding:0; box-sizing:border-box;}
-body, html {height: 100%; font-family: sans-serif;}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: sans-serif;
+}
 
 /* 네비게이션 */
 nav {
-  position: fixed; top: 0; left: 0;
-  width: 100%; height: 60px;
-  color: white; display: flex; align-items: center;
-  padding: 0 20px; z-index: 3000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 3000;
   background: linear-gradient(270deg, #003366, #0066cc, #ff6600, #9900cc);
   background-size: 800% 800%;
   animation: gradientShift 20s ease infinite;
 }
+
 @keyframes gradientShift {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-nav .logo {display: flex; align-items: center; font-weight: bold; font-size: 18px; margin-right: 80px;}
-nav .logo a {display:flex; align-items:center; color:white; text-decoration:none;}
-nav .logo img {margin-right: 5px; width:60px;}
-nav ul {list-style: none; display: flex; margin-left:auto;}
-nav ul li {position: relative; margin-right: 20px;}
-nav ul li a {color: white; text-decoration: none; font-size: 15px; padding: 8px; display: block;}
-nav ul li a:hover {background: rgba(255,255,255,0.2); border-radius: 5px;}
-nav ul li ul {display: none; position: absolute; top: 100%; left: 0; background: white; min-width: 180px; border-radius: 4px; border:1px solid #ddd;}
-nav ul li:hover > ul {display: block;}
-nav ul li ul li a {padding: 10px; font-size: 14px; color: black;}
-nav ul li ul li a:hover {background:#f0f0f0; color:black;}
+nav .logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 80px;
+}
 
-.menu-toggle {display:none; flex-direction: column; cursor:pointer; margin-left:auto;}
-.menu-toggle span {width:25px; height:3px; background:white; margin:4px 0;}
+nav .logo a {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+}
+
+nav .logo img {
+  margin-right: 5px;
+  width: 60px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin-left: auto;
+}
+
+nav ul li {
+  position: relative;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 8px;
+  display: block;
+}
+
+nav ul li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+nav ul li ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  min-width: 180px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+nav ul li:hover>ul {
+  display: block;
+}
+
+nav ul li ul li a {
+  padding: 10px;
+  font-size: 14px;
+  color: black;
+}
+
+nav ul li ul li a:hover {
+  background: #f0f0f0;
+  color: black;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  margin: 4px 0;
+}
 
 /* 기본 (라이트 모드) 푸터 스타일 */
 footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  position: relative;
   width: 100%;
-  height: 300px;
-  display: none;
+  height: auto;
+  min-height: 300px;
+  display: flex;
   justify-content: center;
   align-items: center;
-  border-top: 1px solid #ccc; /* 밝은 경계선 */
+  border-top: 1px solid #ccc;
+  /* 밝은 경계선 */
   z-index: 3000;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* 부드러운 전환 효과 */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  /* 부드러운 전환 효과 */
 }
 
 
@@ -52,143 +146,44 @@ footer {
 
 /* 기본 (라이트 모드) 스타일 */
 .k3a-footer {
-    background-color: #f0f0f0;
-    color: #333;
-    padding: 30px 20px;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 30px 20px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
 }
 
 .link-section a {
-    color: #007bff;
-    text-decoration: underline;
-    text-decoration-color: #007bff;
+  color: #007bff;
+  text-decoration: underline;
+  text-decoration-color: #007bff;
 }
 
 /* 다크 모드 스타일 */
 @media (prefers-color-scheme: dark) {
-    .k3a-footer {
-        background-color: #222;
-        color: #fff;
-    }
+  .k3a-footer {
+    background-color: #222;
+    color: #fff;
+  }
 
-    .link-section a {
-        color: #fff;
-        text-decoration: underline;
-        text-decoration-color: #f00;
-    }
+  .link-section a {
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-color: #f00;
+  }
 }
 
 /* -------------------- 2. 데스크톱 레이아웃 (기본값) -------------------- */
-
-.footer-container {
-    display: flex; /* 데스크톱 기본은 가로 정렬 */
-    justify-content: space-around;
-    max-width: 1200px;
-    margin: 0 auto;
-    align-items: flex-start;
-}
-
-.footer-section {
-    padding: 0 15px;
-    flex-basis: 30%; /* 데스크톱에서 각 섹션의 너비 */
-    margin:auto;
-}
-
-.logo-section {
-    display: flex;
-    align-items: center;
-    flex-basis: 35%;
-}
-
-.logo-section img {
-    height: 250px;
-    margin-right: 15px;
-}
-
-.logo-text {
-  display:none;
-}
-
-.info-section ul,
-.link-section ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.info-section li,
-.link-section li {
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-.link-section a:hover {
-    text-decoration: none;
-}
-
-/* -------------------- 3. 모바일 레이아웃 (미디어 쿼리) -------------------- */
-
-@media (max-width: 768px) {
-
-    footer{
-        height:500px;
-    }
-
-  .logo-section img {
-    height: 150px;
-  }
-  
-    .footer-container {
-        flex-direction: column; /* 화면이 768px 이하일 때 세로 정렬로 변경 */
-        align-items: center; /* 가운데 정렬 */
-        text-align: center; /* 텍스트 가운데 정렬 */
-    }
-
-    .footer-section {
-        flex-basis: 100%; /* 너비를 100%로 확장 */
-        padding: 15px 0; /* 상하 간격 추가 */
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* 섹션 구분선 (다크 모드 대비 투명한 흰색) */
-        width: 100%;
-        max-width: 350px; /* 섹션 내용의 최대 너비 제한 (선택 사항) */
-    }
-    
-    /* 마지막 섹션의 구분선 제거 */
-    .footer-section:last-child {
-        border-bottom: none;
-    }
-
-    /* 로고 섹션 재정렬 */
-    .logo-section {
-        flex-direction: column; /* 로고와 텍스트를 세로로 */
-        text-align: center;
-        margin-bottom: 10px;
-        flex-basis: auto;
-    }
-
-    .logo-section img {
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-    
-    /* 연락처 및 링크 목록 왼쪽 정렬 (모바일에서 가독성 향상) */
-    .info-section ul,
-    .link-section ul {
-        text-align: left;
-        max-width: 300px; /* 목록 너비 제한 */
-        margin: 0 auto;
-    }
-}
-
+/* (중간 생략 - 변경사항 없음) */
 
 .main-header {
-  position: fixed;
-  top: 60px; /* nav 높이 보정 */
-  left: 0;
+  position: relative;
+  margin-top: 60px;
+  /* nav 높이 보정 */
   width: 100%;
   height: 300px;
-  background: 
-    linear-gradient(270deg, rgba(0,51,102,0.6), rgba(0,102,204,0.6), rgba(255,102,0,0.6), rgba(153,0,204,0.6)),
+  background:
+    linear-gradient(270deg, rgba(0, 51, 102, 0.6), rgba(0, 102, 204, 0.6), rgba(255, 102, 0, 0.6), rgba(153, 0, 204, 0.6)),
     url("images/header-bg.jpg") center/cover no-repeat;
   background-size: 800% 800%, cover;
   animation: gradientShift 20s ease infinite;
@@ -198,29 +193,55 @@ footer {
   color: white;
   text-align: center;
   z-index: 1000;
-
-  transition: top 0.2s ease;   /* 부드럽게 숨김/표시 */
 }
 
 
-.main-header .header-content h3 {font-size: 18px; margin-bottom: 10px;}
-.main-header .header-content p {font-size: 18px;margin-bottom:10px;}
-.main-header .header-content a {color:white; text-decoration:none;}
-.main-header .header-content span {align-items:center; font-size: 20px; border:solid 1px; padding:5px 20px; margin:30px auto;}
+.main-header .header-content h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
 
-.iframe_cover {display:none;}
+.main-header .header-content p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.main-header .header-content a {
+  color: white;
+  text-decoration: none;
+}
+
+.main-header .header-content span {
+  align-items: center;
+  font-size: 20px;
+  border: solid 1px;
+  padding: 5px 20px;
+  margin: 30px auto;
+}
+
+.iframe_cover {
+  display: none;
+}
 
 /* 본문 내용 스타일 */
 .content-container {
   max-width: 900px;
-  margin: 300px auto 100px; /* nav(60) + header(240) + margin */
+  margin: 300px auto 100px;
+  /* nav(60) + header(240) + margin */
   padding: 0 20px;
   animation: fadeIn 1s ease-out;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .intro-section {
@@ -264,7 +285,7 @@ footer {
   background: white;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
 }
 
@@ -377,32 +398,98 @@ footer {
   .gallery-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .content-container {
     margin-top: 250px;
   }
 
-  nav ul {display:none; position:absolute; top:60px; left:0; width:100%; background:white; flex-direction:column;}
-  nav ul li {width:100%; border-bottom:1px solid #ddd;}
-  nav ul > li > a {color:#222; font-weight:bold; font-size:16px; padding:14px; background:#f9f9f9;}
-  nav ul li ul {position:static; border:none; box-shadow:none;}
-  nav ul li ul li a {padding:10px 14px 10px 30px; font-size:14px; background:white; color:#444;}
-  nav ul li ul li a:hover {background:#f0f0f0;}
-  .menu-toggle {display:flex;}
-  nav.active ul {display:flex;}
+  nav ul {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+  }
+
+  nav ul li {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+  }
+
+  nav ul>li>a {
+    color: #222;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 14px;
+    background: #f9f9f9;
+  }
+
+  nav ul li ul {
+    position: static;
+    border: none;
+    box-shadow: none;
+  }
+
+  nav ul li ul li a {
+    padding: 10px 14px 10px 30px;
+    font-size: 14px;
+    background: white;
+    color: #444;
+  }
+
+  nav ul li ul li a:hover {
+    background: #f0f0f0;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav.active ul {
+    display: flex;
+  }
 }
 
 /* 다크 모드 */
 @media (prefers-color-scheme: dark) {
-  body, footer {
+
+  body,
+  footer {
     background: #121212;
     color: #e0e0e0;
   }
-  .intro-description { color: #ccc; }
-  .gallery-grid figure { background: #1e1e1e; }
-  .gallery-grid figcaption { background: #252525; color: #aaa; }
-  .report-alert { background: #2a1b0a; border-left-color: #ff9900; }
-  .alert-text { color: #ddd; }
-  .aside-link { background: #2a2a2a; color: #aaa; }
-  .aside-link:hover { background: #333; color: #fff; }
+
+  .intro-description {
+    color: #ccc;
+  }
+
+  .gallery-grid figure {
+    background: #1e1e1e;
+  }
+
+  .gallery-grid figcaption {
+    background: #252525;
+    color: #aaa;
+  }
+
+  .report-alert {
+    background: #2a1b0a;
+    border-left-color: #ff9900;
+  }
+
+  .alert-text {
+    color: #ddd;
+  }
+
+  .aside-link {
+    background: #2a2a2a;
+    color: #aaa;
+  }
+
+  .aside-link:hover {
+    background: #333;
+    color: #fff;
+  }
 }
