@@ -1,0 +1,284 @@
+
+/* ========================================
+   Notion 미리보기 및 갤러리 스타일
+   ======================================== */
+
+/* 로딩 스피너 */
+.notion-loading,
+.gallery-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--border-color);
+  border-top-color: var(--accent-blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 에러 메시지 */
+.notion-error,
+.gallery-error {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+}
+
+.error-details {
+  font-size: 0.9rem;
+  margin-top: 10px;
+  opacity: 0.7;
+}
+
+/* 갤러리 그리드 */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.notion-gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.notion-gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px var(--card-shadow);
+}
+
+.notion-gallery-item a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.notion-gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.notion-gallery-item figcaption {
+  padding: 15px;
+  background: var(--card-bg);
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* 미리보기 팝업 */
+.notion-preview-popup {
+  position: fixed;
+  transform: translateX(-50%) translateY(-100%);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  max-width: 500px;
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 10000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(calc(-100% - 10px));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-100%);
+  }
+}
+
+/* 리스트 스타일 (News, 공지사항, 자료실) */
+.notion-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notion-list-item {
+  border-bottom: 1px solid var(--border-color);
+  padding: 12px 0;
+}
+
+.notion-list-item:last-child {
+  border-bottom: none;
+}
+
+.notion-list-item a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: color 0.2s ease;
+}
+
+.notion-list-item a:hover {
+  color: var(--accent-blue);
+}
+
+.list-title {
+  flex: 1;
+  font-size: 0.95rem;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 15px;
+}
+
+.list-date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* 일정 스타일 */
+.notion-schedule {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notion-schedule-item {
+  padding: 15px;
+  margin-bottom: 10px;
+  background: var(--aside-bg);
+  border-radius: 8px;
+  border-left: 4px solid var(--accent-blue);
+}
+
+.notion-schedule-item:last-child {
+  margin-bottom: 0;
+}
+
+.notion-schedule-item a {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.schedule-date {
+  font-size: 0.85rem;
+  color: var(--accent-blue);
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.schedule-title {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* 미니 갤러리 (앨범 미리보기) */
+.notion-mini-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.mini-gallery-item {
+  display: block;
+  text-decoration: none;
+  color: var(--text-color);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--aside-bg);
+  transition: transform 0.2s ease;
+}
+
+.mini-gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.mini-gallery-item img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+}
+
+.mini-gallery-item span {
+  display: block;
+  padding: 8px;
+  font-size: 0.85rem;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 빈 메시지 */
+.empty-message {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 20px;
+  font-size: 0.95rem;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .notion-preview-popup {
+    max-width: 90vw;
+    left: 50% !important;
+  }
+
+  .notion-mini-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .list-title {
+    font-size: 0.9rem;
+  }
+
+  .list-date {
+    font-size: 0.8rem;
+  }
+}
+
+/* 다크 모드 추가 조정 */
+@media (prefers-color-scheme: dark) {
+  .notion-preview-popup {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .notion-schedule-item {
+    background: #2a2a2a;
+  }
+
+  .mini-gallery-item {
+    background: #2a2a2a;
+  }
+}

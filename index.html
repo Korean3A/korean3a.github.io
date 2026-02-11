@@ -7,6 +7,7 @@
   <meta name="description" content="석면으로 부터 국민건강을 지키기 위해 석면추방국민연대 라는 이름으로 모였습니다.">
   <title>석면추방국민연대</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="notion-styles.css">
   <link rel="shortcut icon" href="images/favicon.ico">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-66JZRCVRGE"></script>
@@ -84,30 +85,23 @@
 
     </div>
 
-    <!-- 갤러리 섹션 (하단 배치) -->
+    <!-- 갤러리 섹션 (Notion 앨범 DB에서 동적 로드) -->
     <div class="gallery-grid">
-      <figure>
-        <img src="images/errect.jpg" alt="석면추방국민연대 창립대회">
-        <figcaption>석면추방국민연대 창립대회</figcaption>
-      </figure>
-      <figure>
-        <img src="images/illegal.png" alt="지역별 폐석면 방치현장">
-        <figcaption>지역별 폐석면 방치현장</figcaption>
-      </figure>
+      <!-- Notion API에서 로드됨 -->
     </div>
 
-    <!-- 하단 기타 링크 -->
+    <!-- 하단 기타 링크 (호버 시 Notion 미리보기 표시) -->
     <div class="links-footer">
       <a href="news.html" class="aside-link">News&Issue</a>
       <a href="notice.html" class="aside-link">공지사항</a>
       <a href="schedule.html" class="aside-link">공식일정</a>
       <a href="resources.html" class="aside-link">자료실</a>
-      <a href="history.html" class="aside-link">걸어온 길</a>
     </div>
   </main>
 
   <footer id="myFooter" class="k3a-footer"></footer>
   <script src="script.js"></script>
+  <script src="notion-preview.js"></script>
   <script>
     // 문서 로드 후 함수를 호출하여 공통 요소를 불러옵니다.
     document.addEventListener('DOMContentLoaded', () => {
