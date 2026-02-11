@@ -1135,3 +1135,68 @@ div#disqus_thread iframe[sandbox] {
   }
 }
 
+
+/* ---------------------------------------------------- */
+/* Action Buttons Styling (Custom Colors) */
+/* ---------------------------------------------------- */
+
+/* Common Button Styles */
+.btn-action-common {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  color: white !important;
+  text-decoration: none;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.btn-action-common:hover {
+  transform: scale(1.02);
+}
+
+.btn-action-common span {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Light Blue Button 1 (Top) - Lighter */
+.btn-action-light-1 {
+  background: linear-gradient(135deg, #4aa3ff, #007bff);
+  box-shadow: 0 4px 15px rgba(74, 163, 255, 0.3);
+}
+
+.btn-action-light-1:hover {
+  background: linear-gradient(135deg, #66b3ff, #3399ff);
+  box-shadow: 0 8px 25px rgba(74, 163, 255, 0.4);
+}
+
+/* Light Blue Button 2 (Middle) - Slightly Darker */
+.btn-action-light-2 {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.btn-action-light-2:hover {
+  background: linear-gradient(135deg, #3399ff, #0069d9);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+}
+
+/* Primary Dark Button 3 (Bottom) - Darkest & Integrated Feel */
+.btn-action-primary {
+  background: linear-gradient(135deg, #003366, #002244);
+  box-shadow: 0 4px 15px rgba(0, 51, 102, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-action-primary:hover {
+  background: linear-gradient(135deg, #004080, #003366);
+  box-shadow: 0 8px 25px rgba(0, 51, 102, 0.5);
+}
+
