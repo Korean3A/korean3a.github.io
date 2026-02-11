@@ -210,24 +210,178 @@ footer {
 
 .iframe_cover {display:none;}
 
-/* 본문 프레임 */
-#frame_wraper {
-  position: relative;
-  width: 100%;
-  height: calc(2280px - 120px); /* nav(60) + footer(60) 보정 */
-  margin-top: 280px; /* nav(60) + header(300) */
+/* 본문 내용 스타일 */
+.content-container {
+  max-width: 900px;
+  margin: 300px auto 100px; /* nav(60) + header(240) + margin */
+  padding: 0 20px;
+  animation: fadeIn 1s ease-out;
 }
 
-#myframe {
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.intro-section {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.intro-banner {
+  margin-bottom: 30px;
+}
+
+.intro-banner img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  /* box-shadow: 0 10px 30px rgba(0,0,0,0.1); */
+}
+
+.intro-description {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: #333;
+  word-break: keep-all;
+}
+
+.intro-description strong {
+  color: #0066cc;
+  font-weight: 800;
+}
+
+/* 갤러리 그리드 */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.gallery-grid figure {
+  margin: 0;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid figure:hover {
+  transform: translateY(-5px);
+}
+
+.gallery-grid img {
   width: 100%;
-  height: 3000px;
-  border: none;
-  transition: height 0.6s ease; /* 부드럽게 늘어나도록 */  
-  display: block;
+  height: 250px;
+  object-fit: cover;
+}
+
+.gallery-grid figcaption {
+  padding: 15px;
+  text-align: center;
+  font-weight: 600;
+  color: #555;
+  background: #f8f9fa;
+}
+
+/* 제보 안내 박스 */
+.report-alert {
+  background: #fff4e5;
+  border-left: 5px solid #ff6600;
+  padding: 30px;
+  border-radius: 8px;
+  margin-bottom: 60px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.alert-icon {
+  font-size: 2rem;
+}
+
+.alert-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* 액션 버튼 */
+.action-buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+.btn-notion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  background: linear-gradient(135deg, #003366, #0066cc);
+  color: white;
+  text-decoration: none;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.2);
+}
+
+.btn-notion:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 102, 204, 0.3);
+  background: linear-gradient(135deg, #004080, #0073e6);
+}
+
+.btn-notion span {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.btn-notion small {
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+/* 하단 링크 */
+.links-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  border-top: 1px solid #eee;
+  padding-top: 40px;
+}
+
+.aside-link {
+  padding: 10px 20px;
+  background: #f0f2f5;
+  color: #666;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.aside-link:hover {
+  background: #e4e6e9;
+  color: #333;
 }
 
 /* 반응형 */
 @media (max-width: 800px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .content-container {
+    margin-top: 250px;
+  }
+
   nav ul {display:none; position:absolute; top:60px; left:0; width:100%; background:white; flex-direction:column;}
   nav ul li {width:100%; border-bottom:1px solid #ddd;}
   nav ul > li > a {color:#222; font-weight:bold; font-size:16px; padding:14px; background:#f9f9f9;}
@@ -238,25 +392,17 @@ footer {
   nav.active ul {display:flex;}
 }
 
-@media (max-width: 500px) {
-
-  .iframe_cover {
-  position:fixed;
-  top:350px;
-  width:100%;
-  height:30%;
-  display:inline-block;
-  z-index:1001;
-  background-color: transparent;
-  }
-}
-
-
-/* 다크 모드일 때 적용될 스타일 */
+/* 다크 모드 */
 @media (prefers-color-scheme: dark) {
   body, footer {
-    background: #191919; /* 어두운 배경색 */
-    color: #f2f2f2; /* 밝은 글씨색 */
-    border-top: 1px solid #555; /* 어두운 경계선 */
+    background: #121212;
+    color: #e0e0e0;
   }
+  .intro-description { color: #ccc; }
+  .gallery-grid figure { background: #1e1e1e; }
+  .gallery-grid figcaption { background: #252525; color: #aaa; }
+  .report-alert { background: #2a1b0a; border-left-color: #ff9900; }
+  .alert-text { color: #ddd; }
+  .aside-link { background: #2a2a2a; color: #aaa; }
+  .aside-link:hover { background: #333; color: #fff; }
 }
