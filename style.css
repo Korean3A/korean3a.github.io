@@ -1369,6 +1369,16 @@ div#disqus_thread iframe[sandbox] {
   }
 
   .content-container {
-    margin: 30px auto;
+    margin: 80px auto 50px;
+    /* margin-top을 30px에서 80px로 늘려 헤더와의 겹침 방지 */
+  }
+
+  footer {
+    height: auto !important;
+    /* 고정 높이 제거 */
+    min-height: auto !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 40px !important;
+    /* 하단 여백을 패딩으로 처리 */
   }
 }
