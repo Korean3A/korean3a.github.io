@@ -8,7 +8,7 @@ const CONTENT_API_ENDPOINT = '/api/get-notion-content';
 
 // 캐시 및 상태 관리
 const cache = {};
-let lastType = 'news';
+let lastType = null;
 let lastTargetId = 'notion-content-area';
 
 /**
