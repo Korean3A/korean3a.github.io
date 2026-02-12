@@ -220,6 +220,21 @@ function renderBlocks(blocks) {
         const icon = value.icon?.emoji || 'ℹ️';
         return `<div class="notion-aside"><p>${icon} ${getRichText(value.rich_text)}</p></div>`;
       }
+      case 'bookmark':
+      case 'link_preview': {
+        const url = value.url;
+        const caption = getRichText(value.caption);
+        return `
+          <div class="notion-bookmark">
+            <a href="${url}" target="_blank" rel="noopener noreferrer" class="bookmark-link">
+              <div class="bookmark-info">
+                <div class="bookmark-url">🔗 ${escapeHtml(url)}</div>
+                ${caption ? `<div class="bookmark-caption">${caption}</div>` : ''}
+              </div>
+            </a>
+          </div>
+        `;
+      }
       case 'table':
         return `<p class="empty-message-small">⚠️ 표(Table) 블록은 현재 목록 보기에서 지원하지 않습니다.</p>`;
       default:

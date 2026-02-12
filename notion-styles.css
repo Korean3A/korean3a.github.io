@@ -425,6 +425,53 @@
   border-radius: 6px;
 }
 
+
+/* 북마크 및 링크 프리뷰 스타일 */
+.notion-bookmark {
+  margin: 1.5rem 0;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--card-bg);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.notion-bookmark:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--card-shadow);
+  border-color: var(--accent-blue);
+}
+
+.bookmark-link {
+  display: flex;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+.bookmark-info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.bookmark-url {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-blue);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bookmark-caption {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  font-style: italic;
+}
+
 /* 스케줄 타임라인 전용 스타일 */
 .schedule-header {
   margin-bottom: 40px;
@@ -555,6 +602,7 @@
   .schedule-card {
     padding: 20px;
   }
+
   .card-title {
     font-size: 1.25rem;
   }
