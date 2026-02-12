@@ -297,12 +297,15 @@ async function loadNotionPosts(type, targetId = 'notion-content-area') {
   const contentArea = document.getElementById(targetId);
   if (!contentArea) return;
 
-  contentArea.innerHTML = `
-        <div class="notion-loading">
-            <div class="spinner"></div>
-            <p>목록을 불러오는 중...</p>
-        </div>
-    `;
+  // 캐시에 데이터가 없는 경우에만 로딩 표시
+  if (!cache[type]) {
+    contentArea.innerHTML = `
+            <div class="notion-loading">
+                <div class="spinner"></div>
+                <p>목록을 불러오는 중...</p>
+            </div>
+        `;
+  }
 
   try {
     const posts = await fetchNotionPosts(type);
@@ -311,12 +314,14 @@ async function loadNotionPosts(type, targetId = 'notion-content-area') {
     else if (type === 'schedule') html = renderers.schedule(posts);
     else html = renderers.list(posts);
 
-    contentArea.innerHTML = html;
-    contentArea.style.opacity = '0';
+    // 부드러운 교체를 위해 페이드 아웃/인 효과
+    contentArea.style.opacity = '0.5';
+
     setTimeout(() => {
+      contentArea.innerHTML = html;
       contentArea.style.opacity = '1';
-      contentArea.style.transition = 'opacity 0.3s ease';
-    }, 10);
+      contentArea.style.transition = 'opacity 0.2s ease';
+    }, 50);
 
   } catch (error) {
     contentArea.innerHTML = `
@@ -329,9 +334,28 @@ async function loadNotionPosts(type, targetId = 'notion-content-area') {
 }
 
 async function switchTab(type, button) {
+  if (lastType === type && document.getElementById(lastTargetId).innerHTML !== '') return;
+
   document.querySelectorAll('.notion-tab-btn').forEach(btn => btn.classList.remove('active'));
   button.classList.add('active');
   await loadNotionPosts(type);
+}
+
+/**
+ * 백그라운드 데이터 사전 로드
+ */
+async function preloadAllNotionData() {
+  const types = ['news', 'notice', 'schedule', 'resources', 'album'];
+  for (const type of types) {
+    try {
+      if (!cache[type]) {
+        await fetchNotionPosts(type);
+        console.log(`Preloaded: ${type}`);
+      }
+    } catch (e) {
+      console.warn(`Failed to preload ${type}:`, e);
+    }
+  }
 }
 
 function formatDate(dateString) {
@@ -357,22 +381,37 @@ function initNotionTabs() {
   // 1. 탭 버튼이 있는 경우 (index.html 등)
   if (buttons.length > 0) {
     buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        const type = button.getAttribute('data-type');
-        switchTab(type, button);
+      const type = button.getAttribute('data-type');
+
+      // 클릭 이벤트
+      button.addEventListener('click', () => switchTab(type, button));
+
+      // 마우스 호버(mouseenter) 이벤트 추가
+      let hoverTimer;
+      button.addEventListener('mouseenter', () => {
+        // 즉시 전환하지 않고 살짝 지연을 두어 자연스럽게 (실수 방지)
+        hoverTimer = setTimeout(() => {
+          switchTab(type, button);
+        }, 150);
+      });
+
+      button.addEventListener('mouseleave', () => {
+        clearTimeout(hoverTimer);
       });
     });
 
+    // 기본 탭 로드 및 백그라운드 프리로드 시작
     const defaultBtn = document.querySelector('.notion-tab-btn[data-type="news"]');
-    if (defaultBtn && defaultBtn.classList.contains('active')) {
-      switchTab('news', defaultBtn);
+    if (defaultBtn) {
+      switchTab('news', defaultBtn).then(() => {
+        // 첫 번째 탭 로드 후 나머지 데이터 백그라운드 로드
+        preloadAllNotionData();
+      });
     }
   }
 
   // 2. 만약 URL에 id가 있다면 즉시 본문 로드
   if (postIdFromUrl) {
-    // 상세 페이지에서 바로 로드된 경우, 로딩 애니메이션이 보일 영역이 필요함
-    // news.html 등에서는 이미 loadNotionPosts가 호출되므로 잠시 후 실행되도록 함
     setTimeout(() => {
       showPostDetail(postIdFromUrl);
     }, 500);
