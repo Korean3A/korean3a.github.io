@@ -202,13 +202,19 @@ function renderBlocks(blocks) {
         `;
       }
       case 'embed': {
-        const url = value.url;
-        // Google Drive 등 임베드 처리
+        let url = value.url;
+        // Google Drive 처리 개선
         if (url.includes('drive.google.com')) {
-          const embedUrl = url.replace('/view', '/preview');
-          return `<div class="aspect-ratio-wrap"><iframe src="${embedUrl}" width="100%" height="480" allow="autoplay"></iframe></div>`;
+          if (url.includes('/drive/folders/')) {
+            // 폴더 임베드: https://drive.google.com/embeddedfolderview?id=ID#list
+            const folderId = url.split('/folders/')[1].split('?')[0];
+            url = `https://drive.google.com/embeddedfolderview?id=${folderId}#list`;
+          } else if (url.includes('/file/d/')) {
+            // 파일 임베드: /view -> /preview
+            url = url.replace('/view', '/preview');
+          }
         }
-        return `<div class="aspect-ratio-wrap"><iframe src="${url}" frameborder="0"></iframe></div>`;
+        return `<div class="aspect-ratio-wrap"><iframe src="${url}" width="100%" height="480" allow="autoplay" frameborder="0"></iframe></div>`;
       }
       case 'divider':
         return `<hr class="section-divider">`;
