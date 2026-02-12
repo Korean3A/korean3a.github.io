@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>공식일정 | 석면추방국민연대</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="notion-styles.css">
   <link rel="shortcut icon" href="images/favicon.ico">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-66JZRCVRGE"></script>
@@ -13,41 +14,110 @@
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-66JZRCVRGE');
   </script>
 </head>
 
 <body>
   <nav></nav>
-  <div class="scroll-indicator" id="scrollPercentage">
-    스크롤: 0%
-  </div>
+
   <!-- 본문 -->
-  <main>
-    <div id="frame_wraper">
-      <iframe id="myframe"
-        src="https://dolomite-drop-27e.notion.site/ebd/26bb9706c859810abfc4eaaa2628492d?v=26bb9706c85981f18748000c48feb5a2"
-        scrolling="yes"></iframe>
+  <main class="page-container">
+    <div class="schedule-header">
+      <h1>공식일정</h1>
+      <div class="schedule-controls">
+        <span class="view-tag">📅 타임라인</span>
+      </div>
+    </div>
+
+    <div id="schedule-timeline" class="schedule-timeline">
+      <div class="spinner-wrap">
+        <div class="spinner"></div>
+        <p>일정을 가져오는 중...</p>
+      </div>
     </div>
   </main>
 
   <footer id="myFooter" class="k3a-footer"></footer>
+
   <script src="script.js"></script>
+  <script src="notion-preview.js"></script>
   <script>
-    // 문서 로드 후 함수를 호출하여 공통 요소를 불러옵니다.
     document.addEventListener('DOMContentLoaded', () => {
       includeHTML('nav.html', 'nav');
       includeHTML('footer.html', '#myFooter');
+      initTimeline();
     });
-    // (기존에 있던 ChannelIO 스크립트 등 다른 스크립트는 그대로 유지)
-  </script>
-  <script>
-    (function () { var w = window; if (w.ChannelIO) { return w.console.error("ChannelIO script included twice."); } var ch = function () { ch.c(arguments); }; ch.q = []; ch.c = function (args) { ch.q.push(args); }; w.ChannelIO = ch; function l() { if (w.ChannelIOInitialized) { return; } w.ChannelIOInitialized = true; var s = document.createElement("script"); s.type = "text/javascript"; s.async = true; s.src = "https://cdn.channel.io/plugin/ch-plugin-web.js"; var x = document.getElementsByTagName("script")[0]; if (x.parentNode) { x.parentNode.insertBefore(s, x); } } if (document.readyState === "complete") { l(); } else { w.addEventListener("DOMContentLoaded", l); w.addEventListener("load", l); } })();
 
-    ChannelIO('boot', {
-      "pluginKey": "bdaf307a-deca-45bb-bbb6-b6df31f7df1f"
-    });
+    async function initTimeline() {
+      const container = document.getElementById('schedule-timeline');
+      try {
+        const posts = await fetchNotionPosts('schedule');
+
+        if (posts.length === 0) {
+          container.innerHTML = '<p class="empty-message">등록된 일정이 없습니다.</p>';
+          return;
+        }
+
+        // 각 포스트의 본문을 함께 가져옴
+        const fullPosts = await Promise.all(posts.map(async (post) => {
+          try {
+            const res = await fetch(`/api/get-notion-content?pageId=${post.id}`);
+            const data = await res.json();
+            return { ...post, content: data };
+          } catch (e) {
+            return { ...post, content: null };
+          }
+        }));
+
+        renderTimeline(fullPosts, container);
+      } catch (error) {
+        console.error('Timeline init error:', error);
+        container.innerHTML = '<p class="error">일정을 불러오는데 실패했습니다.</p>';
+      }
+    }
+
+    function renderTimeline(posts, container) {
+      container.innerHTML = posts.map(post => {
+        const dateStr = post.scheduleDate ? formatDate(post.scheduleDate) : formatDate(post.createdTime);
+        const { page, blocks } = post.content || {};
+
+        // 작성자/아이콘 추출
+        const authorName = page?.properties['작성자']?.rich_text?.[0]?.plain_text || '석면추방국민연대';
+        const authorIcon = post.coverUrl || 'images/logo_eng_cutted.png';
+
+        return `
+          <div class="schedule-card" id="post-${post.id}">
+            <div class="card-header">
+              <div class="author-avatar">
+                <img src="${authorIcon}" alt="avatar" onerror="this.src='images/logo_eng_cutted.png'">
+              </div>
+              <div class="author-info">
+                <span class="author-name">${escapeHtml(authorName)}</span>
+                <span class="author-meta">${dateStr}</span>
+              </div>
+            </div>
+            <div class="card-title">
+              <span class="icon">🚩</span>
+              <span>${escapeHtml(post.title)}</span>
+            </div>
+            <div class="card-body">
+              ${blocks ? renderBlocks(blocks) : '<p>내용을 불러올 수 없습니다.</p>'}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // URL에 id가 있으면 해당 카드로 스크롤
+      const urlParams = new URLSearchParams(window.location.search);
+      const targetId = urlParams.get('id');
+      if (targetId) {
+        setTimeout(() => {
+          const el = document.getElementById(`post-${targetId}`);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 500);
+      }
+    }
   </script>
 </body>
 

@@ -424,3 +424,138 @@
   background: var(--aside-bg);
   border-radius: 6px;
 }
+
+/* 스케줄 타임라인 전용 스타일 */
+.schedule-header {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.schedule-header h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+
+.schedule-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.view-tag {
+  background: var(--aside-bg);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border-color);
+}
+
+.schedule-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 80px;
+}
+
+.schedule-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 30px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px var(--card-shadow);
+  animation: fadeIn 0.5s ease both;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.author-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.author-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--headline-color);
+}
+
+.author-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.card-body {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-color);
+}
+
+.card-body p {
+  margin-bottom: 12px;
+}
+
+.card-body a {
+  color: var(--accent-blue);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.card-body a:hover {
+  text-decoration: underline;
+}
+
+.spinner-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 0;
+}
+
+@media (max-width: 768px) {
+  .schedule-card {
+    padding: 20px;
+  }
+  .card-title {
+    font-size: 1.25rem;
+  }
+}
